@@ -1,11 +1,15 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './SignUp.css'
-import leftImage from '../BackGround Images/SignUp_Img.jpg'
 import logo from '../BackGround Images/Logo.png'
+import { LeftSide } from './common'
 // import login from './LogIn.jsx'
 
 function SignUp() {
     const [userDetail, setUserDetail] = useState({ username: "", email: "", password: "", fullName: "" })
+
+    useEffect(() => {
+        console.log(userDetail);
+    }, [userDetail])
 
     const handleUserDetailChange = (e) => {
         const { name, value } = e.target;
@@ -17,22 +21,14 @@ function SignUp() {
         if (userDetail.username.length < 4) {
             console.log("Username must be atleast 4 characters long")
         }
-        
+
     }
 
     return (
         <div>
             <div className='main'>
 
-                <div className='leftSide'>
-                    <div className='content'>
-                        <img src={leftImage} alt="CareImage" />
-                        <div>
-                            <h1>Enter the World of Home Care.</h1>
-                            <p> Where love and care reside, home becomes a sanctuary of healing and warmth.</p>
-                        </div>
-                    </div>
-                </div>
+                <LeftSide desc={"Where love and care reside, home becomes a sanctuary of healing and warmth."} title={"Enter the World of Home Care."} />
 
                 <div className='rightSide'>
                     <div>

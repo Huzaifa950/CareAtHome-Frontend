@@ -1,22 +1,14 @@
 import React from 'react'
 import './LogIn.css'
-import leftImage from '../BackGround Images/BackGround.jpg'
 import logo from '../BackGround Images/Logo.png'
+import { LeftSide } from './common'
 
 function LogIn() {
   return (
     <div>
       <div className='main'>
 
-        <div className='leftSide'>
-            <div className='content'>
-                <img src={leftImage} alt="CareImage" />
-                <div>
-                    <h1>Feel at Home! Take a step into <i>Care At Home</i></h1>
-                    <p> Enter your credentials to unlock access and explore the personalized care experience waiting for you.</p>
-                </div>
-            </div>
-        </div>
+        <LeftSide desc={"Enter your credentials to unlock access and explore the personalized care experience waiting for you."} title={"Feel at Home! Take a step into"} msg={"Care At Home"} />
 
         <div className='rightSide'>
             <div>
