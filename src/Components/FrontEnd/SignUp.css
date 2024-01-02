@@ -1,0 +1,471 @@
+*{
+    font-family:Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.main{
+    display: flex;
+}
+
+.leftSide img{
+    flex: 1;
+    width: 100%;
+    margin: 0 15% 0 0;
+    height: 100vh;
+}
+
+.leftSide {
+    position: relative; 
+    overflow: hidden; 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;  
+}
+
+.content div{
+    position: absolute;
+    top: 30%;
+    left: 40%;
+    transform: translate(-50%, -25%);
+    z-index: 2;
+    text-align: left;
+    color: #fff; /* Text color */
+}
+
+.content div h1{
+    color: rgb(173, 173, 173);
+    font-size: xxx-large;
+    word-wrap: break-word;
+}
+
+.content div p{
+    margin: 15% 0 0 15%;
+    font-size: larger;
+    word-wrap: break-word;
+}
+  
+.leftSide::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7); /* Adjust the alpha value for the overlay color and opacity */
+    z-index: 1; /* Place the overlay above the background image */
+}
+
+.rightSide{
+    position: relative;
+    width: 100%;
+    /* margin:  30px 0; */
+    /* padding: 0 50px; */
+    background-color: rgba(29, 82, 77, 0.582);
+    height: 100vh;
+}
+
+.rightUp .logo{
+    text-align: center;
+}
+
+.rightDown{
+    background-color:rgba(57, 117, 117, 0.795);
+    border-radius: 15px;
+    width:80%;
+    height: 68vh;
+    margin: 0 0 0 10%;
+}
+
+.rightUp .logo img{
+    text-align: center;
+    width: 15%;
+    padding: 5% 0 3% 0; 
+}
+
+.topSignUp{
+    display: flex;
+    justify-content:center;
+    padding: 3% 0 2% 0;
+    font-size: larger;
+    font-weight: bold;
+    text-align: left;
+    color: #03161f;
+    font-size: xx-large;
+}
+
+.formInner{
+    display: flex;
+    justify-content: space-around;
+    font-size: 20px;
+    font-weight: 600;
+    color: #03161f;
+}
+
+.name_user > div, .email_pass > div{
+    padding: 10% 0;
+}
+
+#email, #password, #username, #fullname{
+    height: 40px;
+    border-radius: 10px;
+    margin: 0 20px;
+    width: 225px ;
+    border: none;
+    display: flex;
+    padding: 0 0 0 20px;
+}
+
+.formBottom{
+    display: flex;
+    justify-content:center;
+    color: #fff;
+}
+.formBottom a{
+    color: #fff;
+    margin: 0 0 0 20px;
+}
+.formBottom a:hover{
+    color:#03161f;
+    transition: color 0.5s ease-in-out;
+}
+
+.SignUpbutton{
+    text-align: center;
+}
+
+.SignUpbutton button{
+    translate: (-50%, -50%);
+    padding: 15px 50px;
+    border-radius: 8px;
+    border: none;
+    background-color: rgb(11, 48, 40);
+    margin: 40px 0;
+    color: #fff;
+    font-weight: bold;
+}
+
+.SignUpbutton button:hover{
+    background-color:rgb(5, 27, 29);
+    transition: background-color 0.5s ease-in-out;
+}
+
+@media screen and (max-width: 1170px)
+{
+    .formInner{
+        font-size: 19px;
+    }
+    #email, #password, #username, #fullname{
+        width: 220px ;
+    }
+    .name_user > div, .email_pass > div{
+        margin-left: 10px;
+    }
+    .SignUpbutton button{
+        margin: 50px 0;
+    }
+}
+
+@media screen and (max-width: 1120px)
+{
+    #email, #password, #username, #fullname{
+        width: 210px ;
+    }
+    .name_user > div, .email_pass > div{
+        margin-left: 12px;
+    }
+    .SignUpbutton button{
+        margin: 60px 0;
+    }
+}
+
+@media screen and (max-width: 1070px)
+{
+    #email, #password, #username, #fullname{
+        width: 190px ;
+    }
+    .name_user > div, .email_pass > div{
+        margin-left: 14px;
+    }
+    .SignUpbutton button{
+        margin: 65px 0;
+    }
+}
+
+@media screen and (max-width: 1030px)
+{
+    #email, #password, #username, #fullname{
+        width: 180px ;
+    }
+    .name_user > div, .email_pass > div{
+        margin-left: 14px;
+    }
+}
+
+@media screen and (max-width: 980px)
+{
+    #email, #password, #username, #fullname{
+        width: 165px;
+    }
+    .name_user > div, .email_pass > div{
+        margin-left: 18px;
+    }
+}
+
+@media screen and (max-width: 920px)
+{
+    #email, #password, #username, #fullname{
+        width: 155px ;
+    }
+    .name_user > div, .email_pass > div{
+        margin-left: 19px;
+    }
+}
+
+@media screen and (max-width: 880px)
+{
+    .formInner{
+        font-size: 17px;
+    }
+    #email, #password, #username, #fullname{
+        width: 150px ;
+    }
+    .name_user > div, .email_pass > div{
+        margin-left: 20px;
+    }
+}
+
+@media screen and (max-width: 860px)
+{
+    .formMain{
+        align-items: center;
+    }
+    .rightDown{
+        height: 80vh;
+    }
+    .formInner{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .name_user > div, .email_pass > div{
+        padding: 2% 0;
+    }
+    #email, #password, #username, #fullname{
+        margin: 0;
+        padding: 0;
+        width: 250px;
+        text-align: center;
+    }
+    .password, .email, .username, .fullname {
+        text-align: center;
+    }
+    .password label, .email label, .username label, .fullname label {
+        display: block;
+        padding: 0; 
+    }
+    .name_user > div, .email_pass > div{
+        margin-bottom: 15px;
+    }
+    .SignUpbutton button{
+        margin: 45px 0;
+    }
+}
+
+@media screen and (max-width: 800px){
+    .formInner{
+        display: flex;
+        justify-content: space-around;
+        font-size: 17px;
+        font-weight: 600;
+        color: #03161f;
+    }
+    .name_user > div, .email_pass > div{
+        margin-bottom: 25px;
+    }
+    #email, #password, #username, #fullname{
+        width: 225px;
+    }
+    .rightDown{
+        height: 85vh;
+    }
+}
+
+@media screen and (max-width: 680px){
+    .formInner{
+        display: flex;
+        justify-content: space-around;
+        font-size: 17px;
+        font-weight: 600;
+        color: #03161f;
+    }   
+}
+
+@media screen and (max-width: 650px){
+    .leftSide{
+        display: none;
+    }
+    .rightDown{
+        height: 75vh;
+    }
+    .formInner{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        font-size: 20px;
+        font-weight: 600;
+        color: #03161f;
+    }
+    .name_user > div, .email_pass > div{
+        padding: 10% 0;
+    }
+    #email, #password, #username, #fullname{
+        height: 40px;
+        border-radius: 10px;
+        margin: 0 20px;
+        width: 180px ;
+        border: none;
+        display: flex;
+        padding: 0 0 0 20px;
+        text-align: left;
+    }
+    .password, .email, .username, .fullname {
+        text-align: left;
+    }
+    .name_user > div, .email_pass > div{
+        margin-left: 18px;
+    }
+}
+
+@media screen and (max-width: 630px){
+    .formMain{
+        align-items: center;
+    }
+    .rightDown{
+        height: 80vh;
+    }
+    .formInner{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 17px;
+    }
+    .name_user > div, .email_pass > div{
+        padding: 1% 0;
+    }
+    #email, #password, #username, #fullname{
+        margin: 0;
+        padding: 0;
+        width: 250px;
+        text-align: center;
+    }
+    .password, .email, .username, .fullname {
+        text-align: center;
+    }
+    .password label, .email label, .username label, .fullname label {
+        display: block;
+        padding: 0; 
+    }
+    .name_user > div, .email_pass > div{
+        margin-bottom: 15px;
+    }
+    .formBottom{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin: 10px 0 0 0;
+    }
+    .SignUpbutton button{
+        margin: 45px 0;
+    }
+}
+
+@media screen and (max-width: 440px)
+{
+    .formInner{
+        display: flex;
+        justify-content: space-around;
+        font-size: 17px;
+    }
+    .name_user > div, .email_pass > div{
+        margin-bottom: 25px;
+    }
+    #email, #password, #username, #fullname{
+        width: 225px;
+    }
+    .rightDown{
+        height: 85vh;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .formInner{
+        font-size: 17px;
+    }
+    .name_user > div, .email_pass > div{
+        margin-bottom: 20px;
+    }
+    #email, #password, #username, #fullname{
+        width: 220px;
+    }
+}
+
+@media screen and (max-width: 380px){
+    .topSignUp{
+        padding: 7% 0 5% 0;
+    }
+    .formInner{
+        font-size: 16px;
+    }
+    .name_user > div, .email_pass > div{
+        margin-bottom: 20px;
+    }
+    #email, #password, #username, #fullname{
+        width: 210px;
+    }
+}
+
+@media screen and (max-width: 360px){
+    #email, #password, #username, #fullname{
+        width: 200px;
+        height: 35px;
+    }
+}
+
+@media screen and (max-width: 330px){
+    #email, #password, #username, #fullname{
+        width: 185px;
+        height: 33px;
+    }
+}
+
+@media screen and (max-width: 320px){
+    #email, #password, #username, #fullname{
+        width: 180px;
+    }
+}
+
+@media screen and (max-width: 310px){
+    #email, #password, #username, #fullname{
+        width: 175px;
+    }
+}
+
+@media screen and (max-width: 300px){
+    #email, #password, #username, #fullname{
+        width: 170px;
+    }
+}
+
+@media screen and (max-width: 290px){
+    #email, #password, #username, #fullname{
+        width: 165px;
+    }
+}
+
+@media screen and (max-width: 280px){
+    #email, #password, #username, #fullname{
+        width: 155px;
+    }
+}
