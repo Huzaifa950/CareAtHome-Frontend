@@ -157,6 +157,7 @@
 .button button{
     font-weight: bolder;
     color: #fff;
+    cursor: pointer;
     transform: translate(-25%, 0%);
 }
 

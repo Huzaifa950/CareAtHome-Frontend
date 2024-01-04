@@ -1,14 +1,15 @@
-import './App.css';
-import LogIn from './Components/FrontEnd/LogIn';
-// import SignUp from './Components/FrontEnd/SignUp'
+import "./App.css";
+import "react-toastify/dist/ReactToastify.css";
+import AllRoutes from "./Routes/AllRoutes";
+import { ToastContainer } from "react-toastify";
 
-const App = () => {
-
+function App() {
   return (
-    <LogIn/>
-    // <SignUp/>
+    <div>
+      <ToastContainer touchStart={false} onWheel={false} />
+      <AllRoutes />
+    </div>
   );
-
 }
 
 export default App;
