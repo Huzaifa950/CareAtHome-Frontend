@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './SignUp.css'
-import logo from '../BackGround Images/Logo.png'
+import logo from '../../../Assets/Images/Logo.png'
 import { LeftSide } from './common'
 // import login from './LogIn.jsx'
 

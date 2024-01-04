@@ -1,4 +1,4 @@
-import leftImage from '../BackGround Images/BackGround.jpg'
+import leftImage from '../../../Assets/Images/BackGround.jpg'
 
 const LeftSide = (props) => {
     return (

@@ -1,6 +1,6 @@
 import React from 'react'
 import './LogIn.css'
-import logo from '../BackGround Images/Logo.png'
+import logo from '../../../Assets/Images/BackGround.jpg'
 import { LeftSide } from './common'
 
 function LogIn() {
