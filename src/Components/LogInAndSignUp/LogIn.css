@@ -1,3 +1,4 @@
+/*
 *{
     font-family:Arial, Helvetica, sans-serif;
     margin: 0;
@@ -31,7 +32,7 @@
     transform: translate(-50%, -25%);
     z-index: 2;
     text-align: left;
-    color: #fff; /* Text color */
+    color: #fff; 
 }
 
 .content div h1{
@@ -53,14 +54,13 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba(0, 0, 0, 0.5); /* Adjust the alpha value for the overlay color and opacity */
-    z-index: 1; /* Place the overlay above the background image */
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: 1; 
 }
 
 .rightSide{
     position: relative;
     width: 40%;
-    /* margin:  30px 0; */
     padding: 0 50px;
     background-color: rgba(29, 82, 77, 0.582);
     height: 100vh;
@@ -134,7 +134,7 @@
 }
 
 .forgot_sign .forgot a, .forgot_sign .signup a{
-    color: white;
+    color: black;
 }
 .forgot_sign .forgot a:hover, .forgot_sign .signup a:hover{
     color: #03161f;
@@ -157,6 +157,7 @@
 .button button{
     font-weight: bolder;
     color: #fff;
+    cursor: pointer;
     transform: translate(-25%, 0%);
 }
 
@@ -396,7 +397,6 @@
     .forgot_sign{
         display: flex;
         flex-direction: column;
-        /* justify-content: space-around; */
         transform: translate(0%, 30%);
     }
 
@@ -530,4 +530,143 @@
     #email, #password{
         width: 210px ;
     }
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    overflow: hidden;
+}
+.background {
+    background-image: url('F:\FYP_Work\CareAtHome-Frontend\my-app\src\Assets\Images\img1 (13).jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw; 
+    height: 100vh; 
+}
+.background::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); 
+    z-index: 1; 
+}
+.interface-inner{
+    padding: 5%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.text {
+    padding: 5% 0%;
+    width: 60%;
+}
+.text h2{
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 5%;
+    font-size:xx-large;
+    font-weight: 800;
+    word-wrap: break-word;
+}
+.textBody{
+    /* background-color: rgba(204, 198, 198, 0.774);
+    border-radius: 20px; */
+    margin: 20px 50px;
+}
+
+.text p{
+    color: rgb(0, 0, 0);
+    text-align: center;
+    font-size: larger;
+    padding: 5%;
+    word-wrap: break-word;
+}
+
+.form{
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    /* background-color: rgba(204, 198, 198, 0.774); */
+    height: 60vh;
+    padding: 2% 8% 10% 8%;
+    border-radius: 25px;
+    max-width: 50%;
+}
+.formTop{
+    text-align: center;
+}
+.formTop .logo img{
+    width: 45%;
+    padding: 0 0 15px 0;
+}
+.formTop .login{
+    font-size: larger;
+}
+.formBottom{
+    display: flex;
+    flex-direction: column;
+    padding: 30px 0 0 0;
+}
+.formBottom div{
+    padding: 0 0 20px 0;
+}
+.formBottom-Up{
+    text-align: left;
+}
+/* .formBottom-Up > div > label{
+    font-size: large;
+    color: black;
+} */
+.formBottom-Up #email, .formBottom-Up #password{
+    width: 280px;
+    /* align-items: center; */
+}
+
+.formBottom-Down{
+    text-align: center;    
+}
+.forgot_sign_container > div > a{
+    color:black;
+}
+.forgot_sign_container > div > a:hover{
+    color: antiquewhite;
+}
+
+.button button{
+    padding: 10px 70px;
+    border: none;
+    border-radius: 20px;
+    background-color: rgba(97, 22, 16, 0.904);
+    color: rgb(255, 255, 255);
+    font-size: small;
+    font-weight: 700;
+}
+.button :hover{
+    background-color: rgb(36, 5, 5);
+    transition: 0.3ms background-color ease-in-out;
 }

@@ -1,27 +1,65 @@
 import React, { useEffect, useState } from 'react'
 import './SignUp.css'
-import logo from '../../../Assets/Images/Logo.png'
+import logo from "../../Assets/Images/Logo.png"
 import { LeftSide } from './common'
-// import login from './LogIn.jsx'
+import { showErrorToast, showSuccessToast } from '../Toast/ToastifyToast'
+import { alphaNumericWithUnderscoreRegex, alphabetRegex, alphabetWithSpaceRegex, capitalizeFirstLetter, emailRegex, validateRegex } from '../Common/Common'
+import { useNavigate } from 'react-router-dom'
+import { ApiPostCall } from '../ApiCall/ApiCalls'
 
 function SignUp() {
+    const nav = useNavigate();
     const [userDetail, setUserDetail] = useState({ username: "", email: "", password: "", fullName: "" })
-
-    useEffect(() => {
-        console.log(userDetail);
-    }, [userDetail])
 
     const handleUserDetailChange = (e) => {
         const { name, value } = e.target;
         setUserDetail(prevDetail => ({ ...prevDetail, [name]: value }))
     }
 
-    const handleSignUp = () => {
+    const handleSignUp = async () => {
         console.log(userDetail)
-        if (userDetail.username.length < 4) {
-            console.log("Username must be atleast 4 characters long")
+        if (userDetail.username.length < 4)
+            showErrorToast("Username must be atleast 4 characters long")
+        else if (userDetail.password.length < 8)
+            showErrorToast("Password must be atleast 8 characters long")
+        else if (userDetail.username.length > 50)
+            showErrorToast("Username must be less than 50 characters")
+        else if (userDetail.fullName.length > 50)
+            showErrorToast("Full Name must be less than 50 characters")
+        else if (userDetail.email.length > 100)
+            showErrorToast("Email must be less than 100 characters")
+        else if (userDetail.password.length > 100)
+            showErrorToast("Password must be less than 100 characters")
+        else if (!validateRegex(userDetail.fullName, alphabetWithSpaceRegex))
+            showErrorToast("Invalid Full Name")
+        else if (!validateRegex(userDetail.username, alphaNumericWithUnderscoreRegex))
+            showErrorToast("Invalid Username")
+        else if (!validateRegex(userDetail.email, emailRegex))
+            showErrorToast("Invalid Email")
+        else {
+            try {
+                const data = {
+                    username: userDetail.username.toLowerCase(),
+                    email: userDetail.email.toLowerCase(),
+                    password: userDetail.password,
+                    fullName: capitalizeFirstLetter(userDetail.fullName)
+                }
+                const result = await ApiPostCall("/addnewuser", data)
+                if (result.status === 202) {
+                    if (result.data === "username")
+                        showErrorToast("Username already exists")
+                    else
+                        showErrorToast("Email already exists")
+                }
+                else {
+                    showSuccessToast("Successfully Signed Up")
+                    nav("/login")
+                }
+            } catch (error) {
+                console.log("The error is: ", error)
+                showErrorToast("Something went wrong")
+            }
         }
-
     }
 
     return (
@@ -79,7 +117,7 @@ function SignUp() {
                                                         <p>Account already exists ?</p>
                                                     </div>
                                                     <div>
-                                                        <a href="">SignIn</a>
+                                                        <a href="/login">SignIn</a>
                                                     </div>
                                                 </div>
                                                 <div className='SignUpbutton'>
