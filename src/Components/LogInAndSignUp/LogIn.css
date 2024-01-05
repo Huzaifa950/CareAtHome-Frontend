@@ -546,24 +546,45 @@
 
 
 
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300&display=swap');
 
+@font-face {
+    /* font-family: myFont;
+    src: url(../../Assets/Fonts/AlexBrush/AlexBrush-Regular.ttf); */
 
+    /* font-family: myFont2;
+    src: url(../../Assets/Fonts/LightersDemo/Lighters\ DEMO.otf); */
+    
+    /* font-family: myFont3;
+    src: url(../../Assets/Fonts/arsegzone/NCLArsegzone-Demo.otf); */
+    
+    font-family: myFont4;
+    src: url(../../Assets/Fonts/AvegasRoyale/AvegasRoyale-Bold.ttf);
+    
+    /* font-family: myFont5;
+    src: url(../../Assets/Fonts/balmecia/BalmeciaPersonalUse-Regular.otf); */
+    
+    /* font-family: myFont6;
+    src: url(../../Assets/Fonts/celsiusFlower/Celsius\ Flower.otf); */
+/*     
+    font-family: myFont7;
+    src: url(../../Assets/Fonts/leboumar/LeboumarPersonalUse-Regular.otf); */
+}
 
 *{
     margin: 0;
     padding: 0;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     overflow: hidden;
 }
 .background {
-    background-image: url('F:\FYP_Work\CareAtHome-Frontend\my-app\src\Assets\Images\img1 (13).jpg');
+    background-image: url('../../Assets/Images/img1\ \(13\).jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     width: 100vw; 
     height: 100vh; 
 }
-.background::before {
+/* .background::before {
     content: "";
     position: absolute;
     top: 0;
@@ -572,7 +593,7 @@
     height: 100%;
     background: rgba(0, 0, 0, 0.4); 
     z-index: 1; 
-}
+} */
 .interface-inner{
     padding: 5%;
     display: flex;
@@ -580,29 +601,30 @@
 }
 
 .text {
-    padding: 5% 0%;
+    padding: 5% 0;
     width: 60%;
 }
 .text h2{
-    color: rgb(0, 0, 0);
+    color: rgba(97, 22, 16, 0.904);
     text-align: center;
-    padding: 5%;
-    font-size:xx-large;
-    font-weight: 800;
+    padding: 5% 15%;
+    font-size:60px;
+    /* font-weight: bold; */
     word-wrap: break-word;
+    font-family: myFont4;
 }
 .textBody{
-    /* background-color: rgba(204, 198, 198, 0.774);
-    border-radius: 20px; */
-    margin: 20px 50px;
-}
+    margin: 5% 10%;
+} 
 
 .text p{
-    color: rgb(0, 0, 0);
-    text-align: center;
-    font-size: larger;
-    padding: 5%;
+    color: rgba(97, 22, 16, 0.904);
+    text-align: left;
+    font-size: x-large;
     word-wrap: break-word;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 800;
+    margin: 0 2%;
 }
 
 .form{
@@ -624,8 +646,11 @@
     width: 45%;
     padding: 0 0 15px 0;
 }
-.formTop .login{
-    font-size: larger;
+.formTop .login > h1{
+    font-family: myFont4;
+    font-size: 40px;
+    font-weight:bold;
+    color: rgb(46, 6, 6);
 }
 .formBottom{
     display: flex;
@@ -651,14 +676,14 @@
     text-align: center;    
 }
 .forgot_sign_container > div > a{
-    color:black;
+    color: rgb(46, 6, 6);
 }
 .forgot_sign_container > div > a:hover{
-    color: antiquewhite;
+    color:  whitesmoke;
 }
 
 .button button{
-    padding: 10px 70px;
+    padding: 10px 75px;
     border: none;
     border-radius: 20px;
     background-color: rgba(97, 22, 16, 0.904);
@@ -667,6 +692,6 @@
     font-weight: 700;
 }
 .button :hover{
-    background-color: rgb(36, 5, 5);
-    transition: 0.3ms background-color ease-in-out;
+    background-color: rgb(46, 6, 6);
+    transition: 0.3s background-color ease-in-out;
 }

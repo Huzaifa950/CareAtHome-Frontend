@@ -228,10 +228,7 @@ function LogIn({ updateLogInStatus }) {
 
                                 <div className='textBody'>
                                     <p>
-                                        Here you have the opportunity to offer and receive exceptional care services. Don't hesitate any longer
-                                    </p>
-                                    <p>
-                                        Enter your credentials now and gain access to the <b>World of Care At Home</b>.
+                                        Unlock a world of personalized care at your fingertips. Log in to the <i><b>Care At Home</b></i> website and experience a seamless journey tailored to your unique needs.
                                     </p>
                                 </div>
                             </div>
@@ -258,7 +255,7 @@ function LogIn({ updateLogInStatus }) {
                                             </div>
 
                                             <div className='password'>
-                                                <input className='inputArea' type="password" id="password" value={userDetail.usernameOrEmail} onChange={handleUserDetailChange} name="password" placeholder='Enter Password' required />
+                                                <input className='inputArea' type="password" id="password" value={userDetail.password} onChange={handleUserDetailChange} name="password" placeholder='Enter Password' required />
                                             </div>
                                         </div>
 
