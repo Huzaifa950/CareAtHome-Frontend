@@ -4,6 +4,7 @@ import Home from "../Components/Home/Home";
 import LogIn from "../Components/LogInAndSignUp/LogIn";
 import SignUp from "../Components/LogInAndSignUp/SignUp";
 import { ApiGetCall } from "../Components/ApiCall/ApiCalls";
+import ForgotPassword from "../Components/LogInAndSignUp/ForgotPassword";
 
 const AllRoutes = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -39,9 +40,9 @@ const AllRoutes = () => {
         getUserInfo();
     }, [isLoggedIn]);
 
-    if (!isLoggedIn && location.pathname !== "/login" && location.pathname !== "/signup")
+    if (!isLoggedIn && location.pathname !== "/login" && location.pathname !== "/signup" && location.pathname !== "/forgotpassword")
         return <Navigate to="/login" />
-    if (isLoggedIn && (location.pathname === "/login" || location.pathname === "/signup"))
+    if (isLoggedIn && (location.pathname === "/login" || location.pathname === "/signup" || location.pathname === "/forgotpassword"))
         return <Navigate to="/" />
     else
         return (
@@ -49,6 +50,7 @@ const AllRoutes = () => {
                 <Routes>
                     {!isLoggedIn && <Route path="/login" element={<LogIn updateLogInStatus={updateLogInStatus} />} />}
                     {!isLoggedIn && <Route path="/signup" element={<SignUp />} />}
+                    {!isLoggedIn && <Route path="/forgotpassword" element={<ForgotPassword />} />}
                     <Route path="/" element={<Home updateLogInStatus={updateLogInStatus} userInfo={userDetail} />} />
                 </Routes>
             </>
