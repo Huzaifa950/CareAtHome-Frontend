@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react'
 import './SignUp.css'
 import logo from "../../Assets/Images/Logo.png"
@@ -79,7 +80,6 @@ function SignUp() {
                             <div className='fullForm'>
                                 <div className='topSignUp'>
                                     <text>SIGN UP</text>
-                                    {/* <a href="#">SignUp</a> */}
                                 </div>
                                 <div className='formMain'>
                                     <form className='formBox' onSubmit={(e) => {
@@ -136,5 +136,20 @@ function SignUp() {
         </div>
     )
 }
-
 export default SignUp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

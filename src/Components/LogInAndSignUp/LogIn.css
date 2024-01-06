@@ -36,16 +36,7 @@
     width: 100vw; 
     height: 100vh; 
 }
-/* .background::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4); 
-    z-index: 1; 
-} */
+
 .interface-inner{
     padding: 5%;
     display: flex;
@@ -72,7 +63,7 @@
 .text p{
     color: rgba(97, 22, 16, 0.904);
     text-align: left;
-    font-size: x-large;
+    font-size: 25px;
     word-wrap: break-word;
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 800;
@@ -114,13 +105,14 @@
 }
 .formBottom-Up{
     text-align: left;
+    font-size: 15px;
 }
 /* .formBottom-Up > div > label{
     font-size: large;
     color: black;
 } */
 .formBottom-Up #email, .formBottom-Up #password{
-    width: 280px;
+    width: 270px;
     outline: none;
     border-radius: 5px;
     font-size: 15px;
@@ -153,8 +145,534 @@
     font-weight: 700;
     cursor: pointer;
     transition: 0.3s background-color ease-in-out;
+    align-items: center;
 }
 .button :hover{
     background-color: rgb(46, 6, 6);
     transition: 0.3s background-color ease-in-out;
+}
+
+@media only screen and (max-width: 1320px){
+    .formBottom-Up #email, .formBottom-Up #password{
+        width: 270px;
+    }
+}
+@media only screen and (max-width: 1300px){
+    .formBottom-Up #email, .formBottom-Up #password{
+        width: 265px;
+    }
+    .form{
+        /* height: 60vh; */
+        padding: 3% 8% 10% 8%;
+    }
+}
+@media only screen and (max-width: 1280px){
+    .formBottom-Up #email, .formBottom-Up #password{
+        width: 260px;
+    }
+    .button button{
+        padding: 10px 70px;
+    }
+}
+@media only screen and (max-width: 1260px){
+    .formBottom-Up #email, .formBottom-Up #password{
+        width: 255px;
+    }
+    .form{
+        /* height: 60vh; */
+        padding: 4% 8% 10% 8%;
+    }
+}
+@media only screen and (max-width: 1240px){
+    .formBottom-Up #email, .formBottom-Up #password{
+        width: 250px;
+    }
+}
+@media only screen and (max-width: 1220px){
+    .formBottom-Up #email, .formBottom-Up #password{
+        width: 245px;
+    }
+    .form{
+        /* height: 60vh; */
+        padding: 5% 8% 10% 8%;
+    }
+}
+@media only screen and (max-width: 1200px){
+    .formBottom-Up #email, .formBottom-Up #password{
+        width: 240px;
+    }
+    .button button{
+        padding: 10px 65px;
+    }
+}
+@media only screen and (max-width: 1180px){
+    .formBottom-Up #email, .formBottom-Up #password{
+        width: 235px;
+    }
+    .form{
+        /* height: 60vh; */
+        padding: 6% 8% 10% 8%;
+    }
+}
+@media only screen and (max-width: 1160px){
+    .formBottom-Up #email, .formBottom-Up #password{
+        width: 230px;
+    }
+    .form{
+        /* height: 60vh; */
+        padding: 7% 8% 10% 8%;
+    }
+}
+@media only screen and (max-width: 1140px){
+    .formBottom-Up #email, .formBottom-Up #password{
+        width: 225px;
+    }
+}
+@media only screen and (max-width: 1120px){
+    .formBottom-Up #email, .formBottom-Up #password{
+        width: 220px;
+    }
+    .form{
+        /* height: 60vh; */
+        padding: 7% 8% 10% 8%;
+    }
+    .button button{
+        padding: 10px 60px;
+    }
+}
+@media only screen and (max-width: 1070px){
+    .form{
+        /* height: 60vh; */
+        padding: 8% 8% 10% 8%;
+    }
+    .formTop .login > h1{
+        font-size: 46px;
+    }
+}
+@media only screen and (max-width: 1030px){
+    .formBottom-Up #email, .formBottom-Up #password{
+        width: 215px;
+    }
+    .form{
+        height: 62vh;
+    }
+    .formTop .login > h1{
+        font-size: 44px;
+    }
+}
+@media only screen and (max-width: 950px){
+    .text h2{
+        font-size:58px;
+        padding: 6% 15%;
+    }
+    .text p{
+        font-size: 23px;
+    }
+    .formTop .login > h1{
+        font-size: 42px;
+    }
+    .formBottom{
+        display: flex;
+        flex-direction: column;
+        padding: 35px 0 0 0;
+    }
+    .formBottom-Up #email, .formBottom-Up #password{
+        width: 210px;
+    }
+    .form{
+        height: 64vh;
+    }
+    .formTop .logo img{
+        width: 45%;
+        padding: 0 0 20px 0;
+    }
+    .button button{
+        padding: 10px 58px;
+        margin-left: 12px;
+    }
+}
+@media only screen and (max-width: 930px){
+    .text h2{
+        font-size:56px;
+    }
+    .text p{
+        font-size: 22px;
+    }
+}
+@media only screen and (max-width: 910px){
+    .text h2{
+        font-size:54px;
+        padding: 7% 15%;
+    }
+    .formTop .logo img{
+        width: 45%;
+        padding: 0 0 23px 0;
+    }
+    .formTop .login > h1{
+        font-size: 40px;
+    }
+    .formBottom-Up #email, .formBottom-Up #password{
+        width: 205px;
+    }
+    .button button{
+        padding: 10px 56px;
+        margin-left: 11px;
+    }
+}
+@media only screen and (max-width: 875px){
+    .text h2{
+        font-size:52px;
+        padding: 8% 15%;
+    }
+    .text p{
+        font-size: 21px;
+    }
+    .form{
+        height: 65vh;
+    }
+    .formTop .logo img{
+        width: 45%;
+        padding: 0 0 25px 0;
+    }
+    .formBottom{
+        display: flex;
+        flex-direction: column;
+        padding: 40px 0 0 0;
+    }
+    .formBottom-Up #email, .formBottom-Up #password{
+        width: 200px;
+    }
+}
+@media only screen and (max-width: 860px){
+    .text h2{
+        font-size:50px;
+        padding: 9% 15%;
+    }
+    .text p{
+        font-size: 20px;
+    }
+    .form{
+        padding: 8% 8% 10% 8%;
+        height: 67vh;
+    }
+    .formBottom-Up #email, .formBottom-Up #password{
+        margin-left: 27px;
+        width: 197px;
+    }
+    .button button{
+        padding: 10px 55px;
+    }
+}
+@media only screen and (max-width: 840px){
+    .text h2{
+        font-size:50px;
+        padding: 10% 15%;
+    }
+    .text p{
+        font-size: 19px;
+    }
+    .formTop .login > h1{
+        font-size: 38px;
+    }
+}
+@media only screen and (max-width: 800px){
+    .form{
+        height: 69vh;
+    }
+    .form_container{
+        padding: 17px 0 0 0;
+    }
+    .formBottom-Up #email, .formBottom-Up #password{
+        width: 195px;
+    }
+    .forgot_sign_container{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin-top: 45px;
+    }
+    .button button{
+        padding: 10px 50px;
+    }
+}
+@media only screen and (max-width: 780px){
+    .formBottom-Up #email, .formBottom-Up #password{
+        width: 195px;
+    }
+}
+@media only screen and (max-width: 760px){
+    .formBottom-Up #email, .formBottom-Up #password{
+        width: 193px;
+    }
+    .button button{
+        padding: 10px 47px;
+    }
+}
+@media only screen and (max-width: 740px){
+    .formBottom-Up #email, .formBottom-Up #password{
+        width: 191px;
+    }
+}
+@media only screen and (max-width: 720px){
+    .formBottom-Up #email, .formBottom-Up #password{
+        width: 188px;
+    }
+    .button button{
+        padding: 10px 45px;
+    }
+}
+@media only screen and (max-width: 700px)
+{
+    .text{
+        display: none;
+    }
+    .form{
+        height: 72vh;
+        max-width: 100%;
+    }
+    .form_container{
+        padding: 18px 0 0 0;
+    }
+    .formTop .logo img{
+        width: 49%;
+        padding: 0 0 13px 0;
+    }
+    .formTop .login > h1{
+        font-size: 50px;
+    }
+    .formBottom-Up #email, .formBottom-Up #password{
+        width: 250px;
+    }
+    .button button{
+        padding: 10px 60px;
+        margin: 0 0 0 5px;
+    }
+}
+@media only screen and (max-width: 675px){
+    .form{
+        height: 74vh;
+    }
+}
+@media only screen and (max-width: 650px)
+{
+    .form{
+        height: 76vh;
+    }
+    .form_container{
+        padding: 19px 0 0 0;
+    }
+    .formTop .logo img{
+        padding: 0 0 14px 0;
+    }
+    .formTop .login > h1{
+        font-size: 48px;
+    }
+    .formBottom-Up #email, .formBottom-Up #password{
+        width: 240px;
+        padding: 0 1px;
+        text-align: center;
+    }
+}
+@media only screen and (max-width: 620px){
+    .form{
+        height: 78vh;
+        padding: 2% 9% 10% 9%;
+    }
+    .form_container{
+        padding: 20px 0 0 0;
+    }
+    .formTop .logo img{
+        width: 50%;
+        padding: 0 0 15px 0;
+    }
+    .formTop .login > h1{
+        font-size: 47px;
+    }
+    .formBottom-Up #email, .formBottom-Up #password{
+        width: 235px;
+    }
+}
+@media only screen and (max-width: 600px)
+{
+    .form{
+        height: 80vh;
+        padding: 2% 10% 10% 10%;
+    }
+    .formTop .login > h1{
+        font-size: 46px;
+    }
+    .button button{
+        padding: 10px 55px;
+        margin: 0px;
+    }
+}
+@media only screen and (max-width: 580px)
+{
+    .form{
+        height: 82vh;
+        padding: 2% 11% 10% 11%;
+    }
+    .form_container{
+        padding: 25px 0 0 0;
+    }
+    .formTop .logo img{
+        width: 54%;
+    }
+    .formTop .login > h1{
+        font-size: 45px;
+    }
+    .button button{
+        padding: 10px 55px;
+    }
+}
+@media only screen and (max-width: 560px)
+{
+    .form{
+        padding: 5% 12% 8% 12%;
+    }
+    .formTop .login > h1{
+        font-size: 44px;
+    }
+    .button button{
+        padding: 10px 53px;
+    }
+}
+@media only screen and (max-width: 540px)
+{
+    .form{
+        padding: 5% 13% 8% 13%;
+        height: 83vh;
+    }
+    .formTop{
+        font-size: 43px;
+        margin: 0 0 0 12px;
+    }
+    .button button{
+        padding: 10px 50px;
+    }
+}
+@media only screen and (max-width: 520px)
+{
+    .form{
+        height: 84vh;
+        padding: 5% 14% 8% 16%;
+    }
+    .formTop .logo img{
+        margin: 19px;
+    }
+    .formTop .login > h1{
+        font-size: 40px;
+    }
+    .button button{
+        padding: 10px 50px;
+    }
+}
+@media only screen and (max-width: 500px)
+{
+    .form{
+        padding: 5% 16% 8% 12%;
+    }
+    .formTop{
+        font-size: 43px;
+        margin: 0 0 0 13px;
+    }
+    .formTop .logo img{
+        margin: 20px;
+    }
+    .formBottom-Up #email, .formBottom-Up #password{
+        border-radius: 7px;
+    }
+    .button button{
+        padding: 10px 43px;
+        margin: 0 0 0 13px;
+    }
+}
+@media only screen and (max-width: 460px){
+    .button button{
+        padding: 10px 45px;
+        margin: 0 0 0 14px;
+    }
+}
+@media only screen and (max-width: 440px){
+    .formTop .logo img{
+        margin: 21px;
+    }
+    .formBottom-Up #email, .formBottom-Up #password{
+        width: 225px;
+    }
+    .button button{
+        padding: 10px 41px;
+        margin: 10px 0 0 10px;
+    }
+}
+@media only screen and (max-width: 420px){
+    .form{
+        height: 85vh;
+        padding: 5% 16% 8% 11%;
+    }
+    .formTop .logo img{
+        margin: 22px;
+    }
+    .formBottom-Up #email, .formBottom-Up #password{
+        width: 215px;
+    }
+    .button button{
+        padding: 10px 38px;
+    }
+}
+@media only screen and (max-width: 380px){
+    .form{
+        padding: 5% 16% 8% 10%;
+    }
+    .formTop .logo img{
+        margin: 23px;
+    }
+    .formBottom-Up #email, .formBottom-Up #password{
+        width: 205px;
+    }
+}
+@media only screen and (max-width: 360px){
+    .form{
+        height: 86vh;
+        padding: 5% 16% 8% 8%;
+    }
+    .formTop .logo img{
+        width: 55%;
+        margin: 24px;
+    }
+    .formBottom-Up #email, .formBottom-Up #password{
+        width: 200px;
+        height: 40px;
+    }
+}
+@media only screen and (max-width: 340px){
+    .form{
+        height: 86vh;
+        padding: 5% 16% 8% 8%;
+    }
+    .formTop .login > h1{
+        font-size: 38px;
+    }
+    .formTop .logo img{
+        width: 56%;
+        margin: 25px;
+    }
+    .formBottom-Up #email, .formBottom-Up #password{
+        width: 200px;
+    }
+}
+@media only screen and (max-width: 320px){
+    .form{
+        height: 87vh;
+        padding: 5% 16% 8% 4%;
+    }
+}
+@media only screen and (max-width: 300px){
+    .form{
+        height: 88vh;
+        padding: 5% 16% 8% 0;
+    }
+    .formBottom-Up #email, .formBottom-Up #password{
+        width: 190px;
+    }
 }

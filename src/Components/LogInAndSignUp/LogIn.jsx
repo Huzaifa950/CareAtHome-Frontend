@@ -85,7 +85,7 @@ function LogIn({ updateLogInStatus }) {
                             </div>
 
                             <div className='form'>
-                                <div>
+                                <div className='form_container'>
                                     <div className='formTop'>
                                         <div className='logo'>
                                             <img src={logo} alt="Logo" />
