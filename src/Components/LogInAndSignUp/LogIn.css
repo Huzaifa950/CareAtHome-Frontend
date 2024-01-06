@@ -28,7 +28,7 @@
     padding: 0;
     overflow: hidden;
 }
-.background {
+.LogIn_background {
     background-image: url('../../Assets/Images/img1\ \(13\).jpg');
     background-size: cover;
     background-position: center;
@@ -37,17 +37,17 @@
     height: 100vh; 
 }
 
-.interface-inner{
+.LogIn_interface-inner{
     padding: 5%;
     display: flex;
     justify-content: space-around;
 }
 
-.text {
+.LogIn_text {
     padding: 5% 0;
     width: 60%;
 }
-.text h2{
+.LogIn_text h2{
     color: rgba(97, 22, 16, 0.904);
     text-align: center;
     padding: 5% 15%;
@@ -56,11 +56,11 @@
     word-wrap: break-word;
     font-family: myFont4;
 }
-.textBody{
+.LogIn_textBody{
     margin: 5% 10%;
 } 
 
-.text p{
+.LogIn_text p{
     color: rgba(97, 22, 16, 0.904);
     text-align: left;
     font-size: 25px;
@@ -70,7 +70,7 @@
     margin: 0 2%;
 }
 
-.form{
+.LogIn_form{
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -82,28 +82,28 @@
     border-radius: 15px;
     max-width: 50%;
 }
-.formTop{
+.LogIn_formTop{
     text-align: center;
 }
-.formTop .logo img{
+.LogIn_formTop .LogIn_logo img{
     width: 45%;
     padding: 0 0 15px 0;
 }
-.formTop .login > h1{
+.LogIn_formTop .LogIn_login > h1{
     font-family: myFont4;
     font-size: 50px;
     font-weight: 1000;
     color: rgb(46, 6, 6);
 }
-.formBottom{
+.LogIn_formBottom{
     display: flex;
     flex-direction: column;
     padding: 30px 0 0 0;
 }
-.formBottom div{
+.LogIn_formBottom div{
     padding: 0 0 20px 0;
 }
-.formBottom-Up{
+.LogIn_formBottom-Up{
     text-align: left;
     font-size: 15px;
 }
@@ -111,31 +111,39 @@
     font-size: large;
     color: black;
 } */
-.formBottom-Up #email, .formBottom-Up #password{
+/* .LogIn_formBottom-Up #email, .LogIn_formBottom-Up #password{
     width: 270px;
     outline: none;
     border-radius: 5px;
     font-size: 15px;
     color: rgb(35, 35, 35);
-    /* align-items: center; */
+} */
+#LogIn_email, #LogIn_password{
+    height: 40px;
+    border-radius: 10px;
+    margin: 0 20px;
+    width: 225px ;
+    border: none;
+    display: flex;
+    padding: 0 0 0 20px;
 }
 
-.formBottom-Down{
+.LogIn_formBottom-Down{
     text-align: center;    
 }
-.forgot_sign_container{
+.LogIn_forgot_sign_container{
     display: flex;
     justify-content: space-between;
     margin-top: 45px;
 }
-.forgot_sign_container > div > a{
+.LogIn_forgot_sign_container > div > a{
     color: rgb(46, 6, 6);
 }
-.forgot_sign_container > div > a:hover{
+.LogIn_forgot_sign_container > div > a:hover{
     color:  whitesmoke;
 }
 
-.button button{
+.LogIn_button button{
     padding: 10px 75px;
     border: none;
     border-radius: 5px;
@@ -147,532 +155,474 @@
     transition: 0.3s background-color ease-in-out;
     align-items: center;
 }
-.button :hover{
+.LogIn_button :hover{
     background-color: rgb(46, 6, 6);
     transition: 0.3s background-color ease-in-out;
 }
-
-@media only screen and (max-width: 1320px){
-    .formBottom-Up #email, .formBottom-Up #password{
-        width: 270px;
-    }
-}
 @media only screen and (max-width: 1300px){
-    .formBottom-Up #email, .formBottom-Up #password{
-        width: 265px;
-    }
-    .form{
+    .LogIn_form{
         /* height: 60vh; */
         padding: 3% 8% 10% 8%;
     }
 }
-@media only screen and (max-width: 1280px){
-    .formBottom-Up #email, .formBottom-Up #password{
-        width: 260px;
-    }
-    .button button{
-        padding: 10px 70px;
-    }
-}
 @media only screen and (max-width: 1260px){
-    .formBottom-Up #email, .formBottom-Up #password{
-        width: 255px;
-    }
-    .form{
+    .LogIn_form{
         /* height: 60vh; */
         padding: 4% 8% 10% 8%;
     }
 }
-@media only screen and (max-width: 1240px){
-    .formBottom-Up #email, .formBottom-Up #password{
-        width: 250px;
-    }
-}
 @media only screen and (max-width: 1220px){
-    .formBottom-Up #email, .formBottom-Up #password{
-        width: 245px;
-    }
-    .form{
+    .LogIn_form{
         /* height: 60vh; */
         padding: 5% 8% 10% 8%;
     }
 }
 @media only screen and (max-width: 1200px){
-    .formBottom-Up #email, .formBottom-Up #password{
-        width: 240px;
-    }
-    .button button{
+    .LogIn_button button{
         padding: 10px 65px;
     }
 }
 @media only screen and (max-width: 1180px){
-    .formBottom-Up #email, .formBottom-Up #password{
-        width: 235px;
-    }
-    .form{
+    .LogIn_form{
         /* height: 60vh; */
         padding: 6% 8% 10% 8%;
     }
 }
 @media only screen and (max-width: 1160px){
-    .formBottom-Up #email, .formBottom-Up #password{
-        width: 230px;
-    }
-    .form{
+    .LogIn_form{
         /* height: 60vh; */
         padding: 7% 8% 10% 8%;
-    }
-}
-@media only screen and (max-width: 1140px){
-    .formBottom-Up #email, .formBottom-Up #password{
-        width: 225px;
     }
 }
 @media only screen and (max-width: 1120px){
-    .formBottom-Up #email, .formBottom-Up #password{
-        width: 220px;
-    }
-    .form{
+    .LogIn_form{
         /* height: 60vh; */
-        padding: 7% 8% 10% 8%;
+        padding: 7% 8% 10% 7%;
     }
-    .button button{
+    .LogIn_button button{
         padding: 10px 60px;
     }
 }
 @media only screen and (max-width: 1070px){
-    .form{
-        /* height: 60vh; */
+    .LogIn_form{
         padding: 8% 8% 10% 8%;
     }
-    .formTop .login > h1{
+    .LogIn_formTop .login > h1{
         font-size: 46px;
     }
 }
 @media only screen and (max-width: 1030px){
-    .formBottom-Up #email, .formBottom-Up #password{
+    #LogIn_email, #LogIn_password{
         width: 215px;
     }
-    .form{
+    .LogIn_form{
         height: 62vh;
     }
-    .formTop .login > h1{
+    .LogIn_formTop .LogIn_login > h1{
         font-size: 44px;
     }
 }
 @media only screen and (max-width: 950px){
-    .text h2{
+    .LogIn_text h2{
         font-size:58px;
         padding: 6% 15%;
     }
-    .text p{
+    .LogIn_text p{
         font-size: 23px;
     }
-    .formTop .login > h1{
+    .LogIn_formTop .LogIn_login > h1{
         font-size: 42px;
     }
-    .formBottom{
+    .LogIn_formBottom{
         display: flex;
         flex-direction: column;
         padding: 35px 0 0 0;
     }
-    .formBottom-Up #email, .formBottom-Up #password{
-        width: 210px;
-    }
-    .form{
+    .LogIn_form{
         height: 64vh;
     }
-    .formTop .logo img{
+    .LogIn_formTop .logo img{
         width: 45%;
         padding: 0 0 20px 0;
     }
-    .button button{
+    .LogIn_button button{
         padding: 10px 58px;
         margin-left: 12px;
     }
 }
 @media only screen and (max-width: 930px){
-    .text h2{
+    .LogIn_text h2{
         font-size:56px;
     }
-    .text p{
+    .LogIn_text p{
         font-size: 22px;
     }
 }
 @media only screen and (max-width: 910px){
-    .text h2{
+    .LogIn_text h2{
         font-size:54px;
         padding: 7% 15%;
     }
-    .formTop .logo img{
+    .LogIn_formTop .logo img{
         width: 45%;
         padding: 0 0 23px 0;
     }
-    .formTop .login > h1{
+    .LogIn_formTop .login > h1{
         font-size: 40px;
     }
-    .formBottom-Up #email, .formBottom-Up #password{
-        width: 205px;
-    }
-    .button button{
+    .LogIn_button button{
         padding: 10px 56px;
         margin-left: 11px;
     }
 }
 @media only screen and (max-width: 875px){
-    .text h2{
+    .LogIn_text h2{
         font-size:52px;
         padding: 8% 15%;
     }
-    .text p{
+    .LogIn_text p{
         font-size: 21px;
     }
-    .form{
+    .LogIn_form{
         height: 65vh;
+        padding: 8% 8% 10% 5%;
     }
-    .formTop .logo img{
+    .LogIn_formTop {
+        margin-left: 13px;
+    }
+    .LogIn_formTop .LogIn_logo img{
         width: 45%;
         padding: 0 0 25px 0;
     }
-    .formBottom{
+    .LogIn_formBottom{
         display: flex;
         flex-direction: column;
         padding: 40px 0 0 0;
     }
-    .formBottom-Up #email, .formBottom-Up #password{
-        width: 200px;
-    }
 }
 @media only screen and (max-width: 860px){
-    .text h2{
+    .LogIn_text h2{
         font-size:50px;
         padding: 9% 15%;
     }
-    .text p{
+    .LogIn_text p{
         font-size: 20px;
     }
-    .form{
-        padding: 8% 8% 10% 8%;
+    .LogIn_form{
         height: 67vh;
     }
-    .formBottom-Up #email, .formBottom-Up #password{
-        margin-left: 27px;
-        width: 197px;
-    }
-    .button button{
+    .LogIn_button button{
         padding: 10px 55px;
     }
 }
 @media only screen and (max-width: 840px){
-    .text h2{
+    .LogIn_text h2{
         font-size:50px;
         padding: 10% 15%;
     }
-    .text p{
+    .LogIn_text p{
         font-size: 19px;
     }
-    .formTop .login > h1{
+    .LogIn_formTop {
+        margin-left: 15px;
+    }
+    .LogIn_formTop .LogIn_login > h1{
         font-size: 38px;
     }
 }
 @media only screen and (max-width: 800px){
-    .form{
+    .LogIn_form{
         height: 69vh;
+        padding: 8% 8% 10% 4%;
     }
-    .form_container{
+    .LogIn_form_container{
         padding: 17px 0 0 0;
     }
-    .formBottom-Up #email, .formBottom-Up #password{
-        width: 195px;
-    }
-    .forgot_sign_container{
+    .LogIn_forgot_sign_container{
         display: flex;
         flex-direction: column;
         text-align: center;
         margin-top: 45px;
     }
-    .button button{
+    .LogIn_button button{
         padding: 10px 50px;
     }
 }
 @media only screen and (max-width: 780px){
-    .formBottom-Up #email, .formBottom-Up #password{
-        width: 195px;
+    .LogIn_form{
+        padding: 8% 8% 10% 3%;
     }
 }
 @media only screen and (max-width: 760px){
-    .formBottom-Up #email, .formBottom-Up #password{
-        width: 193px;
-    }
-    .button button{
+    .LogIn_button button{
         padding: 10px 47px;
     }
 }
-@media only screen and (max-width: 740px){
-    .formBottom-Up #email, .formBottom-Up #password{
-        width: 191px;
-    }
-}
 @media only screen and (max-width: 720px){
-    .formBottom-Up #email, .formBottom-Up #password{
-        width: 188px;
-    }
-    .button button{
+    .LogIn_button button{
         padding: 10px 45px;
     }
 }
 @media only screen and (max-width: 700px)
 {
-    .text{
+    .LogIn_text{
         display: none;
     }
-    .form{
+    .LogIn_form{
         height: 72vh;
         max-width: 100%;
+        padding: 2% 9% 10% 12%;
     }
-    .form_container{
+    .LogIn_form_container{
         padding: 18px 0 0 0;
     }
-    .formTop .logo img{
+    .LogIn_formTop .LogIn_logo img{
         width: 49%;
         padding: 0 0 13px 0;
     }
-    .formTop .login > h1{
+    .LogIn_formTop .LogIn_login > h1{
         font-size: 50px;
     }
-    .formBottom-Up #email, .formBottom-Up #password{
-        width: 250px;
+    #LogIn_email, #LogIn_password{
+        width: 255px;
     }
-    .button button{
+    .LogIn_button button{
         padding: 10px 60px;
         margin: 0 0 0 5px;
     }
 }
 @media only screen and (max-width: 675px){
-    .form{
+    .LogIn_form{
         height: 74vh;
     }
 }
 @media only screen and (max-width: 650px)
 {
-    .form{
+    .LogIn_form{
         height: 76vh;
     }
-    .form_container{
+    .LogIn_form_container{
         padding: 19px 0 0 0;
     }
-    .formTop .logo img{
+    .LogIn_formTop .LogIn_logo img{
         padding: 0 0 14px 0;
     }
     .formTop .login > h1{
         font-size: 48px;
     }
-    .formBottom-Up #email, .formBottom-Up #password{
-        width: 240px;
+    #LogIn_email, #LogIn_password{
         padding: 0 1px;
         text-align: center;
     }
 }
 @media only screen and (max-width: 620px){
-    .form{
+    .LogIn_form{
         height: 78vh;
         padding: 2% 9% 10% 9%;
     }
-    .form_container{
+    .LogIn_form_container{
         padding: 20px 0 0 0;
     }
-    .formTop .logo img{
+    .LogIn_formTop .LogIn_logo img{
         width: 50%;
         padding: 0 0 15px 0;
     }
-    .formTop .login > h1{
+    .LogIn_formTop .LogIn_login > h1{
         font-size: 47px;
     }
-    .formBottom-Up #email, .formBottom-Up #password{
-        width: 235px;
+    #LogIn_email, #LogIn_password{
+        width: 245px;
     }
 }
 @media only screen and (max-width: 600px)
 {
-    .form{
+    .LogIn_form{
         height: 80vh;
         padding: 2% 10% 10% 10%;
     }
-    .formTop .login > h1{
+    .LogIn_formTop .LogIn_login > h1{
         font-size: 46px;
-    }
-    .button button{
-        padding: 10px 55px;
-        margin: 0px;
     }
 }
 @media only screen and (max-width: 580px)
 {
-    .form{
+    .LogIn_form{
         height: 82vh;
         padding: 2% 11% 10% 11%;
     }
-    .form_container{
+    .LogIn_form_container{
         padding: 25px 0 0 0;
     }
-    .formTop .logo img{
+    .LogIn_formTop .LogIn_logo img{
         width: 54%;
     }
-    .formTop .login > h1{
+    .LogIn_formTop .LogIn_login > h1{
         font-size: 45px;
-    }
-    .button button{
-        padding: 10px 55px;
     }
 }
 @media only screen and (max-width: 560px)
 {
-    .form{
+    .LogIn_form{
         padding: 5% 12% 8% 12%;
     }
-    .formTop .login > h1{
+    .LogIn_formTop .LogIn_login > h1{
         font-size: 44px;
-    }
-    .button button{
-        padding: 10px 53px;
     }
 }
 @media only screen and (max-width: 540px)
 {
-    .form{
+    .LogIn_form{
         padding: 5% 13% 8% 13%;
         height: 83vh;
     }
-    .formTop{
+    .LogIn_formTop{
         font-size: 43px;
         margin: 0 0 0 12px;
-    }
-    .button button{
-        padding: 10px 50px;
     }
 }
 @media only screen and (max-width: 520px)
 {
-    .form{
+    .LogIn_form{
         height: 84vh;
         padding: 5% 14% 8% 16%;
     }
-    .formTop .logo img{
-        margin: 19px;
-    }
-    .formTop .login > h1{
+    .LogIn_formTop .LogIn_login > h1{
         font-size: 40px;
-    }
-    .button button{
-        padding: 10px 50px;
     }
 }
 @media only screen and (max-width: 500px)
 {
-    .form{
+    .LogIn_form{
         padding: 5% 16% 8% 12%;
     }
-    .formTop{
+    .LogIn_formTop{
         font-size: 43px;
-        margin: 0 0 0 13px;
     }
-    .formTop .logo img{
-        margin: 20px;
-    }
-    .formBottom-Up #email, .formBottom-Up #password{
+    #LogIn_email, #LogIn_password{
         border-radius: 7px;
-    }
-    .button button{
-        padding: 10px 43px;
-        margin: 0 0 0 13px;
     }
 }
 @media only screen and (max-width: 460px){
-    .button button{
-        padding: 10px 45px;
+    #LogIn_email, #LogIn_password{
+        width: 235px;
+    }
+    .LogIn_button button{
+        padding: 10px 50px;
         margin: 0 0 0 14px;
     }
 }
 @media only screen and (max-width: 440px){
-    .formTop .logo img{
+    .LogIn_formTop .LogIn_logo img{
         margin: 21px;
     }
-    .formBottom-Up #email, .formBottom-Up #password{
+    #LogIn_email, #LogIn_password{
         width: 225px;
     }
-    .button button{
+    .LogIn_button button{
         padding: 10px 41px;
         margin: 10px 0 0 10px;
     }
 }
 @media only screen and (max-width: 420px){
-    .form{
+    .LogIn_form{
         height: 85vh;
         padding: 5% 16% 8% 11%;
     }
-    .formTop .logo img{
+    .LogIn_formTop .LogIn_logo img{
         margin: 22px;
     }
-    .formBottom-Up #email, .formBottom-Up #password{
+    #LogIn_email, #LogIn_password{
         width: 215px;
     }
-    .button button{
+    .LogIn_button button{
         padding: 10px 38px;
     }
 }
-@media only screen and (max-width: 380px){
-    .form{
-        padding: 5% 16% 8% 10%;
-    }
-    .formTop .logo img{
-        margin: 23px;
-    }
-    .formBottom-Up #email, .formBottom-Up #password{
+@media only screen and (max-width: 400px){
+    #LogIn_email, #LogIn_password{
         width: 205px;
     }
 }
+@media only screen and (max-width: 380px){
+    .LogIn_form{
+        padding: 5% 16% 8% 10%;
+    }
+    .LogIn_formTop .LogIn_logo img{
+        margin: 23px;
+    }
+    #LogIn_email, #LogIn_password{
+        width: 195px;
+    }
+}
 @media only screen and (max-width: 360px){
-    .form{
+    .LogIn_form{
         height: 86vh;
         padding: 5% 16% 8% 8%;
     }
-    .formTop .logo img{
+    .LogIn_formTop .LogIn_logo img{
         width: 55%;
         margin: 24px;
     }
-    .formBottom-Up #email, .formBottom-Up #password{
-        width: 200px;
+    #LogIn_email, #LogIn_password{
+        width: 185px;
         height: 40px;
+        margin: 0 0 0 14%;
     }
 }
 @media only screen and (max-width: 340px){
-    .form{
+    .LogIn_form{
         height: 86vh;
         padding: 5% 16% 8% 8%;
     }
-    .formTop .login > h1{
+    .LogIn_formTop .LogIn_login > h1{
         font-size: 38px;
     }
-    .formTop .logo img{
+    .LogIn_formTop .LogIn_logo img{
         width: 56%;
         margin: 25px;
     }
-    .formBottom-Up #email, .formBottom-Up #password{
-        width: 200px;
-    }
 }
 @media only screen and (max-width: 320px){
-    .form{
+    .LogIn_form{
         height: 87vh;
         padding: 5% 16% 8% 4%;
     }
 }
 @media only screen and (max-width: 300px){
-    .form{
+    .LogIn_form{
         height: 88vh;
-        padding: 5% 16% 8% 0;
+        padding: 5% 16% 8% 6%;
     }
-    .formBottom-Up #email, .formBottom-Up #password{
-        width: 190px;
+    #LogIn_email, #LogIn_password{
+        width: 180px;
+        margin: 0 0 0 11%;
     }
 }
+@media only screen and (max-width: 290px){
+    #LogIn_email, #LogIn_password{
+        width: 170px;
+    }
+}
+
+@media only screen and (max-width: 280px){
+    #LogIn_email, #LogIn_password{
+        width: 165px;
+    }
+}
+@media only screen and (max-width: 270px){
+    #LogIn_email, #LogIn_password{
+        width: 160px;
+    }
+}
+@media only screen and (max-width: 260px){
+    #LogIn_email, #LogIn_password{
+        width: 155px;
+    }
+}
+@media only screen and (max-width: 250px){
+    #LogIn_email, #LogIn_password{
+        width: 150px;
+    }
+}
+
+

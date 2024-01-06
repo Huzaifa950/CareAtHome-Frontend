@@ -65,64 +65,64 @@ function LogIn({ updateLogInStatus }) {
     }
 
     return (
-        <div className='main'>
-            <div className='main-container'>
-                <div className='background'>
-                    <div className='interface'>
-                        <div className='interface-inner'>
-                            <div className='text'>
-                                <div className='Heading'>
+        <div className='LogIn_main'>
+            <div className='LogIn_main-container'>
+                <div className='LogIn_background'>
+                    <div className='LogIn_interface'>
+                        <div className='LogIn_interface-inner'>
+                            <div className='LogIn_text'>
+                                <div className='LogIn_Heading'>
                                     <h2>
                                         Welcome to Care At Home
                                     </h2>
                                 </div>
 
-                                <div className='textBody'>
+                                <div className='LogIn_textBody'>
                                     <p>
                                         Unlock a world of personalized care at your fingertips. Log in to the <i><b>Care At Home</b></i> website and experience a seamless journey tailored to your unique needs.
                                     </p>
                                 </div>
                             </div>
 
-                            <div className='form'>
-                                <div className='form_container'>
-                                    <div className='formTop'>
-                                        <div className='logo'>
+                            <div className='LogIn_form'>
+                                <div className='LogIn_form_container'>
+                                    <div className='LogIn_formTop'>
+                                        <div className='LogIn_logo'>
                                             <img src={logo} alt="Logo" />
                                         </div>
 
-                                        <div className='login'>
+                                        <div className='LogIn_login'>
                                             <h1>Log In</h1>
                                         </div>
                                     </div>
 
-                                    <form className='formBottom' onSubmit={e => {
+                                    <form className='LogIn_formBottom' onSubmit={e => {
                                         e.preventDefault();
                                         handleLogIn();
                                     }}>
-                                        <div className='formBottom-Up'>
-                                            <div className='email'>
-                                                <input className='inputArea' type='text' id="email" value={userDetail.usernameOrEmail} onChange={handleUserDetailChange} name="usernameOrEmail" placeholder='Enter Username / Email' required />
+                                        <div className='LogIn_formBottom-Up'>
+                                            <div className='LogIn_email'>
+                                                <input className='LogIn_inputArea' type='text' id="LogIn_email" value={userDetail.usernameOrEmail} onChange={handleUserDetailChange} name="usernameOrEmail" placeholder='Enter Username / Email' required />
                                             </div>
 
-                                            <div className='password'>
-                                                <input className='inputArea' type="password" id="password" value={userDetail.password} onChange={handleUserDetailChange} name="password" placeholder='Enter Password' required />
+                                            <div className='LogIn_password'>
+                                                <input className='LogIn_inputArea' type="password" id="LogIn_password" value={userDetail.password} onChange={handleUserDetailChange} name="password" placeholder='Enter Password' required />
                                             </div>
                                         </div>
 
-                                        <div className='formBottom-Down'>
+                                        <div className='LogIn_formBottom-Down'>
 
 
-                                            <div className='button'>
-                                                <button className='logInButton' type="submit">LogIn</button>
+                                            <div className='LogIn_button'>
+                                                <button className='LogIn_logInButton' type="submit">LogIn</button>
                                             </div>
 
-                                            <div className='forgot_sign_main'>
-                                                <div className='forgot_sign_container'>
-                                                    <div className='forgot'>
+                                            <div className='LogIn_forgot_sign_main'>
+                                                <div className='LogIn_forgot_sign_container'>
+                                                    <div className='LogIn_forgot'>
                                                         <a href="/forgotpassword">Forgot Password ?</a>
                                                     </div>
-                                                    <div className='signup'>
+                                                    <div className='LogIn_signup'>
                                                         <a href="/signup"> Signup</a>
                                                     </div>
                                                 </div>
