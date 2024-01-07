@@ -586,15 +586,15 @@
     text-align: center;
 }
 .SignUp_formTop .SignUp_logo img{
-    width: 35%;
-    padding: 0 0 25px 0;
+    width: 25%;
+    padding: 0 0 15px 0;
 }
 .SignUp_formTop .SignUp_login > h1{
     font-family: myFont4;
-    font-size: 50px;
+    font-size: 40px;
     font-weight: 1000;
     color: rgb(46, 6, 6);
-    padding: 0 0 40px 0;
+    padding: 0 0 30px 0;
 }
 .SignUp_formBottom div{
     padding: 0 0 20px 0;
@@ -603,15 +603,21 @@
     display: flex;
     justify-content: space-between;
 }
+.SignUp_email > label, .SignUp_password > label, .SignUp_username > label, .SignUp_fullName > label{
+    color: rgb(46, 6, 6);
+    font-size: 20px;
+    font-weight: 550;
+}
+.SignUp_email > label, .SignUp_password > label, .SignUp_username > label, .SignUp_fullName > label,#SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
+    margin: 0 30px 0 30px;
+}
 #SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
     height: 40px;
     border-radius: 10px;
-    margin: 0 30px;
     width: 220px ;
     border: none;
     display: flex;
     padding: 0 0 0 15px;
-    margin: 0 30px 0 30px;
 }
 .SignUp_formBottom-Down{
     text-align: center;    
@@ -619,13 +625,14 @@
 .SignUp_forgot_sign_container{
     display: flex;
     justify-content: space-around;
-    margin-top: 45px;
+    margin-top: 20px;
 }
 .SignUp_forgot_sign_container > div > a{
     color: rgb(46, 6, 6);
 }
 .SignUp_forgot_sign_container > div > a:hover{
     color:  whitesmoke;
+    transition: 0.3s color ease-in-out;
 }
 .SignUp_button button{
     padding: 15px 80px;
@@ -643,12 +650,6 @@
     background-color: rgb(46, 6, 6);
     transition: 0.3s background-color ease-in-out;
 }
-
-@media only screen and (max-width: 1250px){
-    #SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
-        margin: 0 30px 0 30px;
-    }
-}
 @media only screen and (max-width: 1200px){
     .SignUp_text h2{
         font-size:58px;
@@ -657,7 +658,7 @@
         font-size: 23px;
     }
     .SignUp_formTop .SignUp_login > h1{
-        font-size: 48px;
+        font-size: 39px;
     }
     .SignUp_form{
         padding: 10px;
@@ -681,8 +682,10 @@
     .SignUp_formTop .SignUp_logo img{
         margin: 24px 0 0 0;
     }
-    #SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
+    .SignUp_email > label, .SignUp_password > label, .SignUp_username > label, .SignUp_fullName > label,#SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
         margin: 0 45px 0 18px;
+    }
+    #SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
         width: 194px ;
     }
     .SignUp_button button{
@@ -691,13 +694,13 @@
 }
 @media only screen and (max-width: 1100px){
     .SignUp_formTop .SignUp_logo img{
-        width: 33%;
+        width: 23%;
         margin: 15px 0 0 0;
     }
     .SignUp_formTop .SignUp_login > h1{
-        font-size: 46px;
+        font-size: 38px;
     }
-    #SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
+    .SignUp_email > label, .SignUp_fullName > label,#SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
         margin: 0 40px 0 25px;
         /* width: 190px ; */
     }
@@ -712,7 +715,10 @@
     .SignUp_formTop .SignUp_logo img{
         margin: 20px 0 0 0;
     }
-    #SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
+    .SignUp_email > label, .SignUp_password > label, .SignUp_username > label, .SignUp_fullName > label{
+        font-size: 18px;
+    }
+    .SignUp_email > label, .SignUp_password > label, .SignUp_username > label, .SignUp_fullName > label, #SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
         margin: 0 35px 0 13px;
         width: 190px ;
     }
@@ -732,9 +738,10 @@
     }
     .SignUp_formTop .SignUp_logo img{
         margin: 25px 0 0 0;
+        width: 26%;
     }
     .SignUp_formTop .SignUp_login > h1{
-        font-size: 44px;
+        font-size: 38px;
     }
     #SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
         margin: 0 28px 0 15px;
@@ -745,9 +752,6 @@
     .SignUp_form{
         height: 84vh;
     }
-    .SignUp_formTop .SignUp_logo img{
-        margin: 30px 0 0 0;
-    }
     .SignUp_text h2{
         font-size:55px;
     }
@@ -756,13 +760,6 @@
     }
     .SignUp_form{
         height: 84vh;
-    }
-    .SignUp_formTop .SignUp_logo img{
-        width: 32%;
-        margin: 30px 0 0 0;
-    }
-    .SignUp_formTop .SignUp_login > h1{
-        font-size: 44px;
     }
     .SignUp_button button{
         padding: 15px 68px;
@@ -795,6 +792,10 @@
     }
     .SignUp_formTop .SignUp_logo img{
         margin: 45px 0 0 0;
+        width: 26%;
+    }
+    .SignUp_email > label, .SignUp_password > label, .SignUp_username > label, .SignUp_fullName > label{
+        font-size: 17px;
     }
     #SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
         width: 170px ;
@@ -823,10 +824,17 @@
         display: flex;
         flex-direction: column;
     }
+    .SignUp_email > label, .SignUp_password > label, .SignUp_username > label, .SignUp_fullName > label{
+        font-size: 17px;
+        text-align: center;
+    }
+    .SignUp_email > label, .SignUp_password > label, .SignUp_username > label, .SignUp_fullName > label, #SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
+        margin: 0 0 0 40px;
+    }
     #SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
         width: 200px;
-        text-align: center;
-        margin: 0 0 0 40px;
+        text-align: left;
+        height: 35px;
     }
     .SignUp_full_email, .SignUp_user_pass{
         margin-bottom: -20px;
@@ -835,12 +843,15 @@
         padding: 14px 40px;
     }
     .SignUp_formTop .SignUp_logo img{
-        width: 40%;
-        margin: 10px 0 0 0;
+        width: 35%;
+        margin: 0;
     }
     .SignUp_formTop .SignUp_login > h1{
-        font-size: 35px;
-        padding: 0 0 30px 0;
+        font-size: 30px;
+        padding: 0 0 20px 0;
+    }
+    .SignUp_forgot_sign_container{
+        margin-top: 10px;
     }
 }
 @media only screen and (max-width: 700px){
@@ -854,12 +865,12 @@
         height: 85vh;
     }
     .SignUp_formTop .SignUp_logo img{
-        width: 30%;
+        width: 25%;
         padding: 0 0 25px 0;
     }
     .SignUp_formTop .SignUp_login > h1{
         font-family: myFont4;
-        font-size: 45px;
+        font-size: 40px;
         font-weight: 1000;
         color: rgb(46, 6, 6);
         padding: 0 0 40px 0;
@@ -869,9 +880,14 @@
         flex-direction: row;
         justify-content: space-between;
     }
+    .SignUp_email > label, .SignUp_password > label, .SignUp_username > label, .SignUp_fullName > label{
+        font-size: 20px;
+    }
+    .SignUp_email > label, .SignUp_password > label, .SignUp_username > label, .SignUp_fullName > label, #SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
+        margin: 0 30px;
+    }
     #SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
         height: 45px;
-        margin: 0 30px;
         width: 230px ;
         padding: 0 0 0 15px;
     }
@@ -889,7 +905,7 @@
 }
 @media only screen and (max-width: 675px){
     .SignUp_formTop .SignUp_logo img{
-        width: 30%;
+        width: 25%;
         padding: 5px 0 25px 0;
     }
     #SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
@@ -907,7 +923,7 @@
     .SignUp_form{
         height: 87vh;
     }
-    #SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
+    .SignUp_email > label, .SignUp_password > label, .SignUp_username > label, .SignUp_fullName > label,#SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
         width: 217px ;
         margin: 0 25px;
     }
@@ -921,7 +937,7 @@
         padding: 20px 0 25px 0;
     }
     .SignUp_formTop .SignUp_login > h1{
-        font-size: 43px;
+        font-size: 39px;
     }
     #SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
         width: 210px ;
@@ -932,9 +948,10 @@
     }
 }
 @media only screen and (max-width: 600px){
-    #SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
+    .SignUp_email > label, .SignUp_password > label, .SignUp_username > label, .SignUp_fullName > label,#SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
         width: 200px ;
         margin: 0 20px;
+        height: 40px;
     }
     .SignUp_button button{
         padding: 15px 66px;
@@ -955,9 +972,10 @@
 }
 @media only screen and (max-width: 550px){
     .SignUp_formTop .SignUp_logo img{
-        padding: 30px 0 25px 0;
+        padding: 25px 0 20px 0;
+        width: 27%;
     }
-    #SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
+    .SignUp_email > label, .SignUp_password > label, .SignUp_username > label, .SignUp_fullName > label, #SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
         width: 190px ;
         margin: 0 15px;
     }
@@ -969,8 +987,12 @@
 @media only screen and (max-width: 525px){
     .SignUp_formTop .SignUp_logo img{
         padding: 30px 0 25px 0;
+        width: 28%;
     }
-    #SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
+    .SignUp_formTop .SignUp_login > h1{
+        font-size: 38px;
+    }
+    .SignUp_email > label, .SignUp_password > label, .SignUp_username > label, .SignUp_fullName > label, #SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
         width: 183px ;
         margin: 0 13px;
     }
@@ -982,7 +1004,7 @@
     .SignUp_formTop .SignUp_logo img{
         padding: 35px 0 25px 0;
     }
-    #SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
+    .SignUp_email > label, .SignUp_password > label, .SignUp_username > label, .SignUp_fullName > label, #SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
         width: 176px ;
         margin: 0 10px;
     }
@@ -991,6 +1013,10 @@
     }
 }
 @media only screen and (max-width: 475px){
+    .SignUp_formTop .SignUp_logo img{
+        padding: 35px 0 25px 0;
+        width: 29%;
+    }
     #SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
         width: 165px ;
         margin: 0 10px;
@@ -1004,65 +1030,66 @@
         height: 90vh;
     }
     .SignUp_formTop .SignUp_logo img{
-        padding: 8px 0;
+        padding: 8px 0 0 0;
+        /* width: 20%; */
     }
     .SignUp_formBottom-Up{
         display: flex;
         flex-direction: column;
     }
-    #SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
+    .SignUp_email > label, .SignUp_password > label, .SignUp_username > label, .SignUp_fullName > label, #SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
         width: 250px;
-        text-align: center;
+        text-align: left;
         margin: 0 0 0 60px;
     }
     .SignUp_full_email, .SignUp_user_pass{
-        margin-bottom: -45px;
+        margin-bottom: -50px;
     }
     .SignUp_fullName, .SignUp_username{
-        margin-bottom: -5px;
+        margin-bottom: -10px;
     }
     .SignUp_button button{
         padding: 14px 40px;
     }
     .SignUp_formTop .SignUp_logo img{
-        width: 40%;
-        margin: 10px 0 0 0;
+        width: 30%;
+        margin: 10px 0 5px 0;
     }
     .SignUp_formTop .SignUp_login > h1{
-        font-size: 35px;
-        padding: 0 0 30px 0;
+        font-size: 30px;
+        padding: 0 0 20px 0;
     }
     .SignUp_button button{
-        padding: 15px 60px;
-        margin-top: 10px;
+        padding: 13px 60px;
+        margin-top: 5px;
     }
 }
 @media only screen and (max-width: 445px){
-    #SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
+    .SignUp_email > label, .SignUp_password > label, .SignUp_username > label, .SignUp_fullName > label, #SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
         margin: 0 0 0 55px;
     }
 }
 @media only screen and (max-width: 440px){
-    #SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
+    .SignUp_email > label, .SignUp_password > label, .SignUp_username > label, .SignUp_fullName > label, #SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
         margin: 0 0 0 50px;
     }
     .SignUp_button button{
-        padding: 15px 56px;
+        padding: 13px 56px;
         margin-top: 15px;
     }
 }
 @media only screen and (max-width: 435px){
-    #SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
+    .SignUp_email > label, .SignUp_password > label, .SignUp_username > label, .SignUp_fullName > label, #SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
         margin: 0 0 0 45px;
     }
 }
 @media only screen and (max-width: 430px){
-    #SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
+    .SignUp_email > label, .SignUp_password > label, .SignUp_username > label, .SignUp_fullName > label, #SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
         margin: 0 0 0 40px;
     }
     .SignUp_button button{
-        padding: 15px 52px;
-        margin-top: 20px;
+        padding: 13px 52px;
+        margin-top: 10px;
     }
 }
 @media only screen and (max-width: 425px){
@@ -1083,11 +1110,6 @@
         padding: 15px 48px;
         margin-top: 20px;
     }
-    .SignUp_forgot_sign_container{
-        display: flex;
-        flex-direction: column;
-        margin-top: 30px;
-    }
 }
 @media only screen and (max-width: 375px){
     #SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
@@ -1095,8 +1117,9 @@
     }
 }
 @media only screen and (max-width: 355px){
-    #SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
+    .SignUp_email > label, .SignUp_password > label, .SignUp_username > label, .SignUp_fullName > label, #SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
         width: 230px;
+        margin: 0 0 0 25px;
     }
 }
 @media only screen and (max-width: 345px){
@@ -1105,28 +1128,28 @@
         margin: 0 0 0 25px;
     }
     .SignUp_button button{
-        padding: 15px 46px;
+        padding: 13px 46px;
         margin-top: 20px;
     }
 }
 @media only screen and (max-width: 335px){
-    #SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
+    .SignUp_email > label, .SignUp_password > label, .SignUp_username > label, .SignUp_fullName > label, #SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
         width: 220px;
         margin: 0 0 0 20px;
     }
 }
 @media only screen and (max-width: 325px){
-    #SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
+    .SignUp_email > label, .SignUp_password > label, .SignUp_username > label, .SignUp_fullName > label, #SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
         width: 215px;
         margin: 0 0 0 15px;
     }
     .SignUp_button button{
-        padding: 15px 44px;
+        padding: 13px 44px;
         margin-top: 20px;
     }
 }
 @media only screen and (max-width: 315px){
-    #SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
+    .SignUp_email > label, .SignUp_password > label, .SignUp_username > label, .SignUp_fullName > label, #SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
         width: 210px;
         margin: 0 0 0 10px;
     }
@@ -1140,10 +1163,16 @@
 @media only screen and (max-width: 290px){
     #SignUp_email, #SignUp_password, #SignUp_username, #SignUp_fullname{
         width: 198px;
+        height: 35px;
     }
     .SignUp_button button{
-        padding: 15px 42px;
-        margin-top: 20px;
+        padding: 13px 42px;
+        margin-top: 10px;
+    }
+    .SignUp_forgot_sign_container{
+        display: flex;
+        flex-direction: column;
+        margin-top: 15px;
     }
 }
 @media only screen and (max-width: 280px){
@@ -1157,7 +1186,7 @@
         width: 188px;
     }
     .SignUp_button button{
-        padding: 15px 40px;
+        padding: 13px 40px;
         margin-top: 20px;
     }
 }
@@ -1171,7 +1200,7 @@
         width: 178px;
     }
     .SignUp_button button{
-        padding: 15px 38px;
+        padding: 13px 38px;
         margin-top: 20px;
     }
 }

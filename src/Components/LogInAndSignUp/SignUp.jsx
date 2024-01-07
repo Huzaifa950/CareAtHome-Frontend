@@ -256,18 +256,22 @@ function SignUp() {
                                         <div className='SignUp_formBottom-Up'>
                                             <div className='SignUp_full_email'>
                                                 <div className='SignUp_fullName'>
+                                                    <label htmlFor="fullname">Full Name</label>
                                                     <input type="fullname" id="SignUp_fullname" value={userDetail.fullName} onChange={handleUserDetailChange} name="fullName" placeholder='Enter Full Name' required />
                                                 </div>
                                                 <div className='SignUp_email'>
+                                                    <label htmlFor="email">Email</label>
                                                     <input type="email" id="SignUp_email" value={userDetail.email} onChange={handleUserDetailChange} name="email" placeholder='ex. myname@gmail.com' required />
                                                 </div>
                                             </div>
 
                                             <div className='SignUp_user_pass'>
                                                 <div className='SignUp_username'>
+                                                    <label htmlFor="SignUp_username">User Name</label>
                                                     <input type="username" id="SignUp_username" value={userDetail.username} onChange={e => handleUserDetailChange(e)} name="username" placeholder='Enter User Name' required />
                                                 </div>
                                                 <div className='SignUp_password'>
+                                                    <label htmlFor="password">Password</label>
                                                     <input type="password" id="SignUp_password" value={userDetail.password} onChange={handleUserDetailChange} name="password" placeholder='********' required />
                                                 </div>
                                             </div>

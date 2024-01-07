@@ -102,10 +102,12 @@ function LogIn({ updateLogInStatus }) {
                                     }}>
                                         <div className='LogIn_formBottom-Up'>
                                             <div className='LogIn_email'>
+                                                <label htmlFor="email">Username / Email</label>
                                                 <input className='LogIn_inputArea' type='text' id="LogIn_email" value={userDetail.usernameOrEmail} onChange={handleUserDetailChange} name="usernameOrEmail" placeholder='Enter Username / Email' required />
                                             </div>
 
                                             <div className='LogIn_password'>
+                                                <label htmlFor="password">Password</label>
                                                 <input className='LogIn_inputArea' type="password" id="LogIn_password" value={userDetail.password} onChange={handleUserDetailChange} name="password" placeholder='Enter Password' required />
                                             </div>
                                         </div>
