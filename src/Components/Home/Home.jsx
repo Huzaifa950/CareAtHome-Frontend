@@ -1,6 +1,6 @@
 import { ApiGetCall } from "../ApiCall/ApiCalls";
 import { showSuccessToast } from "../Toast/ToastifyToast";
-import { Header } from "../Header/header";
+import Header from "../Header/header";
 
 const Home = ({updateLogInStatus, userInfo})=>{
 
@@ -15,6 +15,7 @@ const Home = ({updateLogInStatus, userInfo})=>{
     }
     return(
         <div>
+            <Header />
             <h1>Home</h1>
             <button style={{padding: "20px"}} onClick={handleLogOut}>LogOut</button>
         </div>
