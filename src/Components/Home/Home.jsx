@@ -1,5 +1,6 @@
 import { ApiGetCall } from "../ApiCall/ApiCalls";
 import { showSuccessToast } from "../Toast/ToastifyToast";
+import { Header } from "../Header/header";
 
 const Home = ({updateLogInStatus, userInfo})=>{
 
