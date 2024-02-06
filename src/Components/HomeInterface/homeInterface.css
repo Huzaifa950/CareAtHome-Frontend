@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300&display=swap');
+
+@font-face {
+    font-family: myFont;
+    src: url(../../Assets/Fonts/AlexBrush/AlexBrush-Regular.ttf);
+
+    font-family: myFont2;
+    src: url(../../Assets/Fonts/LightersDemo/Lighters\ DEMO.otf);
+    
+    font-family: myFont3;
+    src: url(../../Assets/Fonts/arsegzone/NCLArsegzone-Demo.otf);
+    
+    font-family: myFont4;
+    src: url(../../Assets/Fonts/AvegasRoyale/AvegasRoyale-Bold.ttf);
+    
+    font-family: myFont5;
+    src: url(../../Assets/Fonts/balmecia/BalmeciaPersonalUse-Regular.otf);
+    
+    font-family: myFont6;
+    src: url(../../Assets/Fonts/celsiusFlower/Celsius\ Flower.otf);
+    
+    font-family: myFont7;
+    src: url(../../Assets/Fonts/leboumar/LeboumarPersonalUse-Regular.otf);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.homeInterface_main {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.homeInterface_container {
+    position: relative;
+    background-image: url('../../Assets/Images/img(43).jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+
+.homeInterface_transparentLayer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background: rgba(255, 255, 255, 0.747);  */
+    background: linear-gradient(90deg, rgba(28, 109, 110, 0.425), rgba(205, 105, 250, 50));
+}
+
+.homeInterface_contaierBox{
+    display: flex;
+    flex-direction: column;
+    max-width: 60%;
+    margin: 100px 150px;
+}
+.homeInterface_contaierBox > div{
+    margin: 20px 0 0 0;
+}
+.homeInterface_heading{
+    font-size: 45px;
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+    font-family: myFont6;
+}
+.homeInterface_body p{
+    font-size: 25px;
+    color: rgb(0, 0, 0);
+    margin: 0 0 0 50px;
+    font-weight: bold;
+    max-width: 90%;
+    font-family: myFont;
+}
+
+.homeInterface_bottomContainer{
+    display: flex;
+    
+}
+
+.homeInterface_careTaker button, .homeInterface_patient button{
+    padding: 12px 75px;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    text-align: right;
+    align-items: center;
+    background: linear-gradient(90deg, rgb(66, 66, 66), rgba(0, 0, 0, 0.867));
+    color: rgb(187, 187, 187);
+    font-weight: bold;
+    font-family: myFont5;
+}
+.homeInterface_careTaker button:hover, .homeInterface_patient button:hover{
+    background: linear-gradient(100deg, rgba(0, 0, 0, 0.867), rgb(66, 66, 66));
+    color: rgb(255, 255, 255);
+    transition: 0.3s color ease-in-out;
+}
+.homeInterface_careTaker button{
+    margin: 80px 30px 0 100px;
+}
+.homeInterface_patient button{
+    margin: 80px 0 0 30px;
+}
+

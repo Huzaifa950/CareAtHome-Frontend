@@ -1,0 +1,404 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300&display=swap');
+
+@font-face {
+    font-family: myFont;
+    src: url(../../Assets/Fonts/AlexBrush/AlexBrush-Regular.ttf);
+
+    font-family: myFont2;
+    src: url(../../Assets/Fonts/LightersDemo/Lighters\ DEMO.otf);
+    
+    font-family: myFont3;
+    src: url(../../Assets/Fonts/arsegzone/NCLArsegzone-Demo.otf);
+    
+    font-family: myFont5;
+    src: url(../../Assets/Fonts/balmecia/BalmeciaPersonalUse-Regular.otf);
+    
+    font-family: myFont6;
+    src: url(../../Assets/Fonts/celsiusFlower/Celsius\ Flower.otf);
+    
+    font-family: myFont7;
+    src: url(../../Assets/Fonts/leboumar/LeboumarPersonalUse-Regular.otf);
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    word-wrap: break-word;
+}
+
+.aboutUs_containerBox{
+    display: flex;
+    /* justify-content: space-between; */
+    background-color: rgb(42, 45, 94);
+    margin: 0 80px;
+    height: 100vh;
+}
+
+.aboutUs_containerBoxLeft{
+    display: flex;
+    flex-direction: column;
+    margin: 50px 0 50px 125px;
+    border-right: 2px solid rgb(156, 155, 155);
+    max-width: 30%;
+    height: 100vh;
+}
+
+.aboutUs_containerBoxLeft > div:last-child{
+    margin-top: 50px;
+}
+
+
+.aboutUs_heading p{
+    font-size: 23px;
+    font-weight: 700;
+    color: rgb(202, 202, 202);
+}
+
+.aboutUs_textHead{
+    font-size: 19px;
+    font-weight: bolder;
+    color: rgb(252, 252, 252);
+    max-width: 80%;
+    margin-top: 25px;
+}
+
+.aboutUs_textBody{
+    font-size: 22px;
+    color: rgb(202, 202, 202);
+    max-width: 90%;
+    font-family: MyFont2;
+}
+
+.aboutUs_containerBoxRight{
+    margin: 110px 0 50px 50px;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    height: 100vh;
+}
+
+.aboutUs_containerBoxRightUp > div{
+    margin-left: 30px;
+}
+
+.aboutUs_containerBoxRightUp, .aboutUs_containerBoxRightDown{
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-between;
+    max-width: 90%;
+    text-align: center;
+}
+
+.aboutUs_containerBoxRightUp > div:not(:first-child), .aboutUs_containerBoxRightDown > div:not(:first-child){
+    margin-left: 100px;
+}
+
+.aboutUs_containerBoxRightUpImage, .aboutUs_containerBoxRightDownImage{
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+}
+.aboutUs_containerBoxRightUpHead, .aboutUs_containerBoxRightDownHead{
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+.aboutUs_containerBoxRightUpText, .aboutUs_containerBoxRightDownText{
+    font-size: 15px;
+    color: rgb(202, 202, 202);
+}
+
+.aboutUs_containerBoxRightUpText{
+    margin: 0 0 60px 0;
+}
+
+.aboutUs_containerBoxRightUpFirst > div:not(:last-child), .aboutUs_containerBoxRightUpSecond > div:not(:last-child), .aboutUs_containerBoxRightUpThird > div:not(:last-child), .aboutUs_containerBoxRightDownFirst > div:not(:last-child), .aboutUs_containerBoxRightDownSecond > div:not(:last-child), .aboutUs_containerBoxRightDownThird > div:not(:last-child){
+    margin-bottom: 20px;
+}
+
+
+@media only screen and (max-width: 1300px){
+    .aboutUs_containerBoxLeft{
+        margin: 50px 0 50px 120px;
+    }
+    .aboutUs_containerBox{
+        margin: 0 70px;
+    }
+    .aboutUs_textBody{
+        font-size: 21px;
+        max-width: 90%;
+    }
+}
+
+@media only screen and (max-width: 1250px){
+    .aboutUs_containerBoxLeft{
+        margin: 50px 0 30px 125px;
+        max-width: 30%;
+        height: 100vh;
+    }
+    .aboutUs_containerBoxLeft{
+        margin: 50px 0 50px 110px;
+    }
+    .aboutUs_textBody{
+        font-size: 20px;
+        max-width: 90%;
+    }
+    /* .aboutUs_containerBoxRight{
+        margin: 100px 0 50px 50px;
+    } */
+    .aboutUs_containerBoxRightUpImage, .aboutUs_containerBoxRightDownImage{
+        font-size: 29px;
+    }
+}
+
+@media only screen and (max-width: 1200px){
+    /* .aboutUs_containerBoxRight{
+        margin: 90px 0 50px 50px;
+    } */
+    .aboutUs_containerBoxRightUpHead, .aboutUs_containerBoxRightDownHead{
+        font-size: 19px;
+    }
+    .aboutUs_containerBoxLeft{
+        margin: 50px 0 50px 100px;
+    }
+    .aboutUs_containerBoxRightUp > div:not(:first-child), .aboutUs_containerBoxRightDown > div:not(:first-child){
+        margin-left: 80px;
+    }
+}
+
+@media only screen and (max-width: 1150px){
+    .aboutUs_containerBox{
+        margin: 0 60px;
+    }
+    .aboutUs_containerBoxLeft{
+        margin: 50px 0 50px 90px;
+    }
+    /* .aboutUs_containerBoxRight{
+        margin: 70px 0 50px 50px;
+    } */
+    .aboutUs_containerBoxRightUpHead, .aboutUs_containerBoxRightDownHead{
+        font-size: 18px;
+    }
+    .aboutUs_containerBoxRightUpImage, .aboutUs_containerBoxRightDownImage{
+        font-size: 28px;
+    }
+}
+
+@media only screen and (max-width: 1100px){
+    .aboutUs_containerBoxLeft{
+        margin: 50px 0 50px 85px;
+    }
+    .aboutUs_containerBoxRightUp > div:not(:first-child), .aboutUs_containerBoxRightDown > div:not(:first-child){
+        margin-left: 70px;
+    }
+    .aboutUs_containerBoxRightUp > div{
+        margin-left: 25px;
+    }
+}
+
+@media only screen and (max-width: 1050px){
+    .aboutUs_containerBoxLeft{
+        margin: 50px 0 50px 80px;
+    }
+    .aboutUs_textHead{
+        font-size: 18px;
+        margin-top: 25px;
+    }
+    
+    .aboutUs_textBody{
+        font-size: 21px;
+    }
+
+    .aboutUs_containerBoxRightUp > div:not(:first-child), .aboutUs_containerBoxRightDown > div:not(:first-child){
+        margin-left: 60px;
+    }
+}
+
+@media only screen and (max-width: 1000px){
+    .aboutUs_containerBoxLeft{
+        margin: 50px 0 50px 75px;
+    }
+    .aboutUs_textHead{
+        font-size: 17px;
+        margin-top: 30px;
+    }
+    
+    .aboutUs_textBody{
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 950px){
+    .aboutUs_containerBoxLeft{
+        margin: 50px 0 50px 70px;
+    }
+    .aboutUs_containerBoxRightUpImage, .aboutUs_containerBoxRightDownImage{
+        font-size: 26px;
+    }
+    .aboutUs_containerBoxRightUp > div:not(:first-child), .aboutUs_containerBoxRightDown > div:not(:first-child){
+        margin-left: 50px;
+    }
+    .aboutUs_containerBox{
+        margin: 0 50px;
+    }
+}
+
+@media only screen and (max-width: 900px){
+    .aboutUs_containerBoxLeft{
+        margin: 50px 0 50px 65px;
+    }
+    .aboutUs_containerBoxRightUp > div:not(:first-child), .aboutUs_containerBoxRightDown > div:not(:first-child){
+        margin-left: 40px;
+    }
+}
+
+@media only screen and (max-width: 850px){
+    .aboutUs_containerBoxLeft{
+        max-width: 35%;
+    }
+    .aboutUs_containerBoxLeft{
+        margin: 50px 0 50px 40px;
+    }
+    .aboutUs_textHead{
+        font-size: 16px;
+        margin-top: 30px;
+    }
+    
+    .aboutUs_textBody{
+        font-size: 19px;
+    }
+    .aboutUs_containerBoxRightUp > div:not(:first-child), .aboutUs_containerBoxRightDown > div:not(:first-child){
+        margin-left: 20px;
+    }
+    .aboutUs_containerBox{
+        margin: 0 40px;
+    }
+}
+
+@media only screen and (max-width: 800px){
+    .aboutUs_textHead{
+        font-size: 15px;
+    }
+    
+    .aboutUs_textBody{
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width: 700px){
+    .aboutUs_containerBox{
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+        overflow-y: scroll;
+        max-height: max-content;
+    }
+
+    .aboutUs_textHead,.aboutUs_heading p{
+        text-align: center;
+        padding: 0;
+        margin: 0 0 20px 0;
+    }
+
+    .aboutUs_containerBoxLeft{
+        border: none;
+        max-width: 100%;
+        align-items: center;
+        text-align: center;
+        margin: 25px 0 0 0;
+        height: 70vh;
+    }
+
+    .aboutUs_containerBoxLeft > div:last-child{
+        margin-top: 0;
+    }
+
+    .aboutUs_containerBoxRight{
+        margin: 0;
+        align-items: center;
+        text-align: center;
+    }
+
+    .aboutUs_containerBoxRightUp > div:not(:first-child), .aboutUs_containerBoxRightDown > div:not(:first-child){
+        margin-left: 20px;
+    }
+    .aboutUs_containerBoxRightDown{
+        margin: 0;
+        padding: 0;
+    }
+    .aboutUs_containerBoxRightUp > div{
+        margin-left: 40px;
+    }
+    .aboutUs_containerBoxRightUpText{
+        margin: 0 0 50px 0;
+    }
+}
+
+@media only screen and (max-width: 650px){
+    .aboutUs_containerBoxRightUpFirst > div:not(:last-child), .aboutUs_containerBoxRightUpSecond > div:not(:last-child), .aboutUs_containerBoxRightUpThird > div:not(:last-child), .aboutUs_containerBoxRightDownFirst > div:not(:last-child), .aboutUs_containerBoxRightDownSecond > div:not(:last-child), .aboutUs_containerBoxRightDownThird > div:not(:last-child){
+        margin-bottom: 10px;
+    }
+    .aboutUs_containerBoxRightUpText{
+        margin: 0 0 45px 0;
+    }
+    .aboutUs_textHead{
+        font-size: 14px;
+    }
+    .aboutUs_containerBoxRightUpImage, .aboutUs_containerBoxRightDownImage{
+        font-size: 25px;
+    }
+}
+
+@media only screen and (max-width: 550px){
+    .aboutUs_textHead{
+        font-size: 13px;
+    }
+    .aboutUs_textBody{
+        font-size: 17px;
+    }
+    .aboutUs_containerBoxRightUpImage, .aboutUs_containerBoxRightDownImage{
+        font-size: 24px;
+    }
+    .aboutUs_containerBoxRightUpHead, .aboutUs_containerBoxRightDownHead{
+        font-size: 17px;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    .aboutUs_containerBoxRightUpFirst > div:not(:last-child), .aboutUs_containerBoxRightUpSecond > div:not(:last-child), .aboutUs_containerBoxRightUpThird > div:not(:last-child), .aboutUs_containerBoxRightDownFirst > div:not(:last-child), .aboutUs_containerBoxRightDownSecond > div:not(:last-child), .aboutUs_containerBoxRightDownThird > div:not(:last-child){
+        margin-bottom: 5px;
+    }
+    .aboutUs_containerBoxRightUpText{
+        margin: 0 0 40px 0;
+    }
+    .aboutUs_textHead{
+        font-size: 12px;
+    }
+    .aboutUs_containerBoxRightUpImage, .aboutUs_containerBoxRightDownImage{
+        font-size: 23px;
+    }
+    .aboutUs_containerBoxRightUp > div{
+        margin-left: 35px;
+    }
+}
+
+@media only screen and (max-width: 450px){
+    .aboutUs_containerBoxRightUp > div{
+        margin-left: 30px;
+    }
+    .aboutUs_containerBoxRightUpText{
+        margin: 0 0 20px 0;
+    }
+    .aboutUs_containerBoxRightUpHead, .aboutUs_containerBoxRightDownHead{
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 400px){
+    .aboutUs_textHead{
+        font-size: 11px;
+    }
+    .aboutUs_textBody{
+        font-size: 16px;
+    }
+}

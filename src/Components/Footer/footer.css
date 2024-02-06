@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300&display=swap');
+
+@font-face {
+    /* font-family: myFont;
+    src: url(../../Assets/Fonts/AlexBrush/AlexBrush-Regular.ttf); */
+
+    /* font-family: myFont2;
+    src: url(../../Assets/Fonts/LightersDemo/Lighters\ DEMO.otf); */
+    
+    /* font-family: myFont3;
+    src: url(../../Assets/Fonts/arsegzone/NCLArsegzone-Demo.otf); */
+    
+    /* font-family: myFont4;
+    src: url(../../Assets/Fonts/AvegasRoyale/AvegasRoyale-Bold.ttf); */
+    
+    font-family: myFont5;
+    src: url(../../Assets/Fonts/balmecia/BalmeciaPersonalUse-Regular.otf);
+    
+    font-family: myFont6;
+    src: url(../../Assets/Fonts/celsiusFlower/Celsius\ Flower.otf);
+/*     
+    font-family: myFont7;
+    src: url(../../Assets/Fonts/leboumar/LeboumarPersonalUse-Regular.otf); */
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: myFont5;
+}
+
+.footerMain{
+    bottom: 0;
+    width: 100%;
+}
+
+.footerContainer{
+    /* background-color: aquamarine; */
+    background: linear-gradient(500deg, rgb(16, 77, 78), rgba(255, 195, 250, 10));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(37, 7, 7, 0.568);
+    align-items: center;
+}
+.footerBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footerBox > div:not(:last-child){
+    margin-bottom: 20px;
+}
+
+.footerBox > :first-child{
+    margin-top: 30px;
+}
+
+.footerBox > :last-child{
+    margin-bottom: 30px;
+}
+
+.footerLogo{
+    max-width: 100%;
+    align-items: center;
+}
+.footerLogo img{
+    width: 150px;
+    /* margin: 30px 0; */
+}
+
+.footer_socialMediaIcons a{
+    color: rgb(8, 11, 48);
+    margin: 25px;
+    font-size: 30px;
+    border-radius: 50%;
+}
+.footer_socialMediaIcons a:hover{
+    color: rgb(1, 29, 151);
+    transition: 0.3s color ease-in-out;
+}
+
+.footer_linksBody a{
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 800;
+    margin: 0 40px;
+    color: #000000;
+    text-decoration: underline;
+    justify-content: space-between;
+}
+.footer_linksBody a:hover{
+    color:rgb(255, 255, 255);
+    transition: 0.3s color ease-in-out;
+}
+
+.footerBottom_horizontalLine{
+    border-top: 1px solid #000000; /* Adjust the color and thickness as needed */
+    margin: 0; /* Optional: Adjust margin to control spacing around the line */
+}
+
+.footerBottom{
+    align-items: center;
+}
+
+.footerBottom_rightsReserved{
+    text-align: center;
+    font-weight: bold;
+    margin:5px 0;
+}
+
+
+
+
+  

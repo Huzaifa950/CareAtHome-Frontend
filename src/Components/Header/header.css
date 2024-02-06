@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300&display=swap');
+
+@font-face {
+    /* font-family: myFont;
+    src: url(../../Assets/Fonts/AlexBrush/AlexBrush-Regular.ttf); */
+
+    /* font-family: myFont2;
+    src: url(../../Assets/Fonts/LightersDemo/Lighters\ DEMO.otf); */
+    
+    /* font-family: myFont3;
+    src: url(../../Assets/Fonts/arsegzone/NCLArsegzone-Demo.otf); */
+    
+    font-family: myFont4;
+    src: url(../../Assets/Fonts/AvegasRoyale/AvegasRoyale-Bold.ttf);
+    
+    /* font-family: myFont5;
+    src: url(../../Assets/Fonts/balmecia/BalmeciaPersonalUse-Regular.otf); */
+    
+    /* font-family: myFont6;
+    src: url(../../Assets/Fonts/celsiusFlower/Celsius\ Flower.otf); */
+/*     
+    font-family: myFont7;
+    src: url(../../Assets/Fonts/leboumar/LeboumarPersonalUse-Regular.otf); */
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.headerBox{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* background-color: rgba(60, 98, 155, 0.986); */
+    background: linear-gradient(90deg, rgb(28, 108, 110), rgba(255, 195, 250, 50));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    align-items: center;
+}
+
+.headerLeft, .headerMiddle{
+    max-width: 100%;
+}
+
+.header_logo img{
+    width: 25%;
+    margin-left: 20px;
+}
+
+.headerMiddle a{
+    text-decoration: none;
+    font-size: 16px;
+    color:black;
+    margin: 0 30px;
+    font-weight: 700;
+}
+
+.headerMiddle a:hover{
+    color: rgb(255, 255, 255);
+    border-bottom: 1px solid rgb(9, 58, 66);
+    transition: 0.3s color ease-in-out, 0.3s border ease-in-out;
+}
+
+.headerRight{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid rgb(0, 0, 0);
+    padding: 3px 10px;
+    border-radius: 10px;
+    margin: 0 20px;
+    max-width: 100%;
+}
+
+.joinAs p{
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.joinAs p, .careTaker button{
+    margin-right: 25px;
+}
+
+.careTaker button, .patient button{
+    padding: 8px 25px;
+    border-radius: 7px;
+    border: none;
+    font-size: 12px;
+    font-weight: 700;
+    color: rgb(255, 255, 255);
+    /* background-color: rgba(131, 33, 26, 0.904); */
+    background: linear-gradient(50deg, rgb(157, 36, 187), rgb(29, 123, 177));
+}
+
+.careTaker button:hover, .patient button:hover{
+    /* background-color: rgb(70, 13, 13); */
+    background: linear-gradient(50deg, rgb(11, 86, 129), rgb(105, 10, 129));
+    transition: 0.3s background-color ease-in-out;
+}
+
+.headerProfile{
+    display: flex;
+    justify-content: center;
+    /* flex-direction: column; */
+    margin: 0 30px 0 0;
+    align-items: center;
+}
+
+.userProfile img{
+    width: 35px;
+    margin: 0 10px 0 0;
+    text-align: center;
+    align-items: center;
+}
+
+.headerUserName p{
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+}
+
