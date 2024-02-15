@@ -38,7 +38,7 @@
 }
 
 .LogIn_interface-inner{
-    padding: 5%;
+    padding: 4%;
     display: flex;
     justify-content: space-around;
 }
@@ -77,7 +77,7 @@
     border: 1px solid rgba(255, 255, 255, 0.18);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     /* background-color: rgba(204, 198, 198, 0.774); */
-    height: 60vh;
+    height: 85vh;
     padding: 2% 8% 10% 8%;
     border-radius: 15px;
     max-width: 50%;
@@ -136,7 +136,8 @@
     padding: 0 0 0 20px;
 }
 .LogIn_formBottom-Down{
-    text-align: center;    
+    text-align: center;  
+    align-items: center;  
 }
 .LogIn_forgot_sign_container{
     display: flex;
@@ -190,14 +191,14 @@
 }
 @media only screen and (max-width: 1160px){
     .LogIn_form{
-        /* height: 60vh; */
-        /* padding: 2% 8% 13% 8%; */
+        margin-top: 20px;
     }
 }
 @media only screen and (max-width: 1120px){
     .LogIn_form{
         /* height: 60vh; */
         padding: 4% 8% 13% 7%;
+        margin-top: 25px;
     }
     .LogIn_button button{
         padding: 10px 60px;
@@ -208,24 +209,25 @@
 }
 @media only screen and (max-width: 1070px){
     .LogIn_form{
-        /* padding: 8% 8% 10% 8%; */
+        margin-top: 26px;
     }
     .LogIn_formTop .login > h1{
         font-size: 46px;
     }
 }
 @media only screen and (max-width: 1030px){
-    #LogIn_email, #LogIn_password{
-        width: 215px;
-    }
     .LogIn_form{
-        height: 62vh;
+        margin-top: 28px;
     }
     .LogIn_formTop .LogIn_login > h1{
         font-size: 44px;
     }
 }
 @media only screen and (max-width: 950px){
+
+    .LogIn_form{
+        margin-top: 30px;
+    }
     .LogIn_text h2{
         font-size:58px;
         padding: 6% 15%;
@@ -243,9 +245,6 @@
         display: flex;
         flex-direction: column;
         padding: 35px 0 0 0;
-    }
-    .LogIn_form{
-        height: 64vh;
     }
     .LogIn_formTop .logo img{
         width: 45%;
@@ -289,10 +288,6 @@
     .LogIn_text p{
         font-size: 21px;
     }
-    .LogIn_form{
-        height: 65vh;
-        padding: 5% 8% 13% 5%;
-    }
     .LogIn_formTop {
         margin-left: 13px;
     }
@@ -313,9 +308,6 @@
     }
     .LogIn_text p{
         font-size: 20px;
-    }
-    .LogIn_form{
-        height: 67vh;
     }
     .LogIn_button button{
         padding: 10px 55px;
@@ -338,7 +330,6 @@
 }
 @media only screen and (max-width: 800px){
     .LogIn_form{
-        height: 69vh;
         padding: 3% 8% 13% 4%;
     }
     .LogIn_form_container{
@@ -376,7 +367,7 @@
         display: none;
     }
     .LogIn_form{
-        height: 72vh;
+        /* height: 72vh; */
         max-width: 100%;
         padding: 2% 9% 10% 12%;
     }
@@ -398,15 +389,12 @@
         margin: 0 0 0 5px;
     }
 }
-@media only screen and (max-width: 675px){
-    .LogIn_form{
-        height: 74vh;
-    }
-}
+
 @media only screen and (max-width: 650px)
 {
     .LogIn_form{
-        height: 76vh;
+        height: 90vh;
+        margin-top: 10px;
     }
     .LogIn_form_container{
         padding: 19px 0 0 0;
@@ -423,10 +411,6 @@
     }
 }
 @media only screen and (max-width: 620px){
-    .LogIn_form{
-        height: 78vh;
-        padding: 2% 9% 10% 9%;
-    }
     .LogIn_form_container{
         padding: 20px 0 0 0;
     }
@@ -437,23 +421,9 @@
     .LogIn_formTop .LogIn_login > h1{
         font-size: 40px;
     }
-    #LogIn_email, #LogIn_password{
-        width: 238px;
-    }
-}
-@media only screen and (max-width: 600px)
-{
-    .LogIn_form{
-        height: 80vh;
-        padding: 2% 10% 10% 10%;
-    }
 }
 @media only screen and (max-width: 580px)
 {
-    .LogIn_form{
-        height: 82vh;
-        padding: 2% 11% 10% 11%;
-    }
     .LogIn_form_container{
         padding: 25px 0 0 0;
     }
@@ -466,9 +436,6 @@
 }
 @media only screen and (max-width: 560px)
 {
-    .LogIn_form{
-        padding: 5% 12% 8% 12%;
-    }
     .LogIn_formTop .LogIn_login > h1{
         font-size: 44px;
     }
@@ -477,7 +444,7 @@
 {
     .LogIn_form{
         padding: 5% 13% 8% 13%;
-        height: 83vh;
+        /* height: 83vh; */
     }
     .LogIn_formTop{
         font-size: 43px;
@@ -486,10 +453,6 @@
 }
 @media only screen and (max-width: 520px)
 {
-    .LogIn_form{
-        height: 84vh;
-        padding: 5% 14% 8% 16%;
-    }
     .LogIn_formTop .LogIn_login > h1{
         font-size: 40px;
     }
@@ -507,9 +470,6 @@
     }
 }
 @media only screen and (max-width: 460px){
-    #LogIn_email, #LogIn_password{
-        width: 233px;
-    }
     .LogIn_button button{
         padding: 10px 50px;
         margin: 0 0 0 14px;
@@ -528,23 +488,20 @@
     }
 }
 @media only screen and (max-width: 420px){
-    .LogIn_form{
-        height: 85vh;
-        padding: 0 16% 10% 11%;
-    }
     .LogIn_formTop .LogIn_logo img{
         margin: 0 22px;
     }
     #LogIn_email, #LogIn_password{
-        width: 215px;
+        width: 240px;
     }
     .LogIn_button button{
         padding: 10px 38px;
+        font-size: 12px;
     }
 }
 @media only screen and (max-width: 400px){
     #LogIn_email, #LogIn_password{
-        width: 208px;
+        width: 235px;
     }
 }
 @media only screen and (max-width: 380px){
@@ -555,14 +512,10 @@
         margin: 0 23px;
     }
     #LogIn_email, #LogIn_password{
-        width: 190px;
+        width: 220px;
     }
 }
 @media only screen and (max-width: 360px){
-    .LogIn_form{
-        height: 86vh;
-        padding: 2% 16% 12% 8%;
-    }
     .LogIn_email > label, .LogIn_password > label{
         font-size: 17px;
     }
@@ -581,10 +534,7 @@
     }
 }
 @media only screen and (max-width: 340px){
-    .LogIn_form{
-        height: 86vh;
-        padding: 2% 16% 12% 8%;
-    }
+
     .LogIn_formTop .LogIn_login > h1{
         font-size: 38px;
     }
@@ -598,8 +548,7 @@
 }
 @media only screen and (max-width: 320px){
     .LogIn_form{
-        height: 87vh;
-        padding: 2% 16% 8% 4%;
+        height: 92vh;
     }
     .LogIn_email > label, .LogIn_password > label{
         font-size: 16px;
@@ -609,16 +558,8 @@
     }
 }
 @media only screen and (max-width: 300px){
-    .LogIn_form{
-        height: 88vh;
-        padding: 5% 16% 8% 6%;
-    }
     .LogIn_email > label, .LogIn_password > label{
         font-size: 15px;
-    }
-    #LogIn_email, #LogIn_password{
-        width: 150px;
-        /* margin: 0 0 0 11%; */
     }
 }
 @media only screen and (max-width: 290px){

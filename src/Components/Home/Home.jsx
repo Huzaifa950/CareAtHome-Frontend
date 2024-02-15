@@ -1,10 +1,10 @@
 import { ApiGetCall } from "../ApiCall/ApiCalls";
 import { showSuccessToast } from "../Toast/ToastifyToast";
 // import Header from "../Header/header";
-// import HomeInterface from "../HomeInterface/homeInterface";
+import HomeInterface from "../HomeInterface/homeInterface";
 // import AboutUs from "../AboutUs/aboutUs";
-// import FAQs from "../FAQs/FAQs";npm 
-import Footer from "../Footer/footer";
+// import FAQs from "../FAQs/FAQs";
+// import Footer from "../Footer/footer";
 
 const Home = ({updateLogInStatus, userInfo})=>{
 
@@ -25,13 +25,13 @@ const Home = ({updateLogInStatus, userInfo})=>{
     //     </div>
     // )
 
-    // return (
-    //     <div>
-    //         <HomeInterface />
-    //         {/* <h1>Home</h1> */}
-    //         <button style={{padding: "20px"}} onClick={handleLogOut}>LogOut</button>
-    //     </div>
-    // )
+    return (
+        <div>
+            <HomeInterface />
+            {/* <h1>Home</h1> */}
+            <button style={{padding: "20px"}} onClick={handleLogOut}>LogOut</button>
+        </div>
+    )
 
     // return(
     //     <div>
@@ -50,13 +50,13 @@ const Home = ({updateLogInStatus, userInfo})=>{
     // )
 
 
-    return(
-        <div>
-            <Footer />
-            {/* <h1>Footer</h1> */}
-            <button style={{padding: "20px"}} onClick={handleLogOut}>LogOut</button>
-        </div>
-    )
+    // return(
+    //     <div>
+    //         <Footer />
+    //         {/* <h1>Footer</h1> */}
+    //         <button style={{padding: "20px"}} onClick={handleLogOut}>LogOut</button>
+    //     </div>
+    // )
 }
 
 export default Home

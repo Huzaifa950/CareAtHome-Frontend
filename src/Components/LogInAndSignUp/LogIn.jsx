@@ -113,8 +113,6 @@ function LogIn({ updateLogInStatus }) {
                                         </div>
 
                                         <div className='LogIn_formBottom-Down'>
-
-
                                             <div className='LogIn_button'>
                                                 <button className='LogIn_logInButton' type="submit">LogIn</button>
                                             </div>
