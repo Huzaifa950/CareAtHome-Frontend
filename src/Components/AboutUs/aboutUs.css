@@ -29,7 +29,8 @@
 .aboutUs_containerBox{
     display: flex;
     /* justify-content: space-between; */
-    background-color: rgb(42, 45, 94);
+    background: linear-gradient(90deg, rgb(15, 84, 85), rgb(71, 49, 196));
+    /* background-color: rgb(42, 45, 94); */
     margin: 0 80px;
     height: 100vh;
 }

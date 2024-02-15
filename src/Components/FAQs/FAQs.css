@@ -1,0 +1,306 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300&display=swap');
+
+@font-face {
+    font-family: myFont;
+    src: url(../../Assets/Fonts/AlexBrush/AlexBrush-Regular.ttf);
+
+    font-family: myFont2;
+    src: url(../../Assets/Fonts/LightersDemo/Lighters\ DEMO.otf);
+    
+    font-family: myFont3;
+    src: url(../../Assets/Fonts/arsegzone/NCLArsegzone-Demo.otf);
+    
+    font-family: myFont5;
+    src: url(../../Assets/Fonts/balmecia/BalmeciaPersonalUse-Regular.otf);
+    
+    font-family: myFont6;
+    src: url(../../Assets/Fonts/celsiusFlower/Celsius\ Flower.otf);
+    
+    font-family: myFont7;
+    src: url(../../Assets/Fonts/leboumar/LeboumarPersonalUse-Regular.otf);
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    word-wrap: break-word;
+}
+.FAQs_container{
+    background: linear-gradient(90deg, rgb(15, 84, 85), rgba(40, 21, 151, 0.836));
+    height: 100vh;
+}
+
+.FAQs_containerBox{
+    display: flex;
+    justify-content: space-between;
+    margin: 4%;
+}
+
+.FAQs_containerBoxLeftSide img{
+    width: 30%;
+    border-radius: 50%;
+}
+
+.FAQs_containerBoxLeftSide{
+    position: fixed;
+    background-image: url('../../Assets/Images/img1 (7).jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 35%;
+    height: 85%;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.FAQs_containerBoxLeftSideTransparent{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(12, 44, 77, 0.5), rgba(90, 19, 112, 0.548));
+}
+
+.FAQs_containerBoxRightSide{
+    /* margin-left: 50%; */
+    margin-left: 550px;
+}
+
+.FAQs_containerBoxRightSideHead p{
+    font-size: 40px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    margin-bottom: 10px;
+}
+
+.FAQs_containerBoxRightSideBody{
+    color: rgb(202, 202, 202);
+    max-width: 100%;
+    margin-right: 10px;
+}
+
+.FAQs_containerBoxRightSideBodyQuestion{
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: bold;
+    /* border-bottom: 2px solid rgb(202, 202, 202); */
+    margin-top: 30px;
+}
+
+.FAQs_Question{
+    margin-right: 50px;
+}
+
+.FAQs_Icon{
+    margin-right: 20px;
+    width: 25px;
+}
+
+.FAQs_Icon:hover{
+    color: grey;
+    cursor: pointer;
+}
+
+.FAQs_containerBoxRightSideBodyAnswer{
+    margin: 20px 0 20px 10px;
+    /* display: none; */
+}
+
+@media only screen and (max-width: 1300px){
+    .FAQs_containerBoxRightSide{
+        margin-left: 530px;
+    }
+    .FAQs_containerBoxLeftSide{
+        width: 36%;
+    }
+}
+@media only screen and (max-width: 1250px){
+    .FAQs_containerBoxRightSide{
+        margin-left: 520px;
+    }
+    .FAQs_containerBoxLeftSide{
+        width: 37%;
+    }
+}
+@media only screen and (max-width: 1200px){
+    .FAQs_containerBoxRightSide{
+        margin-left: 515px;
+    }
+    .FAQs_containerBoxLeftSide{
+        width: 38%;
+    }
+}
+
+@media only screen and (max-width: 1150px){
+    .FAQs_containerBoxRightSide{
+        margin-left: 500px;
+    }
+    .FAQs_containerBoxLeftSide{
+        width: 39%;
+    }
+}
+
+@media only screen and (max-width: 1100px){
+    .FAQs_containerBoxRightSide{
+        margin-left: 485px;
+    }
+    .FAQs_containerBoxLeftSide{
+        width: 38%;
+    }
+    .FAQs_Question{
+        margin-right: 40px;
+    }
+    .FAQs_Icon{
+        margin-right: 18px;
+    }
+    .FAQs_containerBoxLeftSide{
+        width: 40%;
+    }
+}
+
+@media only screen and (max-width: 1050px){
+    .FAQs_containerBoxRightSide{
+        margin-left: 465px;
+    }
+    .FAQs_containerBoxLeftSide{
+        width: 39%;
+    }
+    .FAQs_Question{
+        margin-right: 50px;
+    }
+    .FAQs_containerBoxLeftSide{
+        width: 41%;
+    }
+}
+
+@media only screen and (max-width: 1000px){
+    .FAQs_containerBoxRightSide{
+        margin-left: 450px;
+    }
+    .FAQs_containerBoxLeftSide{
+        width: 39%;
+    }
+    .FAQs_Question{
+        margin-right: 50px;
+    }
+    .FAQs_containerBoxLeftSide{
+        width: 42%;
+    }
+}
+
+@media only screen and (max-width: 950px){
+    .FAQs_containerBoxRightSide{
+        margin-left: 440px;
+    }
+    .FAQs_Question{
+        margin-right: 40px;
+    }
+    .FAQs_containerBoxLeftSide{
+        width: 43%;
+    }
+}
+
+@media only screen and (max-width: 900px){
+    .FAQs_containerBoxRightSide{
+        margin-left: 425px;
+    }
+    .FAQs_Question{
+        margin-right: 30px;
+    }
+    .FAQs_Icon{
+        margin-right: 15px;
+        width: 25px;
+    }
+    .FAQs_containerBoxLeftSide{
+        width: 44%;
+    }
+}
+
+@media only screen and (max-width: 850px){
+    .FAQs_containerBoxRightSide{
+        margin-left: 410px;
+    }
+    .FAQs_Question{
+        margin-right: 20px;
+    }
+    .FAQs_containerBoxLeftSide{
+        width: 45%;
+    }
+}
+
+@media only screen and (max-width: 800px){
+    .FAQs_containerBoxLeftSide{
+        display: none;
+    }
+    .FAQs_containerBoxRightSide{
+        margin: 30px;
+    }
+    .FAQs_containerBoxRightSideBodyQuestion{
+        margin-top: 0;
+    }
+    .FAQs_containerBoxRightSideBodyQuestion > div{
+        margin-top: 30px;
+    }
+}
+
+@media only screen and (max-width: 760px){
+    .FAQs_containerBoxRightSideBodyQuestion > div{
+        margin-top: 25px;
+    }
+}
+
+@media only screen and (max-width: 710px){
+    .FAQs_containerBoxRightSideBodyQuestion > div{
+        margin-top: 20px;
+    }
+}
+
+@media only screen and (max-width: 700px){
+    .FAQs_containerBoxRightSideBodyQuestion > div{
+        margin-top: 15px;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .FAQs_containerBoxRightSideBodyQuestion > div{
+        margin-top: 10px;
+    }
+}
+
+@media only screen and (max-width: 550px){
+    .FAQs_containerBoxRightSideHead p{
+        font-size: 30px;
+    }
+    .FAQs_containerBoxRightSideBodyQuestion{
+        font-size: 18px;
+    }
+    .FAQs_containerBox{
+        margin: 2%;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    .FAQs_containerBoxRightSideHead p{
+        font-size: 28px;
+    }
+    .FAQs_containerBoxRightSideBodyQuestion{
+        font-size: 16px;
+    }
+    .FAQs_containerBox{
+        margin: 8px;
+    }
+}
+
+@media only screen and (max-width: 450px){
+    .FAQs_containerBoxRightSideHead p{
+        font-size: 26px;
+    }
+    .FAQs_containerBoxRightSideBodyQuestion{
+        font-size: 15px;
+    }
+    .FAQs_containerBox{
+        margin: 5px;
+    }
+}
