@@ -23,11 +23,11 @@
     src: url(../../Assets/Fonts/leboumar/LeboumarPersonalUse-Regular.otf); */
 }
 
-*{
+/* *{
     margin: 0;
     padding: 0;
     overflow: hidden;
-}
+} */
 .LogIn_background {
     background-image: url('../../Assets/Images/img1\ \(13\).jpg');
     background-size: cover;

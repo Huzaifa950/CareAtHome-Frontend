@@ -28,7 +28,7 @@ const AllRoutes = () => {
                     updateUserDetails(result.data);
                     updateLogInStatus(true);
                 }
-                else{
+                else {
                     updateLogInStatus(false);
                 }
             } catch (error) {
@@ -39,6 +39,8 @@ const AllRoutes = () => {
         }
         getUserInfo();
     }, [isLoggedIn]);
+
+    console.log("Location: ", location.pathname)
 
     if (!isLoggedIn && location.pathname !== "/login" && location.pathname !== "/signup" && location.pathname !== "/forgotpassword")
         return <Navigate to="/login" />
@@ -51,7 +53,7 @@ const AllRoutes = () => {
                     {!isLoggedIn && <Route path="/login" element={<LogIn updateLogInStatus={updateLogInStatus} />} />}
                     {!isLoggedIn && <Route path="/signup" element={<SignUp />} />}
                     {!isLoggedIn && <Route path="/forgotpassword" element={<ForgotPassword />} />}
-                    <Route path="/" element={<Home updateLogInStatus={updateLogInStatus} userInfo={userDetail} />} />
+                    <Route path="*" element={<Home updateLogInStatus={updateLogInStatus} userInfo={userDetail} />} />
                 </Routes>
             </>
         )

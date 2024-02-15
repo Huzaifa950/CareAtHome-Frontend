@@ -1,62 +1,40 @@
 import { ApiGetCall } from "../ApiCall/ApiCalls";
 import { showSuccessToast } from "../Toast/ToastifyToast";
-// import Header from "../Header/header";
+import Header from "../Header/header";
 import HomeInterface from "../HomeInterface/homeInterface";
-// import AboutUs from "../AboutUs/aboutUs";
-// import FAQs from "../FAQs/FAQs";
-// import Footer from "../Footer/footer";
+import AboutUs from "../AboutUs/aboutUs";
+import FAQs from "../FAQs/FAQs";
+import Footer from "../Footer/footer";
+import { Route, Routes } from "react-router-dom";
 
-const Home = ({updateLogInStatus, userInfo})=>{
+const Home = ({ updateLogInStatus, userInfo }) => {
 
-    const handleLogOut = async ()=>{
-        try{
+    const handleLogOut = async () => {
+        try {
             await ApiGetCall('/logout');
             showSuccessToast("Logged Out Successfully")
             updateLogInStatus(false);
-        }catch(error){
+        } catch (error) {
             console.error("error /logout", error);
         }
-    } 
-    // return(
-    //     <div>
-    //         <Header />
-    //         {/* <h1>Header</h1> */}
-    //         <button style={{padding: "20px"}} onClick={handleLogOut}>LogOut</button>
-    //     </div>
-    // )
+    }
 
     return (
         <div>
-            <HomeInterface />
-            {/* <h1>Home</h1> */}
-            <button style={{padding: "20px"}} onClick={handleLogOut}>LogOut</button>
+            <Header />
+
+            <Routes>
+                <Route path="/" element={<HomeInterface />} />
+                <Route path="/aboutus" element={<AboutUs />} />
+                <Route path="/faqs" element={<FAQs />} />
+            </Routes>
+
+            {/* <button style={{padding: "20px"}} onClick={handleLogOut}>LogOut</button> */}
+
+            <Footer />
         </div>
     )
 
-    // return(
-    //     <div>
-    //         <AboutUs />
-    //         {/* <h1>About Us</h1> */}
-    //         <button style={{padding: "20px"}} onClick={handleLogOut}>LogOut</button>
-    //     </div>
-    // )
-    
-    // return(
-    //     <div>
-    //         <FAQs />
-    //         {/* <h1>FAQs</h1> */}
-    //         <button style={{padding: "20px"}} onClick={handleLogOut}>LogOut</button>
-    //     </div>
-    // )
-
-
-    // return(
-    //     <div>
-    //         <Footer />
-    //         {/* <h1>Footer</h1> */}
-    //         <button style={{padding: "20px"}} onClick={handleLogOut}>LogOut</button>
-    //     </div>
-    // )
 }
 
 export default Home

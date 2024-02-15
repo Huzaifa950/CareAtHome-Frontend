@@ -1,9 +1,10 @@
 
+import { Link } from "react-router-dom";
 import logo from "../../Assets/Images/Logo_wh_bg.png"
 import userLogo from "../../Assets/Images/userIcon.png"
 import './header.css'
 
-function Header(){
+function Header() {
     return (
         <div className="headerMain">
             <div className="headerContainer">
@@ -14,10 +15,10 @@ function Header(){
                         </div>
                     </div>
                     <div className="headerMiddle">
-                        <a href="#">Home</a>
-                        <a href="#">About Us</a>
-                        <a href="#">FAQs</a>
-                        <a href="#">Blog</a>
+                        <Link to="">Home</Link>
+                        <Link to="aboutus">About Us</Link>
+                        <Link to="faqs">FAQs</Link>
+                        <Link to="#">Blog</Link>
                     </div>
                     <div className="headerRight">
                         <div className="joinAs">
@@ -28,7 +29,7 @@ function Header(){
                         </div>
                         <div className="patient">
                             <button className='patientButton' type="submit">Patient</button>
-                        </div>    
+                        </div>
                     </div>
                     <div className="headerProfile">
                         <div className="userProfile">
