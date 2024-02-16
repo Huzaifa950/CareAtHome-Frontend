@@ -18,7 +18,7 @@ function Header() {
                         <Link to="">Home</Link>
                         <Link to="aboutus">About Us</Link>
                         <Link to="faqs">FAQs</Link>
-                        <Link to="#">Contact Us</Link>
+                        <Link to="contactus">Contact Us</Link>
                     </div>
                     <div className="headerRight">
                         <div className="joinAs">

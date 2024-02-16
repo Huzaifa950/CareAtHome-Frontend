@@ -28,7 +28,7 @@ const Home = ({ updateLogInStatus, userInfo }) => {
                 <Route path="/" element={<HomeInterface />} />
                 <Route path="/aboutus" element={<AboutUs />} />
                 <Route path="/faqs" element={<FAQs />} />
-                <Route path="/contactUs" element={<ContactUs />} />
+                <Route path="/contactus" element={<ContactUs />} />
             </Routes>
 
             {/* <button style={{padding: "20px"}} onClick={handleLogOut}>LogOut</button> */}
