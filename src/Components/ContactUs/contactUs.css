@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300&display=swap');
+
+@font-face {
+    font-family: myFont;
+    src: url(../../Assets/Fonts/AlexBrush/AlexBrush-Regular.ttf);
+
+    font-family: myFont2;
+    src: url(../../Assets/Fonts/LightersDemo/Lighters\ DEMO.otf);
+    
+    font-family: myFont3;
+    src: url(../../Assets/Fonts/arsegzone/NCLArsegzone-Demo.otf);
+    
+    font-family: myFont5;
+    src: url(../../Assets/Fonts/balmecia/BalmeciaPersonalUse-Regular.otf);
+    
+    font-family: myFont6;
+    src: url(../../Assets/Fonts/celsiusFlower/Celsius\ Flower.otf);
+    
+    font-family: myFont7;
+    src: url(../../Assets/Fonts/leboumar/LeboumarPersonalUse-Regular.otf);
+}
+
+.contactUs_container{
+    background: linear-gradient(90deg, rgb(15, 84, 85), rgba(40, 21, 151, 0.836));
+    overflow: hidden;
+}
+.contactUs_containerBox{
+    margin: 50px;
+}
+.contactUs_form_map{
+    display: flex;
+    justify-content: center;
+}
+.contactUs_formMain{
+    background-color: rgb(230, 237, 238);
+    padding: 20px 40px;
+}
+
+.contactUs_form > :first-child{
+    margin: 20px 0;
+}
+.contactUs_form > :not(:first-child){
+    margin-bottom: 15px;
+}
+
+.contactUs_Heading p{
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.contactUs_nameEmail{
+    display: flex;
+}
+.contactUs_Email{
+    margin-left: 25px;
+}
+
+.contactUs_Name, .contactUs_Email, .contactUs_Subject, .contactUs_Message{
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    font-weight: bold;
+}
+.contactUs_Name>label, .contactUs_Email>label, .contactUs_Subject>label, .contactUs_Message>label{
+    margin-bottom: 10px;
+}
+
+.contactUs_NameInputBar, .contactUs_EmailInputBar, .contactUs_SubjectInputBar, .contactUs_MessageInputBar{
+    padding: 10px;
+    border: none;
+    outline: none;
+}
+
+.contactUs_button button{
+    padding: 12px 8px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    background-color: rgb(15, 52, 102);
+    transition: background-color 0.3s ease;
+    font-size: 11px;
+}
+
+.contactUs_button button:hover{
+    background-color: rgb(4, 19, 37);
+}
+
+.contactUs_map{
+    margin: 20px 0;
+    overflow: hidden;
+}
+.contactUs_contacts{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 40px 30px 0 30px;
+    align-items: center;
+    text-align: center;
+}
+
+.contactUs_contactsIcon{
+    font-size: 15px;
+    color: rgb(15, 52, 102);
+    padding: 15px;
+    border-radius: 50%;
+    background-color: rgb(230, 237, 238);
+    display: inline-block;
+}
+.contactUs_contactsText{
+    text-align: center;
+    color: rgb(230, 237, 238);
+}
+.contactUs_contactsTextHeading{
+    font-size: 16px;
+    font-weight: bold;
+}
+.contactUs_contactsTextBody{
+    width: 200px;
+}

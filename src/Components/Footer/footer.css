@@ -37,7 +37,7 @@
 
 .footerContainer{
     /* background-color: aquamarine; */
-    background: linear-gradient(500deg, rgb(16, 77, 78), rgba(255, 195, 250, 10));
+    background: linear-gradient(90deg, rgb(9, 62, 63), rgba(255, 195, 250, 10));
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(37, 7, 7, 0.568);

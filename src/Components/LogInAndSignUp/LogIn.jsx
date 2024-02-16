@@ -99,7 +99,7 @@ function LogIn({ updateLogInStatus }) {
                                     <form className='LogIn_formBottom' onSubmit={e => {
                                         e.preventDefault();
                                         handleLogIn();
-                                    }}>
+                                        }}>
                                         <div className='LogIn_formBottom-Up'>
                                             <div className='LogIn_email'>
                                                 <label htmlFor="email">Username / Email</label>
