@@ -38,7 +38,7 @@ function Footer(){
                             <a href="#">Home</a>
                             <a href="#">About Us</a>
                             <a href="#">FAQs</a>
-                            <a href="#">Blog</a>
+                            <a href="#">Contact Us</a>
                         </div>
                     </div>
                 </div>

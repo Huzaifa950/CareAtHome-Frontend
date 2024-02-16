@@ -35,6 +35,7 @@
     background-repeat: no-repeat;
     width: 100vw; 
     height: 100vh; 
+    overflow: hidden;
 }
 
 .SignUp_interface-inner{
@@ -82,6 +83,7 @@
     border-radius: 15px;
     max-width: 100%;
     height: 82vh;
+    overflow: hidden;
 }
 .SignUp_formTop{
     text-align: center;
@@ -325,6 +327,9 @@
         display: flex;
         flex-direction: column;
     }
+    .SignUp_form{
+        height: 90vh;
+    }
     .SignUp_email > label, .SignUp_password > label, .SignUp_username > label, .SignUp_fullName > label{
         font-size: 17px;
         text-align: center;
@@ -363,7 +368,7 @@
         padding: 10px;
         border-radius: 15px;
         width: 100%;
-        height: 85vh;
+        height: 88vh;
     }
     .SignUp_formTop .SignUp_logo img{
         width: 25%;
@@ -527,8 +532,12 @@
     }
 }
 @media only screen and (max-width: 450px){
+    *{
+        overflow: hidden;
+    }
     .SignUp_form{
-        height: 90vh;
+        height: 92vh;
+        /* overflow: hidden; */
     }
     .SignUp_formTop .SignUp_logo img{
         padding: 8px 0 0 0;

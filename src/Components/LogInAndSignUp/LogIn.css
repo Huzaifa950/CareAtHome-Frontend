@@ -35,6 +35,7 @@
     background-repeat: no-repeat;
     width: 100vw; 
     height: 100vh; 
+    overflow: hidden;
 }
 
 .LogIn_interface-inner{
@@ -81,6 +82,7 @@
     padding: 2% 8% 10% 8%;
     border-radius: 15px;
     max-width: 50%;
+    overflow: hidden;
 }
 .LogIn_formTop{
     text-align: center;

@@ -24,6 +24,7 @@
     padding: 0;
     margin: 0;
     word-wrap: break-word;
+    /* overflow-y: auto; */
 }
 
 .aboutUs_containerBox{
@@ -32,7 +33,7 @@
     background: linear-gradient(90deg, rgb(15, 84, 85), rgb(71, 49, 196));
     /* background-color: rgb(42, 45, 94); */
     margin: 0 80px;
-    height: 100vh;
+    /* height: 100vh; */
 }
 
 .aboutUs_containerBoxLeft{
@@ -41,7 +42,7 @@
     margin: 50px 0 50px 125px;
     border-right: 2px solid rgb(156, 155, 155);
     max-width: 30%;
-    height: 100vh;
+    /* height: 100vh; */
 }
 
 .aboutUs_containerBoxLeft > div:last-child{
@@ -75,7 +76,7 @@
     display: flex;
     flex-direction: column;
     max-width: 100%;
-    height: 100vh;
+    /* height: 100vh; */
 }
 
 .aboutUs_containerBoxRightUp > div{
@@ -134,7 +135,7 @@
     .aboutUs_containerBoxLeft{
         margin: 50px 0 30px 125px;
         max-width: 30%;
-        height: 100vh;
+        /* height: 100vh; */
     }
     .aboutUs_containerBoxLeft{
         margin: 50px 0 50px 110px;
@@ -204,7 +205,9 @@
         font-size: 18px;
         margin-top: 25px;
     }
-    
+    .aboutUs_containerBox{
+        margin: 0 50px;
+    }
     .aboutUs_textBody{
         font-size: 21px;
     }
@@ -241,6 +244,9 @@
     .aboutUs_containerBox{
         margin: 0 50px;
     }
+    .aboutUs_containerBox{
+        margin: 0 40px;
+    }
 }
 
 @media only screen and (max-width: 900px){
@@ -263,7 +269,9 @@
         font-size: 16px;
         margin-top: 30px;
     }
-    
+    .aboutUs_containerBox{
+        margin: 0 30px;
+    }
     .aboutUs_textBody{
         font-size: 19px;
     }
@@ -279,7 +287,9 @@
     .aboutUs_textHead{
         font-size: 15px;
     }
-    
+    .aboutUs_containerBox{
+        margin: 0 20px;
+    }
     .aboutUs_textBody{
         font-size: 18px;
     }
@@ -291,7 +301,7 @@
         flex-direction: column;
         padding: 0;
         margin: 0;
-        overflow-y: scroll;
+        overflow-y: hidden;
         max-height: max-content;
     }
 
@@ -306,8 +316,8 @@
         max-width: 100%;
         align-items: center;
         text-align: center;
-        margin: 25px 0 0 0;
-        height: 70vh;
+        margin: 80px 0 0 0;
+        /* height: 70vh; */
     }
 
     .aboutUs_containerBoxLeft > div:last-child{
@@ -318,6 +328,9 @@
         margin: 0;
         align-items: center;
         text-align: center;
+    }
+    .aboutUs_containerBoxRight{
+        margin: 80px 0 80px 0;
     }
 
     .aboutUs_containerBoxRightUp > div:not(:first-child), .aboutUs_containerBoxRightDown > div:not(:first-child){
