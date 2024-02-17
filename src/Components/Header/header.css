@@ -34,7 +34,7 @@
     flex-direction: row;
     justify-content: space-between;
     /* background-color: rgba(60, 98, 155, 0.986); */
-    background: linear-gradient(90deg, rgb(28, 108, 110), rgba(255, 195, 250, 50));
+    background: linear-gradient(90deg, rgb(28, 108, 110), rgb(179, 54, 204));
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     align-items: center;
