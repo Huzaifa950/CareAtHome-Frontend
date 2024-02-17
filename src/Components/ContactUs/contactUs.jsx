@@ -4,9 +4,6 @@ import './contactUs.css'
 import emailjs from '@emailjs/browser';
 import React, { useRef} from 'react'
 
-
-  
-
 function ContactUs(){
 
     const form = useRef();
@@ -26,7 +23,6 @@ function ContactUs(){
           },
         );
     };
-
 
     return(
         <div className='contactUs_main'>
