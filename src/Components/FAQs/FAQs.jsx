@@ -33,18 +33,7 @@ const questionAnswers = [
 
 function FAQs() {
 
-    const [visibleTextIndex, setVisibleTextIndex] = useState(-1);
-    const [rotation, setRotation] = useState(0);
-
-    const toggleText = (id) => {
-        if (visibleTextIndex === id) {
-            setVisibleTextIndex(-1);
-            // setRotation(0);
-            return;
-        }
-        setVisibleTextIndex(id);
-        // setRotation(rotation + 270);
-    };
+    const [activeKey, setActiveKey] = useState(0);
 
     return (
         <div className='FAQs_main'>
@@ -59,12 +48,12 @@ function FAQs() {
                             <p>FAQs</p>
                         </div>
                         <div className='FAQs_containerBoxRightSideBody'>
-                            <Accordion defaultActiveKey="0">
+                            <Accordion activeKey={activeKey}>
                                 {
                                     questionAnswers.map((item, index) => {
                                         return (
                                             <Accordion.Item eventKey={index}>
-                                                <Accordion.Header>{item.question}</Accordion.Header>
+                                                <Accordion.Header onClick={() => setActiveKey(index)}>{item.question}</Accordion.Header>
                                                 <Accordion.Body>{item.answer}</Accordion.Body>
                                             </Accordion.Item>
                                         )
