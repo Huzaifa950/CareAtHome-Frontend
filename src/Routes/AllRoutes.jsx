@@ -7,7 +7,7 @@ import { ApiGetCall } from "../Components/ApiCall/ApiCalls";
 import ForgotPassword from "../Components/LogInAndSignUp/ForgotPassword";
 
 const AllRoutes = () => {
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(true);
     const [userDetail, setUserDetail] = useState({});
     const location = useLocation();
 
@@ -42,17 +42,17 @@ const AllRoutes = () => {
 
     console.log("Location: ", location.pathname)
 
-    if (!isLoggedIn && location.pathname !== "/login" && location.pathname !== "/signup" && location.pathname !== "/forgotpassword")
-        return <Navigate to="/login" />
-    if (isLoggedIn && (location.pathname === "/login" || location.pathname === "/signup" || location.pathname === "/forgotpassword"))
-        return <Navigate to="/" />
-    else
+    // if (!isLoggedIn && location.pathname !== "/login" && location.pathname !== "/signup" && location.pathname !== "/forgotpassword")
+    //     return <Navigate to="/login" />
+    // if (isLoggedIn && (location.pathname === "/login" || location.pathname === "/signup" || location.pathname === "/forgotpassword"))
+    //     return <Navigate to="/" />
+    // else
         return (
             <>
                 <Routes>
-                    {!isLoggedIn && <Route path="/login" element={<LogIn updateLogInStatus={updateLogInStatus} />} />}
+                    {/* {!isLoggedIn && <Route path="/login" element={<LogIn updateLogInStatus={updateLogInStatus} />} />}
                     {!isLoggedIn && <Route path="/signup" element={<SignUp />} />}
-                    {!isLoggedIn && <Route path="/forgotpassword" element={<ForgotPassword />} />}
+                    {!isLoggedIn && <Route path="/forgotpassword" element={<ForgotPassword />} />} */}
                     <Route path="*" element={<Home updateLogInStatus={updateLogInStatus} userInfo={userDetail} />} />
                 </Routes>
             </>

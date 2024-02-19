@@ -22,18 +22,11 @@
     font-family: myFont7;
     src: url(../../Assets/Fonts/leboumar/LeboumarPersonalUse-Regular.otf); */
 }
-
-/* *{
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-} */
-
+/* 
 .headerBox{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    /* background-color: rgba(60, 98, 155, 0.986); */
     background: linear-gradient(90deg, rgb(28, 108, 110), rgb(179, 54, 204));
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -90,12 +83,10 @@
     font-size: 12px;
     font-weight: 700;
     color: rgb(255, 255, 255);
-    /* background-color: rgba(131, 33, 26, 0.904); */
     background: linear-gradient(50deg, rgb(157, 36, 187), rgb(29, 123, 177));
 }
 
 .careTaker button:hover, .patient button:hover{
-    /* background-color: rgb(70, 13, 13); */
     background: linear-gradient(50deg, rgb(11, 86, 129), rgb(105, 10, 129));
     transition: 0.3s background-color ease-in-out;
 }
@@ -103,7 +94,6 @@
 .headerProfile{
     display: flex;
     justify-content: center;
-    /* flex-direction: column; */
     margin: 0 30px 0 0;
     align-items: center;
 }
@@ -119,5 +109,5 @@
     font-size: 18px;
     font-weight: bold;
     color: rgb(0, 0, 0);
-}
+} */
 

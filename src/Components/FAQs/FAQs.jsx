@@ -2,6 +2,7 @@ import './FAQs.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { useState } from 'react';
+import { Accordion } from 'react-bootstrap';
 
 const questionAnswers = [
     {
@@ -58,29 +59,18 @@ function FAQs() {
                             <p>FAQs</p>
                         </div>
                         <div className='FAQs_containerBoxRightSideBody'>
-
-                            {
-                                questionAnswers.map((item, index) => {
-                                    return (
-                                        <>
-                                            <div key={index} className='FAQs_containerBoxRightSideBodyQuestion'>
-                                                <div className='FAQs_Question'>
-                                                    <p>{item.question}</p>
-                                                </div>
-                                                <div className='FAQs_Icon' id="icon" onClick={() => toggleText(index)} >
-                                                    <FontAwesomeIcon icon={faChevronLeft} />
-                                                </div>
-                                            </div>
-                                            <hr />
-                                            {visibleTextIndex === index && (
-                                                <div className='FAQs_containerBoxRightSideBodyAnswer' id='text' >
-                                                    <p>{item.answer}</p>
-                                                </div>
-                                            )}
-                                        </>
-                                    )
-                                })
-                            }
+                            <Accordion defaultActiveKey="0">
+                                {
+                                    questionAnswers.map((item, index) => {
+                                        return (
+                                            <Accordion.Item eventKey={index}>
+                                                <Accordion.Header>{item.question}</Accordion.Header>
+                                                <Accordion.Body>{item.answer}</Accordion.Body>
+                                            </Accordion.Item>
+                                        )
+                                    })
+                                }
+                            </Accordion>
                         </div>
                     </div>
                 </div>
