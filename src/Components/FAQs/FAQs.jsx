@@ -2,6 +2,7 @@ import './FAQs.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { useState } from 'react';
+import { Accordion } from 'react-bootstrap';
 
 const questionAnswers = [
     {
@@ -32,18 +33,7 @@ const questionAnswers = [
 
 function FAQs() {
 
-    const [visibleTextIndex, setVisibleTextIndex] = useState(-1);
-    const [rotation, setRotation] = useState(0);
-
-    const toggleText = (id) => {
-        if (visibleTextIndex === id) {
-            setVisibleTextIndex(-1);
-            // setRotation(0);
-            return;
-        }
-        setVisibleTextIndex(id);
-        // setRotation(rotation + 270);
-    };
+    const [activeKey, setActiveKey] = useState(0);
 
     return (
         <div className='FAQs_main'>
@@ -58,29 +48,18 @@ function FAQs() {
                             <p>FAQs</p>
                         </div>
                         <div className='FAQs_containerBoxRightSideBody'>
-
-                            {
-                                questionAnswers.map((item, index) => {
-                                    return (
-                                        <>
-                                            <div key={index} className='FAQs_containerBoxRightSideBodyQuestion'>
-                                                <div className='FAQs_Question'>
-                                                    <p>{item.question}</p>
-                                                </div>
-                                                <div className='FAQs_Icon' id="icon" onClick={() => toggleText(index)} >
-                                                    <FontAwesomeIcon icon={faChevronLeft} />
-                                                </div>
-                                            </div>
-                                            <hr />
-                                            {visibleTextIndex === index && (
-                                                <div className='FAQs_containerBoxRightSideBodyAnswer' id='text' >
-                                                    <p>{item.answer}</p>
-                                                </div>
-                                            )}
-                                        </>
-                                    )
-                                })
-                            }
+                            <Accordion activeKey={activeKey}>
+                                {
+                                    questionAnswers.map((item, index) => {
+                                        return (
+                                            <Accordion.Item eventKey={index}>
+                                                <Accordion.Header onClick={() => setActiveKey(index)}>{item.question}</Accordion.Header>
+                                                <Accordion.Body>{item.answer}</Accordion.Body>
+                                            </Accordion.Item>
+                                        )
+                                    })
+                                }
+                            </Accordion>
                         </div>
                     </div>
                 </div>

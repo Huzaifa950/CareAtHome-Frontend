@@ -7,22 +7,13 @@ import FAQs from "../FAQs/FAQs";
 import ContactUs from "../ContactUs/contactUs"
 import Footer from "../Footer/footer";
 import { Route, Routes } from "react-router-dom";
+import { Button, Dropdown, Nav, NavDropdown, Navbar, Stack } from "react-bootstrap";
 
 const Home = ({ updateLogInStatus, userInfo }) => {
 
-    const handleLogOut = async () => {
-        try {
-            await ApiGetCall('/logout');
-            showSuccessToast("Logged Out Successfully")
-            updateLogInStatus(false);
-        } catch (error) {
-            console.error("error /logout", error);
-        }
-    }
-
     return (
         <div>
-            <Header />
+            <Header userInfo={userInfo} updateLogInStatus={updateLogInStatus} />
 
             <Routes>
                 <Route path="/" element={<HomeInterface />} />
@@ -30,8 +21,6 @@ const Home = ({ updateLogInStatus, userInfo }) => {
                 <Route path="/faqs" element={<FAQs />} />
                 <Route path="/contactus" element={<ContactUs />} />
             </Routes>
-
-            <button style={{padding: "20px"}} onClick={handleLogOut}>LogOut</button>
 
             <Footer />
         </div>
