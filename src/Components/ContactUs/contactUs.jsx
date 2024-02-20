@@ -46,7 +46,7 @@ function ContactUs(){
                                 </div>
                                 <div className='contactUs_Subject'>
                                     <label htmlFor="">Subject</label>
-                                    <input className='contactUs_SubjectInputBar' type='text' id="" name="" placeholder='Subject' required />
+                                    <input className='contactUs_SubjectInputBar' type='text' id="" name="subject" placeholder='Subject' required />
                                 </div>
                                 <div className='contactUs_Message'>
                                     <label htmlFor="">Message</label>

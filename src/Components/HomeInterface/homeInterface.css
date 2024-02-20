@@ -66,13 +66,13 @@
 }
 .homeInterface_heading{
     font-size: 35px;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     font-weight: bolder;
     font-family: myFont6;
 }
 .homeInterface_body p{
     font-size: 24px;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     margin: 0 0 0 50px;
     font-weight: bold;
     max-width: 90%;
