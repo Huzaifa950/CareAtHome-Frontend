@@ -58,7 +58,7 @@ function ContactUs(){
                             </form>
                         </div>
                         <div className='contactUs_map'>
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3399.2148168640297!2d74.30528357472872!3d31.573156544533767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39191ca6eeacbc8b%3A0xf0c436e69e66658!2sGovernment%20College%20University%20Lahore%20(GCUL)!5e0!3m2!1sen!2s!4v1708081394144!5m2!1sen!2s" width="500" height="500" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3399.2148168640297!2d74.30528357472872!3d31.573156544533767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39191ca6eeacbc8b%3A0xf0c436e69e66658!2sGovernment%20College%20University%20Lahore%20(GCUL)!5e0!3m2!1sen!2s!4v1708081394144!5m2!1sen!2s" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                     <div>

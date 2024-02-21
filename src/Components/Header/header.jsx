@@ -28,7 +28,7 @@ const Header = ({userInfo, updateLogInStatus}) => {
     }
 
     return (
-        <Navbar bg="light" expand="lg" fixed="top">
+        <Navbar style={{background: "linear-gradient(270deg, rgba(18, 34, 90, 0.849), rgba(122, 116, 158, 0.788))"}} bg="light" expand="lg" fixed="top">
             <Container>
                 <Navbar.Brand href="/">
                     <img
@@ -38,7 +38,7 @@ const Header = ({userInfo, updateLogInStatus}) => {
                         className="d-inline-block align-top"
                         alt="Your Logo"
                     />
-                    {' Care At Home'}
+                    {' CareAtHome'}
                 </Navbar.Brand>
 
                 <Navbar.Toggle aria-controls="navbar" />
@@ -47,14 +47,14 @@ const Header = ({userInfo, updateLogInStatus}) => {
                     <Nav className="mx-auto">
                         <Nav.Link style={{ marginRight: "40px" }} as={Link} to={"/"}>Home</Nav.Link>
                         <Nav.Link style={{ marginRight: "40px" }} as={Link} to="/aboutus">About Us</Nav.Link>
-                        <Nav.Link style={{ marginRight: "40px" }} as={Link} to="/contactus">Contact Us</Nav.Link>
-                        <Nav.Link as={Link} to="/faqs">FAQs</Nav.Link>
+                        <Nav.Link style={{ marginRight: "40px" }} as={Link} to="/faqs">FAQs</Nav.Link>
+                        <Nav.Link as={Link} to="/contactus">Contact Us</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
 
                 <Navbar.Collapse className="justify-content-end">
                     <Nav>
-                        <NavDropdown title="Dear Sir Hussnain Haider" id="basic-nav-dropdown">
+                        <NavDropdown style={{fontWeight:"bold"}} title="UserName" id="basic-nav-dropdown">
                             <NavDropdown.Item onClick={handleProfileClick}>Profile</NavDropdown.Item>
                             <NavDropdown.Item href="#settings">Settings</NavDropdown.Item>
                             <NavDropdown.Divider />

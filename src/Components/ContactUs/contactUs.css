@@ -21,11 +21,12 @@
 }
 
 .contactUs_container{
-    background: linear-gradient(90deg, rgb(15, 84, 85), rgba(40, 21, 151, 0.836));
+    /* background: linear-gradient(90deg, rgb(15, 84, 85), rgba(40, 21, 151, 0.836)); */
+    background: linear-gradient(180deg, rgba(25, 132, 134, 0.849), rgba(71, 49, 196, 0.788));
     overflow: hidden;
 }
 .contactUs_containerBox{
-    margin: 50px;
+    margin: 100px 50px 0 50px;
 }
 .contactUs_form_map{
     display: flex;
@@ -89,6 +90,10 @@
     margin: 20px 0;
     overflow: hidden;
 }
+.contactUs_map iframe{
+    width:500px;
+    height:500px;
+}
 .contactUs_contacts{
     display: flex;
     flex-wrap: wrap;
@@ -116,4 +121,174 @@
 }
 .contactUs_contactsTextBody{
     width: 200px;
+}
+
+@media only screen and (max-width: 1200px){
+    .contactUs_Heading p{
+        font-size: 27px;
+    }
+    .contactUs_Name, .contactUs_Email, .contactUs_Subject, .contactUs_Message{
+        font-size: 15px;
+    }
+}
+@media only screen and (max-width: 1150px){
+    .contactUs_map iframe{
+        width:450px;
+        height:580px;
+    }
+    .contactUs_nameEmail{
+        display: flex;
+        flex-direction: column;
+    }
+    .contactUs_NameInputBar{
+        margin-bottom: 15px;
+    }
+    .contactUs_Email{
+        margin-left: 0;
+    }
+    .contactUs_NameInputBar, .contactUs_EmailInputBar, .contactUs_SubjectInputBar, .contactUs_MessageInputBar{
+        width: 400px;
+    }
+}
+@media only screen and (max-width: 1050px){
+    .contactUs_map iframe{
+        width:430px;
+        height:580px;
+    }
+    .contactUs_NameInputBar, .contactUs_EmailInputBar, .contactUs_SubjectInputBar, .contactUs_MessageInputBar{
+        width: 370px;
+    }
+    
+    .contactUs_Message textarea{
+        height: 100px;
+    }
+}
+
+@media only screen and (max-width: 1000px){
+    .contactUs_map iframe{
+        width:410px;
+    }
+    .contactUs_NameInputBar, .contactUs_EmailInputBar, .contactUs_SubjectInputBar, .contactUs_MessageInputBar{
+        width: 350px;
+    }
+    .contactUs_Message textarea{
+        height: 100px;
+    }
+    .contactUs_formMain{
+        padding: 15px 35px;
+    }
+}
+
+@media only screen and (max-width: 950px){
+    .contactUs_map iframe{
+        width:400px;
+    }
+    .contactUs_NameInputBar, .contactUs_EmailInputBar, .contactUs_SubjectInputBar, .contactUs_MessageInputBar{
+        width: 330px;
+    }
+    .contactUs_Message textarea{
+        height: 100px;
+    }
+    .contactUs_formMain{
+        padding: 10px 30px;
+    }
+}
+
+@media only screen and (max-width: 900px){
+    .contactUs_map iframe{
+        width:370px;
+    }
+    .contactUs_NameInputBar, .contactUs_EmailInputBar, .contactUs_SubjectInputBar, .contactUs_MessageInputBar{
+        width: 310px;
+    }
+    .contactUs_Message textarea{
+        height: 90px;
+    }
+    .contactUs_formMain{
+        padding: 10px 30px;
+    }
+}
+@media only screen and (max-width: 850px){
+    .contactUs_form_map{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .contactUs_formMain{
+        margin: auto;
+    }
+    .contactUs_map{
+        margin: auto;
+        text-align: center;
+    }
+    .contactUs_map iframe{
+        width:480px;
+        height: 500px;
+        text-align: center;
+    }
+    .contactUs_NameInputBar, .contactUs_EmailInputBar, .contactUs_SubjectInputBar, .contactUs_MessageInputBar{
+        width: 450px;
+    }
+}
+
+@media only screen and (max-width: 650px){
+    .contactUs_map iframe{
+        width:450px;
+        height: 450px;
+    }
+    .contactUs_NameInputBar, .contactUs_EmailInputBar, .contactUs_SubjectInputBar, .contactUs_MessageInputBar{
+        width: 425px;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .contactUs_map iframe{
+        width:460px;
+        margin-top: 20px;
+        height: 430px;
+    }
+    .contactUs_NameInputBar, .contactUs_EmailInputBar, .contactUs_SubjectInputBar, .contactUs_MessageInputBar{
+        width: 400px;
+    }
+    .contactUs_containerBox{
+        margin: auto;
+    }
+}
+@media only screen and (max-width: 550px){
+    .contactUs_map iframe{
+        width:420px;
+    }
+    .contactUs_NameInputBar, .contactUs_EmailInputBar, .contactUs_SubjectInputBar, .contactUs_MessageInputBar{
+        width: 360px;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    .contactUs_map iframe{
+        width:380px;
+        height: 400px;
+    }
+    .contactUs_NameInputBar, .contactUs_EmailInputBar, .contactUs_SubjectInputBar, .contactUs_MessageInputBar{
+        width: 320px;
+    }
+}
+
+@media only screen and (max-width: 400px){
+    .contactUs_map iframe{
+        width:340px;
+        height: 360px;
+    }
+    .contactUs_NameInputBar, .contactUs_EmailInputBar, .contactUs_SubjectInputBar, .contactUs_MessageInputBar{
+        width: 280px;
+    }
+}
+
+@media only screen and (max-width: 350px){
+    .contactUs_map iframe{
+        width:300px;
+        height: 330px;
+    }
+    .contactUs_NameInputBar, .contactUs_EmailInputBar, .contactUs_SubjectInputBar, .contactUs_MessageInputBar{
+        width: 240px;
+    }
 }

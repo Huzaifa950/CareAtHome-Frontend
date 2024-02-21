@@ -20,12 +20,16 @@
     src: url(../../Assets/Fonts/leboumar/LeboumarPersonalUse-Regular.otf);
 }
 
+.aboutUs_container{
+    background: linear-gradient(180deg, rgba(25, 132, 134, 0.849), rgba(71, 49, 196, 0.788));
+    margin: 0 80px;
+}
+
 .aboutUs_containerBox{
     display: flex;
+    margin-top: 50px;
     /* justify-content: space-between; */
-    background: linear-gradient(90deg, rgb(15, 84, 85), rgb(71, 49, 196));
     /* background-color: rgb(42, 45, 94); */
-    margin: 0 80px;
     /* height: 100vh; */
 }
 
@@ -113,25 +117,28 @@
 
 @media only screen and (max-width: 1300px){
     .aboutUs_containerBoxLeft{
-        margin: 50px 0 50px 120px;
+        margin: 50px 0 50px 50px;
     }
     .aboutUs_containerBox{
-        margin: 0 70px;
+        margin: 50px 70px 0 70px;
     }
     .aboutUs_textBody{
         font-size: 21px;
         max-width: 90%;
     }
+    .aboutUs_container{
+        margin: 0 75px;
+    }
+    .aboutUs_containerBoxRight{
+        margin: 110px 0 50px 45px;
+    }
 }
 
 @media only screen and (max-width: 1250px){
     .aboutUs_containerBoxLeft{
-        margin: 50px 0 30px 125px;
+        margin: 50px 0 30px 40px;
         max-width: 30%;
         /* height: 100vh; */
-    }
-    .aboutUs_containerBoxLeft{
-        margin: 50px 0 50px 110px;
     }
     .aboutUs_textBody{
         font-size: 20px;
@@ -143,6 +150,15 @@
     .aboutUs_containerBoxRightUpImage, .aboutUs_containerBoxRightDownImage{
         font-size: 29px;
     }
+    .aboutUs_containerBox{
+        margin: 50px 60px 0 60px;
+    }
+    .aboutUs_container{
+        margin: 0 70px;
+    }
+    .aboutUs_containerBoxRight{
+        margin: 110px 0 50px 40px;
+    }
 }
 
 @media only screen and (max-width: 1200px){
@@ -153,19 +169,28 @@
         font-size: 19px;
     }
     .aboutUs_containerBoxLeft{
-        margin: 50px 0 50px 100px;
+        margin: 50px 0 50px 30px;
     }
     .aboutUs_containerBoxRightUp > div:not(:first-child), .aboutUs_containerBoxRightDown > div:not(:first-child){
         margin-left: 80px;
+    }
+    .aboutUs_containerBox{
+        margin: 50px 50px 0 50px;
+    }
+    .aboutUs_container{
+        margin: 0 65px;
+    }
+    .aboutUs_containerBoxRight{
+        margin: 110px 0 50px 35px;
     }
 }
 
 @media only screen and (max-width: 1150px){
     .aboutUs_containerBox{
-        margin: 0 60px;
+        margin: 50px 40px 0 40px;
     }
     .aboutUs_containerBoxLeft{
-        margin: 50px 0 50px 90px;
+        margin: 50px 0 50px 20px;
     }
     /* .aboutUs_containerBoxRight{
         margin: 70px 0 50px 50px;
@@ -176,11 +201,17 @@
     .aboutUs_containerBoxRightUpImage, .aboutUs_containerBoxRightDownImage{
         font-size: 28px;
     }
+    .aboutUs_container{
+        margin: 0 60px;
+    }
+    .aboutUs_containerBoxRight{
+        margin: 110px 0 50px 30px;
+    }
 }
 
 @media only screen and (max-width: 1100px){
     .aboutUs_containerBoxLeft{
-        margin: 50px 0 50px 85px;
+        margin: 50px 0 50px 10px;
     }
     .aboutUs_containerBoxRightUp > div:not(:first-child), .aboutUs_containerBoxRightDown > div:not(:first-child){
         margin-left: 70px;
@@ -188,18 +219,24 @@
     .aboutUs_containerBoxRightUp > div{
         margin-left: 25px;
     }
+    .aboutUs_containerBox{
+        margin: 50px 50px 0 50px;
+    }
+    .aboutUs_container{
+        margin: 0 55px;
+    }
+    .aboutUs_containerBoxRight{
+        margin: 110px 0 50px 25px;
+    }
 }
 
 @media only screen and (max-width: 1050px){
     .aboutUs_containerBoxLeft{
-        margin: 50px 0 50px 80px;
+        margin: 50px 0 50px 10px;
     }
     .aboutUs_textHead{
         font-size: 18px;
         margin-top: 25px;
-    }
-    .aboutUs_containerBox{
-        margin: 0 50px;
     }
     .aboutUs_textBody{
         font-size: 21px;
@@ -208,12 +245,15 @@
     .aboutUs_containerBoxRightUp > div:not(:first-child), .aboutUs_containerBoxRightDown > div:not(:first-child){
         margin-left: 60px;
     }
+    .aboutUs_container{
+        margin: 0 50px;
+    }
+    .aboutUs_containerBoxRight{
+        margin: 110px 0 50px 20px;
+    }
 }
 
 @media only screen and (max-width: 1000px){
-    .aboutUs_containerBoxLeft{
-        margin: 50px 0 50px 75px;
-    }
     .aboutUs_textHead{
         font-size: 17px;
         margin-top: 30px;
@@ -222,12 +262,15 @@
     .aboutUs_textBody{
         font-size: 20px;
     }
+    .aboutUs_container{
+        margin: 0 45px;
+    }
+    .aboutUs_containerBoxRight{
+        margin: 110px 0 50px 15px;
+    }
 }
 
 @media only screen and (max-width: 950px){
-    .aboutUs_containerBoxLeft{
-        margin: 50px 0 50px 70px;
-    }
     .aboutUs_containerBoxRightUpImage, .aboutUs_containerBoxRightDownImage{
         font-size: 26px;
     }
@@ -235,17 +278,14 @@
         margin-left: 50px;
     }
     .aboutUs_containerBox{
-        margin: 0 50px;
+        margin: 50px 40px 0 40px;
     }
-    .aboutUs_containerBox{
-        margin: 0 40px;
+    .aboutUs_container{
+        margin: 0;
     }
 }
 
 @media only screen and (max-width: 900px){
-    .aboutUs_containerBoxLeft{
-        margin: 50px 0 50px 65px;
-    }
     .aboutUs_containerBoxRightUp > div:not(:first-child), .aboutUs_containerBoxRightDown > div:not(:first-child){
         margin-left: 40px;
     }
@@ -255,24 +295,18 @@
     .aboutUs_containerBoxLeft{
         max-width: 35%;
     }
-    .aboutUs_containerBoxLeft{
-        margin: 50px 0 50px 40px;
-    }
     .aboutUs_textHead{
         font-size: 16px;
         margin-top: 30px;
     }
     .aboutUs_containerBox{
-        margin: 0 30px;
+        margin: 50px 30px 0 30px;
     }
     .aboutUs_textBody{
         font-size: 19px;
     }
     .aboutUs_containerBoxRightUp > div:not(:first-child), .aboutUs_containerBoxRightDown > div:not(:first-child){
         margin-left: 20px;
-    }
-    .aboutUs_containerBox{
-        margin: 0 40px;
     }
 }
 
@@ -281,7 +315,7 @@
         font-size: 15px;
     }
     .aboutUs_containerBox{
-        margin: 0 20px;
+        margin: 50px 20px 0 20px;
     }
     .aboutUs_textBody{
         font-size: 18px;
