@@ -104,3 +104,238 @@
     margin: 80px 0 0 30px;
 }
 
+@media only screen and (max-width: 1100px){
+    .homeInterface_heading{
+        font-size: 33px;
+    }
+    .homeInterface_body p{
+        font-size: 22px;
+    }
+    .homeInterface_careTaker button, .homeInterface_patient button{
+        padding: 10px 70px;
+    }
+}
+
+@media only screen and (max-width: 1050px){
+    .homeInterface_heading{
+        font-size: 31px;
+    }
+    .homeInterface_body p{
+        font-size: 20px;
+    }
+    .homeInterface_careTaker button, .homeInterface_patient button{
+        padding: 10px 65px;
+    }
+    .homeInterface_careTaker button{
+        margin: 70px 30px 0 90px;
+    }
+    .homeInterface_patient button{
+        margin: 70px 0 0 30px;
+    }
+}
+
+@media only screen and (max-width: 950px){
+    .homeInterface_contaierBox{
+        max-width: 70%;
+        margin: 120px 140px;
+    }
+    .homeInterface_heading{
+        font-size: 29px;
+    }
+    .homeInterface_body p{
+        font-size: 19px;
+    }
+    .homeInterface_careTaker button, .homeInterface_patient button{
+        padding: 10px 55px;
+    }
+    .homeInterface_careTaker button{
+        margin: 70px 30px 0 80px;
+    }
+    .homeInterface_patient button{
+        margin: 70px 0 0 30px;
+    }
+}
+
+@media only screen and (max-width: 900px){
+    .homeInterface_contaierBox{
+        max-width: 70%;
+    }
+    .homeInterface_careTaker button, .homeInterface_patient button{
+        padding: 10px 50px;
+    }
+}
+
+@media only screen and (max-width: 850px){
+    .homeInterface_contaierBox{
+        max-width: 75%;
+        margin: 120px 130px;
+    }
+    .homeInterface_careTaker button, .homeInterface_patient button{
+        padding: 10px 50px;
+    }
+}
+
+@media only screen and (max-width: 800px){
+    .homeInterface_contaierBox{
+        max-width: 80%;
+        margin: 120px 110px;
+    }
+    .homeInterface_heading{
+        font-size: 28px;
+    }
+    .homeInterface_careTaker button, .homeInterface_patient button{
+        padding: 8px 45px;
+        border-radius: 8px;
+    }
+}
+
+@media only screen and (max-width: 750px){
+    .homeInterface_contaierBox{
+        margin: 120px 90px;
+    }
+    .homeInterface_careTaker button, .homeInterface_patient button{
+        padding: 8px 40px;
+        border-radius: 8px;
+        font-size: 15px;
+    }
+}
+
+@media only screen and (max-width: 700px){
+    .homeInterface_contaierBox{
+        max-width: 80%;
+        margin: 120px 80px;
+    }
+    .homeInterface_heading{
+        font-size: 27px;
+    }
+}
+
+@media only screen and (max-width: 650px){
+    .homeInterface_contaierBox{
+        max-width: 80%;
+        margin: 120px 70px;
+    }
+    .homeInterface_heading{
+        font-size: 27px;
+    }
+    .homeInterface_careTaker button{
+        margin: 70px 30px 0 70px;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .homeInterface_contaierBox{
+        max-width: 100%;
+        margin: 120px 60px;
+    }
+    .homeInterface_heading{
+        font-size: 26px;
+    }
+    .homeInterface_body p{
+        margin: 0 0 0 40px;
+        font-size: 18px;
+    }
+    .homeInterface_careTaker button{
+        margin: 70px 30px 0 55px;
+    }
+    .homeInterface_careTaker button, .homeInterface_patient button{
+        padding: 7px 35px;
+        border-radius: 8px;
+    }
+}
+
+@media only screen and (max-width: 550px){
+    .homeInterface_contaierBox{
+        margin: 120px 50px;
+    }
+    .homeInterface_careTaker button{
+        margin: 70px 30px 0 45px;
+    }
+    .homeInterface_patient button{
+        margin: 70px 0 0 25px;
+    }
+    .homeInterface_careTaker button, .homeInterface_patient button{
+        padding: 7px 35px;
+        border-radius: 8px;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    .homeInterface_contaierBox{
+        margin: 120px 40px;
+    }
+    .homeInterface_heading{
+        font-size: 25px;
+    }
+    .homeInterface_body p{
+        margin: 0 0 0 30px;
+    }
+    .homeInterface_careTaker button{
+        margin: 70px 30px 0 35px;
+    }
+    .homeInterface_patient button{
+        margin: 70px 0 0 20px;
+    }
+    .homeInterface_careTaker button, .homeInterface_patient button{
+        padding: 6px 30px;
+        border-radius: 7px;
+        font-size: 14px;
+    } 
+}
+
+@media only screen and (max-width: 450px){
+    .homeInterface_heading{
+        font-size: 25px;
+    }
+    .homeInterface_body p{
+        margin: 0 0 0 20px;
+    }
+    .homeInterface_careTaker button{
+        margin: 70px 30px 0 20px;
+    }
+    .homeInterface_patient button{
+        margin: 70px 0 0 15px;
+    }
+    .homeInterface_careTaker button, .homeInterface_patient button{
+        padding: 6px 25px;
+        border-radius: 6px;
+    } 
+}
+
+@media only screen and (max-width: 400px){
+    .homeInterface_heading{
+        font-size: 24px;
+    }
+    .homeInterface_body p{
+        margin: 0 0 0 15px;
+        font-size: 17px;
+    }
+    .homeInterface_careTaker button{
+        margin: 70px 30px 0 15px;
+    }
+    .homeInterface_patient button{
+        margin: 70px 0 0 10px;
+    }
+    .homeInterface_careTaker button, .homeInterface_patient button{
+        padding: 5px 20px;
+        border-radius: 6px;
+        font-size: 13px;
+    } 
+}
+
+@media only screen and (max-width: 350px){
+    .homeInterface_heading{
+        font-size: 22px;
+    }
+    .homeInterface_careTaker button{
+        margin: 60px 30px 0 5px;
+    }
+    .homeInterface_patient button{
+        margin: 60px 0 0 5px;
+    }
+    .homeInterface_careTaker button, .homeInterface_patient button{
+        padding: 5px 20px;
+        border-radius: 6px;
+        font-size: 13px;
+    } 
+}
