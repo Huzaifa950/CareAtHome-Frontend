@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import { Form } from 'react-bootstrap';
 import userImage from "../../Assets/Images/userImage.jpg"
-import "./ProfileForms.css";
-import { ItemsList, ProfileForm, RoundImageForm, careTakerGroupsList, patientGroupsList } from './Common';
+import { ProfileForm, careTakerGroupsList, patientGroupsList } from './Common';
 import { showSuccessToast } from '../Toast/ToastifyToast';
 
 const careTakerProperties = {
