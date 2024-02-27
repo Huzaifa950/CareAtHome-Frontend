@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './LogIn.css'
 import logo from "../../Assets/Images/Logo_wh_bg.png"
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { alphaNumericWithUnderscoreRegex, emailRegex, validateRegex } from '../Common/Common'
 import { showErrorToast, showSuccessToast } from '../Toast/ToastifyToast'
 import { ApiPostCall } from '../ApiCall/ApiCalls'
@@ -120,10 +120,10 @@ function LogIn({ updateLogInStatus }) {
                                             <div className='LogIn_forgot_sign_main'>
                                                 <div className='LogIn_forgot_sign_container'>
                                                     <div className='LogIn_forgot'>
-                                                        <a href="/forgotpassword">Forgot Password ?</a>
+                                                        <Link to="/forgotpassword">Forgot Password ?</Link>
                                                     </div>
                                                     <div className='LogIn_signup'>
-                                                        <a href="/signup"> Signup</a>
+                                                        <Link to="/signup"> Signup</Link>
                                                     </div>
                                                 </div>
                                             </div>

@@ -4,7 +4,7 @@ import logo from "../../Assets/Images/Logo_wh_bg.png"
 // import { LeftSide } from './common'
 import { showErrorToast, showSuccessToast } from '../Toast/ToastifyToast'
 import { alphaNumericWithUnderscoreRegex, alphabetRegex, alphabetWithSpaceRegex, capitalizeFirstLetter, emailRegex, validateRegex } from '../Common/Common'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { ApiPostCall } from '../ApiCall/ApiCalls'
 
 function SignUp() {
@@ -136,7 +136,7 @@ function SignUp() {
                                                         <p>Already have an Account ?</p>
                                                     </div>
                                                     <div className='SignUp_signup'>
-                                                        <a href="/login"> LogIn</a>
+                                                        <Link to="/login"> LogIn</Link>
                                                     </div>
                                                 </div>
                                             </div>

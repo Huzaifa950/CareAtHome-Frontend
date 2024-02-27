@@ -1,6 +1,29 @@
+import { useState } from 'react';
+import PopUpModal from '../Modal/PopUpModal';
 import './homeInterface.css'
+import ProfileForms, { CareTakerForm, PatientForm } from '../ProfileForms/ProfileForms';
+import { showSuccessToast } from '../Toast/ToastifyToast';
 
-function homeInterface(){
+function HomeInterface(){
+    const [show, setShow] = useState(false);
+    const [children, setChildren] = useState(null);
+    const [title, setTitle] = useState('');
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+    const handleCareTakerClick = () => {
+        setChildren(<ProfileForms isPatient={false} />);
+        setTitle("Care Taker Form")
+        handleShow();
+    }
+
+    const handlePatientClick = () => {
+        setChildren(<ProfileForms isPatient={true} />);
+        setTitle("Patient Form")
+        handleShow();
+    }
+
     return(
         <div className='homeInterface_main'>
             <div className='homeInterface_container'>
@@ -15,18 +38,20 @@ function homeInterface(){
                         <div className='homeInterface_bottomMain'>
                             <div className='homeInterface_bottomContainer'>
                                 <div className="homeInterface_careTaker">
-                                    <button className='neon-button' type="submit">Care Taker</button>
+                                    <button onClick={handleCareTakerClick} className='neon-button' type="submit">Care Taker</button>
                                 </div>
                                 <div className="homeInterface_patient">
-                                    <button className='neon-button' type="submit">Patient</button>
+                                    <button onClick={handlePatientClick} className='neon-button' type="submit">Patient</button>
                                 </div>  
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <PopUpModal show={show} title={title} handleClose={handleClose} children={children} />
         </div>
     )
 }
 
-export default homeInterface;
+export default HomeInterface;

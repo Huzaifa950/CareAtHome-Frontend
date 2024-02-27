@@ -4,16 +4,17 @@ import webLogo from "../../Assets/Images/Logo.png"
 import { Link, useNavigate } from 'react-router-dom';
 import { showErrorToast, showSuccessToast } from '../Toast/ToastifyToast';
 import { ApiGetCall } from '../ApiCall/ApiCalls';
+import { capitalizeFirstLetter } from '../Common/Common';
 
-const Header = ({userInfo, updateLogInStatus}) => {
+const Header = ({ userInfo, updateLogInStatus }) => {
 
-      const nav = useNavigate();
+    const nav = useNavigate();
 
     const handleProfileClick = (event) => {
         // if (userInfo.isProfilingComplete)
-            nav("/profile")
+        nav("/profile")
         // else
-            // show a top up message to complete profile
+        // show a top up message to complete profile
     }
 
     const handleLogOut = async () => {
@@ -28,7 +29,7 @@ const Header = ({userInfo, updateLogInStatus}) => {
     }
 
     return (
-        <Navbar style={{background: "linear-gradient(270deg, rgba(18, 34, 90, 0.849), rgba(122, 116, 158, 0.788))"}} bg="light" expand="lg" fixed="top">
+        <Navbar style={{ background: "linear-gradient(270deg, rgba(18, 34, 90, 0.849), rgba(122, 116, 158, 0.788))" }} bg="light" expand="lg" fixed="top">
             <Container>
                 <Navbar.Brand href="/">
                     <img
@@ -54,7 +55,7 @@ const Header = ({userInfo, updateLogInStatus}) => {
 
                 <Navbar.Collapse className="justify-content-end">
                     <Nav>
-                        <NavDropdown style={{fontWeight:"bold"}} title="UserName" id="basic-nav-dropdown">
+                        <NavDropdown style={{ fontWeight: "bold" }} title={capitalizeFirstLetter(userInfo.username)} id="basic-nav-dropdown">
                             <NavDropdown.Item onClick={handleProfileClick}>Profile</NavDropdown.Item>
                             <NavDropdown.Item href="#settings">Settings</NavDropdown.Item>
                             <NavDropdown.Divider />

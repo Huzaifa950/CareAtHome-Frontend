@@ -1,7 +1,7 @@
 import { ApiGetCall } from "../ApiCall/ApiCalls";
 import { showSuccessToast } from "../Toast/ToastifyToast";
 import Header from "../Header/header";
-import HomeInterface from "../HomeInterface/homeInterface";
+import HomeInterface from "../HomeInterface/HomeInterface";
 import AboutUs from "../AboutUs/aboutUs";
 import FAQs from "../FAQs/FAQs";
 import ContactUs from "../ContactUs/contactUs"

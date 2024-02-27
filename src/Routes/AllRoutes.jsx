@@ -8,7 +8,7 @@ import ForgotPassword from "../Components/LogInAndSignUp/ForgotPassword";
 
 const AllRoutes = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(true);
-    const [userDetail, setUserDetail] = useState({});
+    const [userDetail, setUserDetail] = useState({ username: "Guest" });
     const location = useLocation();
 
     const updateUserDetails = (data) => {
