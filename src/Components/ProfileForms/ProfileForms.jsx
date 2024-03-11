@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import userImage from "../../Assets/Images/userImage.jpg"
+import cnicPic from "../../Assets/Images/cnic.png"
 import { ProfileForm, careTakerGroupsList, patientGroupsList } from './Common';
 import { showSuccessToast } from '../Toast/ToastifyToast';
 
@@ -12,11 +13,14 @@ const careTakerProperties = {
     address: '',
     phoneNumber: '',
     emailAddress: '',
+    cnicImage: cnicPic,
 
     education: '',
     experience: '',
     certifications: '',
+    certificationFiles: [],
     skills: '',
+    services: [],
 
     // medicalHistory: '',
     // allergies: '',
@@ -45,21 +49,22 @@ const patientProperties = {
     address: '',
     phoneNumber: '',
     emailAddress: '',
+    cnicImage: cnicPic,
 
-    medicalHistory: '',
-    allergies: '',
-    medications: '',
-    primaryCarePhysician: '',
+    // medicalHistory: '',
+    // allergies: '',
+    // medications: '',
+    // primaryCarePhysician: '',
 
     emergencyContactName: '',
     emergencyContactNumber: '',
 
-    insuranceProvider: '',
-    policyNumber: '',
+    // insuranceProvider: '',
+    // policyNumber: '',
 
-    preferredLanguages: [],
+    // preferredLanguages: [],
 
-    hobbiesInterests: '',
+    // hobbiesInterests: '',
 }
 
 const ProfileForms = ({ isPatient }) => {
@@ -71,15 +76,20 @@ const ProfileForms = ({ isPatient }) => {
     };
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        if (name === "preferredLanguages" || name === "daysAvailable")
+        let { name, value } = e.target;
+        if (name === "preferredLanguages" || name === "daysAvailable" || name === "services") {
             handleOptionsChange(name, value);
-        else {
-            setFormData((prevData) => ({
-                ...prevData,
-                [name]: value,
-            }));
+            return
         }
+        else if (name === "cnicImage")
+            value = e.target.files[0]
+        else if (name === "certificationFiles") {
+            value = e.target.files
+        }
+        setFormData((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }));
     };
 
     const handleOptionsChange = (name, value) => {
@@ -95,10 +105,10 @@ const ProfileForms = ({ isPatient }) => {
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        if (isPatient){
+        if (isPatient) {
             showSuccessToast("Patient Form Submitted Successfully");
         }
-        else{
+        else {
             showSuccessToast("Care Taker Form Submitted Successfully");
         }
     }
