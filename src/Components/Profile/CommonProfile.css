@@ -1,0 +1,38 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    margin: 50px 400px;
+    gap: 100px;
+}
+
+.upper {
+    display: flex;
+    padding: 30px;
+    justify-content: center;
+    background-color: darkgray;
+}
+
+.lower {
+    display: flex;
+    flex-direction: row;
+    gap: 80px;
+    justify-content: space-between;
+    margin: -20px 80px;
+}
+
+.box,
+.addBox {
+    display: flex;
+    width: 200px;
+    height: 170px;
+    border-radius: 0%;
+    background-color: dimgrey;
+    border: none;
+    justify-content: center;
+    font-size: x-large;
+    color: white;
+}
+
+.addBox {
+    font-size: 100px;
+}
