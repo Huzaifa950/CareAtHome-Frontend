@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { showErrorToast, showSuccessToast } from '../Toast/ToastifyToast';
 import { ApiGetCall } from '../ApiCall/ApiCalls';
 import { capitalizeFirstLetter } from '../Common/Common';
+import {profileInterface} from '../Profile/profileInterface';
 
 const Header = ({ userInfo, updateLogInStatus }) => {
 
@@ -12,7 +13,11 @@ const Header = ({ userInfo, updateLogInStatus }) => {
 
     const handleProfileClick = (event) => {
         // if (userInfo.isProfilingComplete)
-        nav("/profile")
+        nav("/profile");
+
+        return(
+            <profileInterface />
+        )
         // else
         // show a top up message to complete profile
     }
