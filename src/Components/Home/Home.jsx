@@ -7,9 +7,9 @@ import Footer from "../Footer/footer";
 import { Route, Routes } from "react-router-dom";
 
 // import { Button, Dropdown, Nav, NavDropdown, Navbar, Stack } from "react-bootstrap";
-=======
+// =======
 import Profile from "../Profile/Profile";
->>>>>>> c1a61ff96e72458651492f8f71c8ed5c6ba85215
+// >>>>>>> c1a61ff96e72458651492f8f71c8ed5c6ba85215
 
 const Home = ({ updateLogInStatus, userInfo }) => {
 
