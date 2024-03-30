@@ -1,0 +1,83 @@
+header {
+    display: flex;
+    flex-direction: row;
+    background-color: #324255;
+    align-items: center;
+    height: 130px;
+    color: white;
+}
+
+.account {
+    margin-left: 800px;
+
+}
+
+.leftDiv {
+    display: flex;
+    flex-direction: row;
+}
+
+.profileBox {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    background-color: gainsboro;
+    margin: 100px;
+    align-items: center;
+}
+
+.status {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    background-color: white;
+    margin: 50px;
+    padding: 0 15px;
+    width: fit-content;
+    margin-left: 500px;
+}
+
+.indicator {
+    display: flex;
+    font-size: 60px;
+    margin-top: -35px;
+    height: 45px;
+    color: green;
+
+}
+
+.profileImage {
+    display: flex;
+    border-radius: 50%;
+    height: 250px;
+    width: 250px;
+    margin-top: -30px;
+
+}
+
+.proImage {
+    background-size: cover;
+    border-radius: 50%;
+    background-color: #324255;
+    overflow: hidden;
+    position: relative;
+}
+
+
+
+.profileAction {
+    padding: 10px 50px;
+    font-size: 25px;
+    background-color: #324255;
+    color: white;
+    border-radius: 10px;
+    border: none;
+}
+
+.location,
+.membSince {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
