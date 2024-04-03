@@ -7,56 +7,79 @@ import { ApiGetCall } from "../Components/ApiCall/ApiCalls";
 import ForgotPassword from "../Components/LogInAndSignUp/ForgotPassword";
 
 const AllRoutes = () => {
-    const [isLoggedIn, setIsLoggedIn] = useState(true);
-    const [userDetail, setUserDetail] = useState({ username: "Guest" });
-    const location = useLocation();
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [userDetail, setUserDetail] = useState({ username: "Guest" });
+  const location = useLocation();
 
-    const updateUserDetails = (data) => {
-        setUserDetail(data);
-    }
+  const updateUserDetails = (data) => {
+    setUserDetail(data);
+  };
 
-    const updateLogInStatus = (status) => {
-        setIsLoggedIn(status);
-    }
+  const updateLogInStatus = (status) => {
+    setIsLoggedIn(status);
+  };
 
-    useEffect(() => {
-        const getUserInfo = async () => {
-            try {
-                const result = await ApiGetCall('/getuserinfo');
-                if (result.data) {
-                    console.log("user info data: ", result.data);
-                    updateUserDetails(result.data);
-                    updateLogInStatus(true);
-                }
-                else {
-                    updateLogInStatus(false);
-                }
-            } catch (error) {
-                console.error("error /getuserinfo", error);
-                updateLogInStatus(false);
-            }
-
+  useEffect(() => {
+    const getUserInfo = async () => {
+      try {
+        const result = await ApiGetCall("/getuserinfo");
+        if (result.data) {
+          console.log("user info data: ", result.data);
+          updateUserDetails(result.data);
+          updateLogInStatus(true);
+        } else {
+          updateLogInStatus(false);
         }
-        getUserInfo();
-    }, [isLoggedIn]);
+      } catch (error) {
+        console.error("error /getuserinfo", error);
+        updateLogInStatus(false);
+      }
+    };
+    getUserInfo();
+  }, [isLoggedIn]);
 
-    console.log("Location: ", location.pathname)
+  console.log("Location: ", location.pathname);
 
-    if (!isLoggedIn && location.pathname !== "/login" && location.pathname !== "/signup" && location.pathname !== "/forgotpassword")
-        return <Navigate to="/login" />
-    if (isLoggedIn && (location.pathname === "/login" || location.pathname === "/signup" || location.pathname === "/forgotpassword"))
-        return <Navigate to="/" />
-    else
-        return (
-            <>
-                <Routes>
-                    {!isLoggedIn && <Route path="/login" element={<LogIn updateLogInStatus={updateLogInStatus} />} />}
-                    {!isLoggedIn && <Route path="/signup" element={<SignUp />} />}
-                    {!isLoggedIn && <Route path="/forgotpassword" element={<ForgotPassword />} />}
-                    <Route path="*" element={<Home updateLogInStatus={updateLogInStatus} userInfo={userDetail} />} />
-                </Routes>
-            </>
-        )
-}
+  if (
+    !isLoggedIn &&
+    location.pathname !== "/login" &&
+    location.pathname !== "/signup" &&
+    location.pathname !== "/forgotpassword"
+  )
+    return <Navigate to="/login" />;
+  if (
+    isLoggedIn &&
+    (location.pathname === "/login" ||
+      location.pathname === "/signup" ||
+      location.pathname === "/forgotpassword")
+  )
+    return <Navigate to="/" />;
+  else
+    return (
+      <>
+        <Routes>
+          {!isLoggedIn && (
+            <Route
+              path="/login"
+              element={<LogIn updateLogInStatus={updateLogInStatus} />}
+            />
+          )}
+          {!isLoggedIn && <Route path="/signup" element={<SignUp />} />}
+          {!isLoggedIn && (
+            <Route path="/forgotpassword" element={<ForgotPassword />} />
+          )}
+          <Route
+            path="*"
+            element={
+              <Home
+                updateLogInStatus={updateLogInStatus}
+                userInfo={userDetail}
+              />
+            }
+          />
+        </Routes>
+      </>
+    );
+};
 
-export default AllRoutes
+export default AllRoutes;

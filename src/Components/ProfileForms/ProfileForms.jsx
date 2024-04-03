@@ -1,136 +1,140 @@
-import React, { useState } from 'react';
-import userImage from "../../Assets/Images/userImage.jpg"
-import cnicPic from "../../Assets/Images/cnic.png"
-import { ProfileForm, careTakerGroupsList, patientGroupsList } from './Common';
-import { showSuccessToast } from '../Toast/ToastifyToast';
+import React, { useState } from "react";
+import userImage from "../../Assets/Images/userImage.jpg";
+import cnicPic from "../../Assets/Images/cnic.png";
+import { ProfileForm, careTakerGroupsList, patientGroupsList } from "./Common";
+import { showSuccessToast } from "../Toast/ToastifyToast";
 
 const careTakerProperties = {
-    fullName: '',
-    dateOfBirth: '',
-    gender: '',
-    biography: '',
+  fullName: "",
+  dateOfBirth: "",
+  gender: "",
+  biography: "",
 
-    address: '',
-    phoneNumber: '',
-    emailAddress: '',
-    cnicImage: cnicPic,
+  address: "",
+  phoneNumber: "",
+  emailAddress: "",
+  cnicImage: cnicPic,
 
-    education: '',
-    experience: '',
-    certifications: '',
-    certificationFiles: [],
-    skills: '',
-    services: [],
+  education: "",
+  experience: "",
+  certifications: "",
+  certificationFiles: [],
+  skills: "",
+  services: [],
 
-    // medicalHistory: '',
-    // allergies: '',
-    // medications: '',
-    // primaryCarePhysician: '',
+  // medicalHistory: '',
+  // allergies: '',
+  // medications: '',
+  // primaryCarePhysician: '',
 
-    startTime: '',
-    endTime: '',
-    daysAvailable: [],
+  startTime: "",
+  endTime: "",
+  daysAvailable: [],
 
-    emergencyContactName: '',
-    emergencyContactNumber: '',
+  emergencyContactName: "",
+  emergencyContactNumber: "",
 
-    insuranceProvider: '',
-    policyNumber: '',
+  insuranceProvider: "",
+  policyNumber: "",
 
-    preferredLanguages: [],
-    hobbiesInterests: '',
-}
+  preferredLanguages: [],
+  hobbiesInterests: "",
+};
 
 const patientProperties = {
-    fullName: '',
-    dateOfBirth: '',
-    gender: '',
+  fullName: "",
+  dateOfBirth: "",
+  gender: "",
 
-    address: '',
-    phoneNumber: '',
-    emailAddress: '',
-    cnicImage: cnicPic,
+  address: "",
+  phoneNumber: "",
+  emailAddress: "",
+  cnicImage: cnicPic,
 
-    // medicalHistory: '',
-    // allergies: '',
-    // medications: '',
-    // primaryCarePhysician: '',
+  // medicalHistory: '',
+  // allergies: '',
+  // medications: '',
+  // primaryCarePhysician: '',
 
-    emergencyContactName: '',
-    emergencyContactNumber: '',
+  emergencyContactName: "",
+  emergencyContactNumber: "",
 
-    // insuranceProvider: '',
-    // policyNumber: '',
+  // insuranceProvider: '',
+  // policyNumber: '',
 
-    // preferredLanguages: [],
+  // preferredLanguages: [],
 
-    // hobbiesInterests: '',
-}
+  // hobbiesInterests: '',
+};
 
 const ProfileForms = ({ isPatient }) => {
-    const [image, setImage] = useState(userImage);
-    const [formData, setFormData] = useState(isPatient ? patientProperties : careTakerProperties);
+  const [image, setImage] = useState(userImage);
+  const [formData, setFormData] = useState(
+    isPatient ? patientProperties : careTakerProperties
+  );
 
-    const handleImageChange = (selectedImage) => {
-        setImage(selectedImage);
-    };
+  const handleImageChange = (selectedImage) => {
+    setImage(selectedImage);
+  };
 
-    const handleChange = (e) => {
-        let { name, value } = e.target;
-        if (name === "preferredLanguages" || name === "daysAvailable" || name === "services") {
-            handleOptionsChange(name, value);
-            return
-        }
-        else if (name === "cnicImage")
-            value = e.target.files[0]
-        else if (name === "certificationFiles") {
-            value = e.target.files
-        }
-        setFormData((prevData) => ({
-            ...prevData,
-            [name]: value,
-        }));
-    };
-
-    const handleOptionsChange = (name, value) => {
-        const updatedOptions = formData[name].includes(value)
-            ? formData[name].filter((lang) => lang !== value)
-            : [...formData[name], value];
-
-        setFormData((prevData) => ({
-            ...prevData,
-            [name]: updatedOptions,
-        }));
-    };
-
-    const handleFormSubmit = (e) => {
-        e.preventDefault();
-        if (isPatient) {
-            showSuccessToast("Patient Form Submitted Successfully");
-        }
-        else {
-            showSuccessToast("Care Taker Form Submitted Successfully");
-        }
+  const handleChange = (e) => {
+    let { name, value } = e.target;
+    if (
+      name === "preferredLanguages" ||
+      name === "daysAvailable" ||
+      name === "services"
+    ) {
+      handleOptionsChange(name, value);
+      return;
+    } else if (name === "cnicImage") value = e.target.files[0];
+    else if (name === "certificationFiles") {
+      value = e.target.files;
     }
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
 
-    return (
-        isPatient ?
-            <ProfileForm
-                image={image}
-                formData={formData}
-                groupsList={patientGroupsList}
-                handleFormSubmit={handleFormSubmit}
-                handleChange={handleChange}
-                handleImageChange={handleImageChange}
-            /> :
-            <ProfileForm
-                image={image}
-                formData={formData}
-                groupsList={careTakerGroupsList}
-                handleFormSubmit={handleFormSubmit}
-                handleChange={handleChange}
-                handleImageChange={handleImageChange}
-            />)
-}
+  const handleOptionsChange = (name, value) => {
+    const updatedOptions = formData[name].includes(value)
+      ? formData[name].filter((lang) => lang !== value)
+      : [...formData[name], value];
+
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: updatedOptions,
+    }));
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    if (isPatient) {
+      showSuccessToast("Patient Form Submitted Successfully");
+    } else {
+      showSuccessToast("Care Taker Form Submitted Successfully");
+    }
+  };
+
+  return isPatient ? (
+    <ProfileForm
+      image={image}
+      formData={formData}
+      groupsList={patientGroupsList}
+      handleFormSubmit={handleFormSubmit}
+      handleChange={handleChange}
+      handleImageChange={handleImageChange}
+    />
+  ) : (
+    <ProfileForm
+      image={image}
+      formData={formData}
+      groupsList={careTakerGroupsList}
+      handleFormSubmit={handleFormSubmit}
+      handleChange={handleChange}
+      handleImageChange={handleImageChange}
+    />
+  );
+};
 
 export default ProfileForms;
