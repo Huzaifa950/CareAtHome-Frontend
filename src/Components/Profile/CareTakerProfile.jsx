@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import CommonProfile from "./CommonProfile";
 
 const ServicesComponent = () => {
   const [selectedImages, setSelectedImages] = useState([]);
@@ -142,7 +143,6 @@ const ServicesComponent = () => {
   );
 };
 
-
 const PortfolioComponent = () => {
   const [selectedImages, setSelectedImages] = useState([]);
   const [clickedImageIndex, setClickedImageIndex] = useState(null);
@@ -284,7 +284,6 @@ const PortfolioComponent = () => {
   );
 };
 
-
 const EducationComponent = () => {
   const [description, setDescription] = useState("");
   const [editing, setEditing] = useState(true);
@@ -395,5 +394,3 @@ const EducationComponent = () => {
     </div>
   );
 };
-
-
