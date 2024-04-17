@@ -74,6 +74,7 @@ const AllRoutes = () => {
               <Home
                 updateLogInStatus={updateLogInStatus}
                 userInfo={userDetail}
+                setUserInfo={setUserDetail}
               />
             }
           />

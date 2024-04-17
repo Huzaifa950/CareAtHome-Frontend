@@ -4,7 +4,8 @@ import './homeInterface.css'
 import ProfileForms, { CareTakerForm, PatientForm } from '../ProfileForms/ProfileForms';
 import { showSuccessToast } from '../Toast/ToastifyToast';
 
-function HomeInterface(){
+function HomeInterface({ userInfo, setUserInfo }) {
+    console.log("HomeInterface userInfo: ", userInfo)
     const [show, setShow] = useState(false);
     const [children, setChildren] = useState(null);
     const [title, setTitle] = useState('');
@@ -13,23 +14,23 @@ function HomeInterface(){
     const handleShow = () => setShow(true);
 
     const handleCareTakerClick = () => {
-        setChildren(<ProfileForms isPatient={false} />);
+        setChildren(<ProfileForms isPatient={false} userInfo={userInfo} setUserInfo={setUserInfo} />);
         setTitle("Care Taker Form")
         handleShow();
     }
 
     const handlePatientClick = () => {
-        setChildren(<ProfileForms isPatient={true} />);
+        setChildren(<ProfileForms isPatient={true} userInfo={userInfo} setUserInfo={setUserInfo} />);
         setTitle("Patient Form")
         handleShow();
     }
 
-    return(
+    return (
         <div className='homeInterface_main'>
             <div className='homeInterface_container'>
                 <div className='homeInterface_transparentLayer'>
                     <div className='homeInterface_contaierBox'>
-                        <div  className='homeInterface_heading'>
+                        <div className='homeInterface_heading'>
                             <p>More Than A Residence -- It's A Community Built On Care, Respect, And Shared Joy</p>
                         </div>
                         <div className='homeInterface_body'>
@@ -42,7 +43,7 @@ function HomeInterface(){
                                 </div>
                                 <div className="homeInterface_patient">
                                     <button onClick={handlePatientClick} className='neon-button' type="submit">Patient</button>
-                                </div>  
+                                </div>
                             </div>
                         </div>
                     </div>

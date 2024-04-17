@@ -1,13 +1,13 @@
-import CareTakerProfile from "./CareTakerProfile";
+// import CareTakerProfile from "./CareTakerProfile";
 import PatientProfile from "./PatientProfile";
 
-const Profile = () => {
+const Profile = ({ userInfo }) => {
   return (
     <div style={{ marginTop: "50px" }}>
       {/* if User is patient then */}
-      <PatientProfile />
+      <PatientProfile userInfo={userInfo} />
       {/* Otherwise */}
-      <CareTakerProfile />
+      {/* <CareTakerProfile /> */}
     </div>
   );
 };

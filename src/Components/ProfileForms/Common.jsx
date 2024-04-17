@@ -44,12 +44,6 @@ const patientGroupsList = {
       placeholder: "Phone Number",
       name: "phoneNumber",
     },
-    {
-      label: "Email Address",
-      type: "email",
-      placeholder: "Email Address",
-      name: "emailAddress",
-    },
     { label: "CNIC Image", name: "cnicImage", image: true },
   ],
   // "Medical Information": [
@@ -113,12 +107,6 @@ const careTakerGroupsList = {
       type: "tel",
       placeholder: "Phone Number",
       name: "phoneNumber",
-    },
-    {
-      label: "Email Address",
-      type: "email",
-      placeholder: "Email Address",
-      name: "emailAddress",
     },
     { label: "CNIC Image", name: "cnicImage", image: true },
   ],

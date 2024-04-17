@@ -63,6 +63,7 @@ function LogIn({ updateLogInStatus }) {
     }
 
     try {
+      console.log("Going to make a post call to login")
       const result = await ApiPostCall("/login", data);
       console.log("The result of login is: ", result);
 
@@ -71,7 +72,7 @@ function LogIn({ updateLogInStatus }) {
       nav("/");
     } catch (error) {
       console.log("The error is: ", error);
-      if (error.response.status === 404)
+      if (error.response && error.response.status && error.response.status === 404)
         showErrorToast(
           `Incorrect ${isEmail ? "Email" : "Username"} or Password`
         );
