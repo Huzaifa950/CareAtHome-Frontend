@@ -51,9 +51,22 @@ function formatDate(date) {
 }
 
 function capitalizeEachWord(str) {
-    return str.replace(/\b\w/g, function(char) {
+    return str.replace(/\b\w/g, function (char) {
         return char.toUpperCase();
     });
+}
+
+function isFirstTimeGreater(time1, time2) {
+    const [hours1, minutes1] = time1.split(":").map(Number);
+    const [hours2, minutes2] = time2.split(":").map(Number);
+
+    if (hours1 > hours2) {
+        return true;
+    } else if (hours1 < hours2) {
+        return false;
+    } else {
+        return minutes1 > minutes2;
+    }
 }
 
 export {
@@ -63,6 +76,7 @@ export {
     validateRegex,
     alphaNumericRegex,
     capitalizeEachWord,
+    isFirstTimeGreater,
     uploadImageToImgBB,
     capitalizeFirstLetter,
     alphabetWithSpaceRegex,

@@ -1,6 +1,171 @@
-import React, { useState, useRef } from "react";
+import { formatDate } from "../Common/Common";
+import { ApiPostCall } from "../ApiCall/ApiCalls";
+import { useState, useRef, useEffect } from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
-import CommonProfile from "./CommonProfile";
+import { showErrorToast, showSuccessToast } from "../Toast/ToastifyToast";
+import { DescriptionComponent, LanguageComponent, ProfileComponent } from "./CommonProfile";
+import { getSingleFileFromDropbox, uploadSingleFileToDropbox } from "../../Dropbox/HandleFiles";
+
+const CareTakerProfile = ({ userInfo }) => {
+  const [originalCareTakerInfo, setOriginalCareTakerInfo] = useState({});
+  const [careTakerInfo, setCareTakerInfo] = useState({
+    username: userInfo.username,
+    image: "",
+    fullName: "",
+    description: "",
+    dateOfBirth: "",
+    emailAddress: userInfo.emailAddress,
+    gender: "",
+    address: "",
+    phoneNumber: "",
+    cnicImage: "",
+    education: "",
+    certifications: "",
+    experience: "",
+    certificationFiles: [],
+    skills: [],
+    careType: [],
+    workStartTime: "",
+    workEndTime: "",
+    workWeeks: [],
+    emergencyContactName: "",
+    emergencyContactNumber: "",
+    languages: [],
+    joiningDate: "",
+    leavingDate: "",
+  });
+
+  useEffect(() => {
+    const getCareTakerInfo = async () => {
+      try {
+        const result = await ApiPostCall("/getCareTakerInfo", { username: userInfo.username });
+        if (result.data && result.data[0]) {
+          const careTakerData = {
+            ...result.data[0],
+            emailAddress: userInfo.email,
+            certificationFiles: result.data[0].certificationFiles ? result.data[0].certificationFiles.split(",") : [],
+            skills: result.data[0].skills ? result.data[0].skills.split(",").map((skill) => skill.trim()) : [],
+            careType: result.data[0].careType ? result.data[0].careType.split(",").map((type) => type.trim()) : [],
+            workWeeks: result.data[0].workWeeks ? result.data[0].workWeeks.split(",").map((day) => day.trim()) : [],
+            languages: result.data[0].languages ? result.data[0].languages.split(",").map((lang) => lang.trim()) : []
+          }
+
+          const certificationOriginalFiles = []
+          for (let i = 0; i < careTakerData.certificationFiles.length; i++) {
+            const filePath = careTakerData.certificationFiles[i];
+            const file = await getSingleFileFromDropbox(filePath)
+            file.dropboxPath = filePath
+            certificationOriginalFiles.push(file)
+          }
+          careTakerData.certificationFiles = certificationOriginalFiles
+          console.log("CareTaker Info with certifications name1: ", careTakerData.certificationFiles[0].name);
+
+          setCareTakerInfo(careTakerData)
+          setOriginalCareTakerInfo(careTakerData)
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    if (userInfo.username) getCareTakerInfo();
+  }, [userInfo]);
+
+  const handleChange = (key, value) => {
+    setCareTakerInfo(prevInfo => ({ ...prevInfo, [key]: value }))
+  }
+
+  const updateCareTakerInfo = async (fieldsToUpdate) => {
+    console.log("Fields to Update: ", fieldsToUpdate)
+    const updatedCareTakerInfo = { ...originalCareTakerInfo, ...fieldsToUpdate }
+    const filesWithPath = updatedCareTakerInfo.certificationFiles
+
+    console.log("Updated CareTaker Info: ", updatedCareTakerInfo)
+
+    const updatedCertificationFiles = []
+    for (let i = 0; i < updatedCareTakerInfo.certificationFiles.length; i++) {
+      const file = updatedCareTakerInfo.certificationFiles[i];
+      const originalFile = originalCareTakerInfo.certificationFiles.find((originalFile) => originalFile.name === file.name);
+      if (originalFile) {
+        updatedCertificationFiles.push(originalFile.dropboxPath)
+      } else {
+        const filePath = await uploadSingleFileToDropbox(file)
+        filesWithPath[i].dropboxPath = filePath
+        updatedCertificationFiles.push(filePath)
+      }
+    }
+    updatedCareTakerInfo.certificationFiles = updatedCertificationFiles.join(",")
+
+    console.log("Updated Certification Files: ", updatedCertificationFiles.join(","))
+
+    console.log("Certification process Ok")
+
+    try {
+      console.log("Making APi request")
+      const result = await ApiPostCall("/updateCareTakerInfo",
+        {
+          username: userInfo.username, ...updatedCareTakerInfo,
+          dateOfBirth: formatDate(updatedCareTakerInfo.dateOfBirth),
+          skills: updatedCareTakerInfo.skills.join(","),
+          careType: updatedCareTakerInfo.careType.join(","),
+          workWeeks: updatedCareTakerInfo.workWeeks.join(","),
+          languages: updatedCareTakerInfo.languages.join(","),
+          leavingDate: updatedCareTakerInfo.leavingDate ? formatDate(updatedCareTakerInfo.leavingDate) : ""
+        });
+
+      if (result.data) {
+        setOriginalCareTakerInfo({ ...updatedCareTakerInfo, certificationFiles: filesWithPath })
+        console.log("CareTaker Info Updated: ", result.data);
+        showSuccessToast("CareTaker Info Updated Successfully")
+      }
+    } catch (error) {
+      showErrorToast("Error Updating CareTaker Info");
+      console.error(error);
+    }
+  }
+
+  return (
+    <div>
+      <Row>
+        <Col xs={12} md={6}>
+          <ProfileComponent
+            image={careTakerInfo.image}
+            name={careTakerInfo.fullName ? careTakerInfo.fullName : ""}
+            username={careTakerInfo.username ? careTakerInfo.username : ""}
+            location={careTakerInfo.address ? careTakerInfo.address : ""}
+            memberSince={careTakerInfo.joiningDate ? new Date(careTakerInfo.joiningDate).getFullYear() : 0}
+            handleProfileChange={handleChange} />
+        </Col>
+        <Col xs={12} md={6}>
+          <DescriptionComponent
+            desc={careTakerInfo.description ? careTakerInfo.description : ""}
+            handleDescriptionChange={handleChange}
+            updateDescription={updateCareTakerInfo} />
+        </Col>
+      </Row>
+
+      <Row>
+        <Col xs={12} md={6}>
+          <LanguageComponent
+            selectedLanguages={careTakerInfo.languages ? careTakerInfo.languages : []}
+            handleLanguageChange={handleChange}
+            updateLanguages={updateCareTakerInfo} />
+        </Col>
+        <Col xs={12} md={6}>
+          <EducationComponent />
+        </Col>
+      </Row>
+
+      <Row>
+        <Col xs={12} md={6}>
+          <PortfolioComponent />
+        </Col>
+        <Col xs={12} md={6}>
+          <ServicesComponent />
+        </Col>
+      </Row>
+    </div>
+  )
+}
 
 const ServicesComponent = () => {
   const [selectedImages, setSelectedImages] = useState([]);
@@ -33,8 +198,8 @@ const ServicesComponent = () => {
     <div
       className="text-center"
       style={{
-        width: "40%", // Adjusted width to cover 40% of the page area
-        margin: "5% 0 0 5%", // 5% margin on top and 5% margin on left side
+        width: "100%",
+        margin: "5% 0 0 5%",
         background: "#f2f2f2",
         padding: "20px",
         borderRadius: "8px",
@@ -174,8 +339,8 @@ const PortfolioComponent = () => {
     <div
       className="text-center"
       style={{
-        width: "40%", // Adjusted width to cover 40% of the page area
-        margin: "5% 0 0 5%", // 5% margin on top and 5% margin on left side
+        width: "100%",
+        margin: "5% 0 0 5%",
         background: "#f2f2f2",
         padding: "20px",
         borderRadius: "8px",
@@ -306,15 +471,11 @@ const EducationComponent = () => {
   };
 
   const handleSaveDescription = () => {
-    // Validation for description length
-    // const wordCount = description.split(/\s+/).filter(Boolean).length;
     setEditing(false);
   };
 
   const renderDescription = () => {
-    // Split the description into lines
     const lines = description.split("\n");
-    // Render each line as a list item
     return (
       <ul>
         {lines.map((line, index) => (
@@ -330,7 +491,7 @@ const EducationComponent = () => {
     <div
       style={{
         backgroundColor: "#f2f2f2",
-        maxWidth: "40%",
+        width: "100%",
         margin: "5%",
         borderRadius: "6px",
       }}
@@ -394,3 +555,5 @@ const EducationComponent = () => {
     </div>
   );
 };
+
+export default CareTakerProfile;

@@ -5,6 +5,7 @@ import { ProfileForm, careTakerGroupsList, patientGroupsList } from "./Common";
 import { showErrorToast, showSuccessToast, showWarningToast } from "../Toast/ToastifyToast";
 import { alphabetRegex, alphabetWithSpaceRegex, emailRegex, fileToBase64, uploadImageToImgBB, validateRegex } from "../Common/Common";
 import { ApiPostCall } from "../ApiCall/ApiCalls";
+import { getSingleFileFromDropbox, uploadFilesToDropbox } from "../../Dropbox/HandleFiles";
 
 const careTakerProperties = {
   fullName: "",
@@ -107,7 +108,7 @@ const ProfileForms = ({ isPatient, userInfo, setUserInfo }) => {
     }));
   };
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
     if (isPatient) {
       handlePatientFormSubmit();
@@ -161,9 +162,96 @@ const ProfileForms = ({ isPatient, userInfo, setUserInfo }) => {
     }
   }
 
-  const handleCareTakerFormSubmit = () => {
-    console.log("Care Taker Form Submitted", formData);
-    showSuccessToast("Care Taker Form Submitted Successfully");
+  const handleCareTakerFormSubmit = async () => {
+    console.log("CareTaker Form Data", formData);
+    console.log(typeof formData.startTime)
+
+    if (image === userImage)
+      showWarningToast("Please upload your Profile Image");
+    else if (formData.fullName === "")
+      showWarningToast("Please enter your Full Name");
+    else if (formData.dateOfBirth === "")
+      showWarningToast("Please enter your Date of Birth");
+    else if (formData.address === "")
+      showWarningToast("Please enter your Address");
+    else if (formData.phoneNumber === "")
+      showWarningToast("Please enter your Phone Number");
+    else if (formData.cnicImage === cnicPic)
+      showWarningToast("Please upload your CNIC Image");
+    else if (formData.education === "")
+      showWarningToast("Please enter your Education");
+    else if (formData.experience === "")
+      showWarningToast("Please enter your Experience");
+    else if (formData.certifications === "")
+      showWarningToast("Please enter your Certifications");
+    else if (formData.skills === "")
+      showWarningToast("Please enter your Skills");
+    else if (formData.services.length === 0)
+      showWarningToast("Please select your Care Type");
+    else if (formData.startTime === "")
+      showWarningToast("Please enter your Work Start Time");
+    else if (formData.endTime === "")
+      showWarningToast("Please enter your Work End Time");
+    else if (formData.daysAvailable.length === 0)
+      showWarningToast("Please select your Work Days");
+    else if (formData.preferredLanguages.length === 0)
+      showWarningToast("Please select your Preferred Languages");
+    else if (formData.emergencyContactName === "")
+      showWarningToast("Please enter your Emergency Contact Name");
+    else if (formData.emergencyContactNumber === "")
+      showWarningToast("Please enter your Emergency Contact Number");
+    else if (!validateRegex(formData.fullName, alphabetWithSpaceRegex))
+      showWarningToast("Invalid Full Name");
+    else if (new Date(formData.dateOfBirth) > new Date())
+      showWarningToast("Invalid Date of Birth");
+    else if (formData.phoneNumber.length < 11)
+      showWarningToast("Invalid Phone Number");
+    else if (!validateRegex(formData.emergencyContactName, alphabetWithSpaceRegex))
+      showWarningToast("Invalid Emergency Contact Name");
+    else if (formData.emergencyContactNumber.length < 11)
+      showWarningToast("Invalid Emergency Contact Number");
+    else {
+      try {
+        const imageLink = await uploadImageToImgBB(image);
+        const cnicImageLink = await uploadImageToImgBB(formData.cnicImage);
+        const filesLinks = await uploadFilesToDropbox(formData.certificationFiles)
+
+        const careTakerData = {
+          username: userInfo.username,
+          image: imageLink,
+          fullName: formData.fullName,
+          description: formData.biography,
+          dateOfBirth: formData.dateOfBirth,
+          gender: formData.gender,
+          address: formData.address,
+          phoneNumber: formData.phoneNumber,
+          cnicImage: cnicImageLink,
+          education: formData.education,
+          experience: formData.experience,
+          certifications: formData.certifications,
+          certificationFiles: filesLinks.join(","),
+          skills: formData.skills,
+          careType: formData.services,
+          workStartTime: formData.startTime,
+          workEndTime: formData.endTime,
+          workWeeks: formData.daysAvailable,
+          emergencyContactName: formData.emergencyContactName,
+          emergencyContactNumber: formData.emergencyContactNumber,
+          languages: formData.preferredLanguages,
+        }
+
+        console.log("CareTaker Data sent", careTakerData)
+
+        const result = await ApiPostCall("/addCareTaker", careTakerData);
+        console.log("Result After CareTaker Form Submission", result)
+        if (result.status === 200) {
+          setUserInfo({ ...userInfo, roleId: 3 })
+          showSuccessToast("CareTaker Form Submitted Successfully")
+        }
+      } catch (error) {
+        showErrorToast("Error Submitting CareTaker Form");
+      }
+    }
   }
 
   return isPatient ? (

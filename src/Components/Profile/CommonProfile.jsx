@@ -5,14 +5,6 @@ import dummyProfileImage from "../../Assets/Images/profile.png";
 import "./CommonProfile.css";
 import { capitalizeEachWord } from "../Common/Common";
 
-const CommonProfile = ({ pageName }) => {
-  return (
-    <div>
-      <h1>I am on a {pageName} Profile Page</h1>
-    </div>
-  );
-};
-
 const ProfileComponent = ({ image, name, username, memberSince, location, handleProfileChange }) => {
   console.log("Profile Component user image: ", image)
 
@@ -394,5 +386,3 @@ const LanguageComponent = ({ selectedLanguages, handleLanguageChange, updateLang
 };
 
 export { ProfileComponent, DescriptionComponent, LanguageComponent };
-
-export default CommonProfile;
