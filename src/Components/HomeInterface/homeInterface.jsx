@@ -4,8 +4,35 @@ import './homeInterface.css'
 import ProfileForms, { CareTakerForm, PatientForm } from '../ProfileForms/ProfileForms';
 import { showSuccessToast } from '../Toast/ToastifyToast';
 
-function HomeInterface({ userInfo, setUserInfo }) {
-    console.log("HomeInterface userInfo: ", userInfo)
+const HomeInterface = ({ userInfo, setUserInfo }) => {
+    return (
+        userInfo.roleId === 2 ?
+            <PatientInterface />
+            :
+            userInfo.roleId === 3 ?
+                <CareTakerInterface />
+                :
+                <JoinInterface userInfo={userInfo} setUserInfo={setUserInfo} />
+    )
+}
+
+const CareTakerInterface = () => {
+    return (
+        <div style={{marginTop: "50px"}}>
+            <h1>This is a careTaker Interface</h1>
+        </div>
+    )
+}
+
+const PatientInterface = () => {
+    return (
+        <div style={{marginTop: "50px"}}>
+            <h1>This is a Patient Interface</h1>
+        </div>
+    )
+}
+
+function JoinInterface({ userInfo, setUserInfo }) {
     const [show, setShow] = useState(false);
     const [children, setChildren] = useState(null);
     const [title, setTitle] = useState('');

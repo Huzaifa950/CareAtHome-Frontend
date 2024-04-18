@@ -20,7 +20,7 @@ const Home = ({ updateLogInStatus, userInfo, setUserInfo }) => {
                 <Route path="/aboutus" element={<AboutUs />} />
                 <Route path="/faqs" element={<FAQs />} />
                 <Route path="/contactus" element={<ContactUs />} />
-                <Route path="/profile" element={<Profile userInfo={userInfo} />} />
+                {userInfo.roleId > 0 && <Route path="/profile" element={<Profile userInfo={userInfo} />} />}
             </Routes>
 
             <Footer />

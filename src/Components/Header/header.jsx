@@ -78,9 +78,10 @@ const Header = ({ userInfo, updateLogInStatus }) => {
               title={capitalizeFirstLetter(userInfo.username)}
               id="basic-nav-dropdown"
             >
-              <NavDropdown.Item onClick={handleProfileClick}>
-                Profile
-              </NavDropdown.Item>
+              {userInfo.roleId > 0 &&
+                <NavDropdown.Item onClick={handleProfileClick}>
+                  Profile
+                </NavDropdown.Item>}
               <NavDropdown.Item href="#settings">Settings</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item onClick={handleLogOut}>Logout</NavDropdown.Item>
