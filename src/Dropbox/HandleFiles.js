@@ -1,5 +1,5 @@
 
-const accessToken = 'sl.BzmiAQDwyQCu0x4Xzp1Oin_2K2iJbTlbaXME4ofA7nIFcjcXbekGnBwSEyXh2VoFffGhTtlyrZ8XKVUI8Solj8S2eclc5GpjyCfKUYDIqdFBbBpJ4YJBXO5l8kN60dbvoHF0P6Z2x6-p7yQ';
+const accessToken = 'sl.BzvMZYr0VaIuvSe4rGaPw_2K5mPOpj89qYIQ3lnnOkj25TUydD6ZF2AYOdRUknMn2PCvhIcNdLxjF0BaPRojjEMk7j-2N4Sk4Fo5_cLpb6x3mWIDZnNMWsg-n03gxa56Ys8cFGyG4RpePUY';
 
 async function uploadFilesToDropbox(files) {
     const uploadedFiles = [];

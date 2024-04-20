@@ -159,7 +159,13 @@ const CareTakerProfile = ({ userInfo }) => {
         <Col xs={12} md={6}>
           <PortfolioComponent />
         </Col>
-        <Col xs={12} md={6}>
+        {/* <Col xs={12} md={6}>
+          <ServicesComponent />
+        </Col> */}
+      </Row>
+
+      <Row>
+        <Col>
           <ServicesComponent />
         </Col>
       </Row>

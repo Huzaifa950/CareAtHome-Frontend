@@ -5,6 +5,7 @@ import ProfileForms, { CareTakerForm, PatientForm } from '../ProfileForms/Profil
 import { showSuccessToast } from '../Toast/ToastifyToast';
 
 const HomeInterface = ({ userInfo, setUserInfo }) => {
+    console.log("HomeInterface userInfo: ", userInfo)
     return (
         userInfo.roleId === 2 ?
             <PatientInterface />
@@ -18,7 +19,7 @@ const HomeInterface = ({ userInfo, setUserInfo }) => {
 
 const CareTakerInterface = () => {
     return (
-        <div style={{marginTop: "50px"}}>
+        <div style={{ marginTop: "50px" }}>
             <h1>This is a careTaker Interface</h1>
         </div>
     )
@@ -26,7 +27,7 @@ const CareTakerInterface = () => {
 
 const PatientInterface = () => {
     return (
-        <div style={{marginTop: "50px"}}>
+        <div style={{ marginTop: "50px" }}>
             <h1>This is a Patient Interface</h1>
         </div>
     )
@@ -41,13 +42,25 @@ function JoinInterface({ userInfo, setUserInfo }) {
     const handleShow = () => setShow(true);
 
     const handleCareTakerClick = () => {
-        setChildren(<ProfileForms isPatient={false} userInfo={userInfo} setUserInfo={setUserInfo} />);
+        setChildren(
+            <ProfileForms
+                closeForm={handleClose}
+                isPatient={false}
+                userInfo={userInfo}
+                setUserInfo={setUserInfo} />
+        );
         setTitle("Care Taker Form")
         handleShow();
     }
 
     const handlePatientClick = () => {
-        setChildren(<ProfileForms isPatient={true} userInfo={userInfo} setUserInfo={setUserInfo} />);
+        setChildren(
+            <ProfileForms
+                closeForm={handleClose}
+                isPatient={true}
+                userInfo={userInfo}
+                setUserInfo={setUserInfo} />
+        );
         setTitle("Patient Form")
         handleShow();
     }

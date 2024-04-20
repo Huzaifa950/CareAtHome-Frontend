@@ -68,7 +68,7 @@ const patientProperties = {
   // hobbiesInterests: '',
 };
 
-const ProfileForms = ({ isPatient, userInfo, setUserInfo }) => {
+const ProfileForms = ({ closeForm, isPatient, userInfo, setUserInfo }) => {
   const [image, setImage] = useState(userImage);
   const [formData, setFormData] = useState(
     isPatient ? patientProperties : careTakerProperties
@@ -154,6 +154,7 @@ const ProfileForms = ({ isPatient, userInfo, setUserInfo }) => {
         console.log("Result After Patient Form Submission", result)
         if (result.status === 200) {
           setUserInfo({ ...userInfo, roleId: 2 })
+          closeForm();
           showSuccessToast("Patient Form Submitted Successfully")
         }
       } catch (error) {
@@ -246,6 +247,7 @@ const ProfileForms = ({ isPatient, userInfo, setUserInfo }) => {
         console.log("Result After CareTaker Form Submission", result)
         if (result.status === 200) {
           setUserInfo({ ...userInfo, roleId: 3 })
+          closeForm();
           showSuccessToast("CareTaker Form Submitted Successfully")
         }
       } catch (error) {

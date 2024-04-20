@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { Button, Col, Form, Image, ListGroup, Row } from "react-bootstrap";
 const languagesList = [
   "English",
@@ -218,7 +219,7 @@ const FormGroupItem = ({
   );
 };
 
-const ImageComponent = ({ name, label, image, handleImageChange }) => {
+const ImageComponent = memo(({ name, label, image, handleImageChange }) => {
   const handleImageClick = () => {
     document.getElementById("cnicImgFile").click();
   };
@@ -251,9 +252,9 @@ const ImageComponent = ({ name, label, image, handleImageChange }) => {
       />
     </Form.Group>
   );
-};
+})
 
-const FileComponent = ({ name, label, files, handleFileChange }) => {
+const FileComponent = memo(({ name, label, files, handleFileChange }) => {
   return (
     <Form.Group>
       <Form.Label className="form-control-label">{label}</Form.Label>
@@ -275,9 +276,9 @@ const FileComponent = ({ name, label, files, handleFileChange }) => {
       </ListGroup>
     </Form.Group>
   );
-};
+})
 
-const FormGroupDropdown = ({ label, name, value, options, handleChange }) => {
+const FormGroupDropdown = memo(({ label, name, value, options, handleChange }) => {
   return (
     <Form.Group>
       <Form.Label className="form-control-label">{label}</Form.Label>
@@ -297,7 +298,7 @@ const FormGroupDropdown = ({ label, name, value, options, handleChange }) => {
       </Form.Control>
     </Form.Group>
   );
-};
+})
 
 const GroupsContainer = ({ label, children }) => {
   return (
@@ -313,7 +314,7 @@ const GroupsContainer = ({ label, children }) => {
   );
 };
 
-const ItemsList = ({ itemList, formData, handleChange }) => {
+const ItemsList = memo(({ itemList, formData, handleChange }) => {
   return Object.keys(itemList).map((group, groupIndex) => (
     <GroupsContainer
       key={groupIndex}
@@ -378,9 +379,9 @@ const ItemsList = ({ itemList, formData, handleChange }) => {
       ))}
     />
   ));
-};
+})
 
-const CheckboxForm = ({ options, name, selectedOptions, onOptionChange }) => {
+const CheckboxForm = memo(({ options, name, selectedOptions, onOptionChange }) => {
   return (
     <>
       <div style={{ marginTop: "15px" }}></div>
@@ -397,9 +398,9 @@ const CheckboxForm = ({ options, name, selectedOptions, onOptionChange }) => {
       ))}
     </>
   );
-};
+})
 
-const RoundImageForm = ({ image, onImageChange }) => {
+const RoundImageForm = memo(({ image, onImageChange }) => {
   const handleImageClick = () => {
     document.getElementById("imageUpload").click();
   };
@@ -432,7 +433,7 @@ const RoundImageForm = ({ image, onImageChange }) => {
       />
     </Form.Group>
   );
-};
+})
 
 const ProfileForm = ({
   image,
