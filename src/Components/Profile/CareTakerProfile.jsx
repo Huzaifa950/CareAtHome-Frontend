@@ -1,10 +1,13 @@
-import { formatDate } from "../Common/Common";
+import "./CareTakerProfile.css"
+
+import { capitalizeEachWord, formatDate, uploadImageToImgBB } from "../Common/Common";
 import { ApiPostCall } from "../ApiCall/ApiCalls";
 import { useState, useRef, useEffect } from "react";
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { Container, Row, Col, Card, Button, ListGroup, Form, Image, Dropdown } from "react-bootstrap";
 import { showErrorToast, showSuccessToast } from "../Toast/ToastifyToast";
 import { DescriptionComponent, LanguageComponent, ProfileComponent } from "./CommonProfile";
 import { getSingleFileFromDropbox, uploadSingleFileToDropbox } from "../../Dropbox/HandleFiles";
+import PopUpModal from "../Modal/PopUpModal";
 
 const CareTakerProfile = ({ userInfo }) => {
   const [originalCareTakerInfo, setOriginalCareTakerInfo] = useState({});
@@ -47,7 +50,7 @@ const CareTakerProfile = ({ userInfo }) => {
             skills: result.data[0].skills ? result.data[0].skills.split(",").map((skill) => skill.trim()) : [],
             careType: result.data[0].careType ? result.data[0].careType.split(",").map((type) => type.trim()) : [],
             workWeeks: result.data[0].workWeeks ? result.data[0].workWeeks.split(",").map((day) => day.trim()) : [],
-            languages: result.data[0].languages ? result.data[0].languages.split(",").map((lang) => lang.trim()) : []
+            languages: result.data[0].languages ? result.data[0].languages.split(",").map((lang) => capitalizeEachWord(lang.trim())) : []
           }
 
           const certificationOriginalFiles = []
@@ -58,7 +61,8 @@ const CareTakerProfile = ({ userInfo }) => {
             certificationOriginalFiles.push(file)
           }
           careTakerData.certificationFiles = certificationOriginalFiles
-          console.log("CareTaker Info with certifications name1: ", careTakerData.certificationFiles[0].name);
+
+          console.log("Full care taker info: ", careTakerData)
 
           setCareTakerInfo(careTakerData)
           setOriginalCareTakerInfo(careTakerData)
@@ -159,16 +163,403 @@ const CareTakerProfile = ({ userInfo }) => {
         <Col xs={12} md={6}>
           <PortfolioComponent />
         </Col>
-        {/* <Col xs={12} md={6}>
-          <ServicesComponent />
-        </Col> */}
       </Row>
 
       <Row>
         <Col>
-          <ServicesComponent />
+          <MyServicesComponent username={userInfo.username} />
         </Col>
       </Row>
+    </div>
+  )
+}
+
+const MyServicesComponent = ({ username }) => {
+  const [services, setServices] = useState([]);
+  const [showAddServiceForm, setShowAddServiceForm] = useState(false);
+  const [formComponent, setFormComponent] = useState(null)
+  const [formData, setFormData] = useState(null)
+
+  const onFormClose = () => { setShowAddServiceForm(false) }
+  const onFormOpen = () => { setShowAddServiceForm(true) }
+
+  useEffect(() => {
+    if (!formData) {
+      return;
+    }
+    if (formData.isEdit) {
+      const { isEdit, ...otherFormData } = formData
+      console.log("other form data is: ", otherFormData)
+      setServices(prevSer => prevSer.map((ser) => ser.id === formData.id ? otherFormData : ser))
+    }
+    else {
+      setServices(prevSer => [...prevSer, formData])
+    }
+    onFormClose()
+    setFormData(null)
+  }, [formData])
+
+  useEffect(() => {
+    const getServices = async () => {
+      try {
+        const result = await ApiPostCall("/getServicesOfCareTaker", { username });
+        console.log("Services of care taker: ", result)
+        if (result.data) {
+          setServices(result.data)
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    getServices();
+  }, []);
+
+  const onAddService = () => {
+    setFormComponent(<AddServiceForm setFormData={setFormData} username={username} />)
+    onFormOpen()
+  }
+
+  const handleServiceEdit = (service) => {
+    setFormComponent(<AddServiceForm setFormData={setFormData} username={username} data={service} />)
+    onFormOpen()
+  }
+
+  const handleServiceDelete = async (service) => {
+    try {
+      const result = await ApiPostCall("/deleteService", { id: service.id });
+      if (result.status === 200) {
+        setServices(prevServices => prevServices.filter((ser) => ser.id !== service.id))
+        showSuccessToast("Service deleted successfully")
+      }
+    } catch (error) {
+      showErrorToast("Error deleting service")
+      console.error(error)
+    }
+  }
+
+  return (
+    <div style={{ padding: "20px" }}>
+      <Card style={{ minHeight: "300px" }}>
+        <Card.Header
+          style={{ backgroundColor: "#666", color: "white", fontWeight: "bold", textAlign: "center" }}>
+          My Services
+        </Card.Header>
+
+        <Card.Body>
+          {services.length > 0 ? (
+            <div>
+              <ListGroup style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-around", gap: "20px", flexDirection: "row" }}>
+                {services.map((service, index) => (
+                  <ServiceCard key={index} dropdownOptionsShow={true} handleEdit={handleServiceEdit} handleDelete={handleServiceDelete} {...service} />
+                ))}
+
+                <AddServiceButton onAddServiceClick={onAddService} />
+              </ListGroup>
+            </div>
+          ) : (
+            <div style={{ minHeight: "250px" }} className="d-flex justify-content-center align-items-center">
+              <AddServiceButton onAddServiceClick={onAddService} />
+            </div>
+          )}
+        </Card.Body>
+      </Card>
+
+      <PopUpModal
+        show={showAddServiceForm}
+        title={"Add a Service"}
+        handleClose={onFormClose}
+        children={formComponent} />
+    </div>
+  );
+};
+
+
+const ServiceCard = (
+  { id,
+    image,
+    title,
+    description,
+    price,
+    duration,
+    duration_unit,
+    dropdownOptionsShow,
+    handleEdit,
+    handleDelete
+  }) => {
+  const [showOptions, setShowOptions] = useState(false);
+
+  const handleToggleOptions = () => {
+    setShowOptions(!showOptions);
+  };
+
+  const handleEditClick = () => {
+    setShowOptions(false);
+    handleEdit({ id, image, title, description, price, duration, duration_unit })
+  };
+
+  const handleDeleteClick = () => {
+    setShowOptions(false);
+    handleDelete({ id, image, title, description, price, duration, duration_unit })
+  };
+
+  const handleDropdownHide = () => {
+    setShowOptions(false);
+  };
+
+  return (
+    <Card style={{ width: "25rem" }}>
+      <Card.Img style={{ maxHeight: "230px", minHeight: "230px" }} variant="top" src={image} />
+      <Card.Body>
+        <Card.Title className="clip-text clip-2-lines-text">{title}</Card.Title>
+        <hr />
+        <Card.Text className="clip-text clip-2-lines-text">{description}</Card.Text>
+        <hr />
+        <Card.Text style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
+          <b>Price:</b>
+          <span>Rs. {price}</span>
+        </Card.Text>
+        <hr />
+        <Card.Text style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
+          <b>Duration:</b>
+          <span>{duration} {capitalizeEachWord(duration_unit)}</span>
+        </Card.Text>
+
+        {dropdownOptionsShow && <div style={{ position: "absolute", top: "10px", right: "10px" }}>
+          <Dropdown alignRight show={showOptions} onHide={handleDropdownHide}>
+            <Dropdown.Toggle
+              as="span"
+              id="dropdown-basic"
+              onClick={handleToggleOptions}
+              style={{
+                cursor: "pointer",
+                textDecoration: "none",
+                color: "inherit",
+                border: "none",
+                background: "transparent",
+                padding: 0,
+                margin: 0,
+                fontSize: "inherit",
+              }}
+            >
+              &#8942;
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Dropdown.Item onClick={handleEditClick}>Edit</Dropdown.Item>
+              <Dropdown.Item onClick={handleDeleteClick}>Delete</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        </div>}
+      </Card.Body>
+    </Card>
+  );
+};
+
+const AddServiceForm = ({ setFormData, username, data }) => {
+  const [image, setImage] = useState(data ? data.image : "");
+  const [title, setTitle] = useState(data ? data.title : "");
+  const [description, setDescription] = useState(data ? data.description : "");
+  const [price, setPrice] = useState(data ? data.price : "");
+  const [durationValue, setDurationValue] = useState(data ? data.duration : "");
+  const [durationUnit, setDurationUnit] = useState(data ? data.duration_unit : "day");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!image || !title || !price || !durationValue || !durationUnit || !description)
+      showErrorToast("Please fill all fields");
+    else if (price < 0)
+      showErrorToast("Price cannot be negative");
+    else if (durationValue < 0)
+      showErrorToast("Duration cannot be negative");
+    else {
+      const formData = {
+        username,
+        title,
+        price,
+        duration: durationValue,
+        duration_unit: durationUnit,
+        description,
+      };
+      if (data) {
+
+        try {
+          let imageLink = image;
+          if (data.image !== image) {
+            imageLink = await uploadImageToImgBB(image);
+            if (!imageLink) {
+              showErrorToast("Something went wrong");
+              return;
+            }
+          }
+          formData.image = imageLink;
+          formData.id = data.id;
+          formData.isEdit = true;
+          const result = await ApiPostCall("/updateServiceInfo", formData);
+          if (result.status === 200) {
+            showSuccessToast("Service updated successfully");
+            setFormData(formData);
+          }
+          else {
+            showErrorToast("Error updating service");
+          }
+        }
+        catch (error) {
+          showErrorToast("Error updating service");
+          console.log(error)
+        }
+      }
+
+      else {
+        try {
+          console.log("Uploading image")
+          const imageLink = await uploadImageToImgBB(image);
+          if (!imageLink) {
+            showErrorToast("Something went wrong");
+            return;
+          }
+          console.log("Uploading done")
+          formData.image = imageLink;
+
+          const result = await ApiPostCall("/addService", formData);
+          formData.id = result.data[0][0].id;
+
+          if (result.data && result.data[0] && result.data[0][0] && result.data[0][0].id) {
+            showSuccessToast("Service added successfully");
+            setFormData(formData);
+          }
+          else {
+            showErrorToast("Error adding service");
+          }
+        } catch (error) {
+          showErrorToast("Error adding service");
+          console.log(error)
+        }
+      }
+    }
+  };
+
+  const handleImageClick = () => {
+    document.getElementById("cnicImgFile").click();
+  };
+
+  return (
+    <div>
+      <Form onSubmit={handleSubmit}>
+        <Form.Group style={{ marginBottom: "20px" }}>
+          <Row className="justify-content-center align-items-center">
+            <Col onClick={handleImageClick}>
+              {image ?
+                <Image
+                  src={typeof image === "string" ? image : URL.createObjectURL(image)}
+                  alt="Image Alt Text"
+                  fluid
+                  style={{
+                    maxHeight: "200px",
+                    width: "100%",
+                    borderRadius: "10px",
+                    cursor: "pointer",
+                  }}
+                />
+                :
+                <div style={{ minHeight: "200px", backgroundColor: "#ddd", borderRadius: "10px", cursor: "pointer", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                  <b>Add Service Image</b>
+                </div>
+              }
+            </Col>
+          </Row>
+
+          <Form.Control
+            name={"The name goes here"}
+            id="cnicImgFile"
+            type="file"
+            accept="image/*"
+            hidden
+            onChange={(e) => setImage(e.target.files[0])}
+          />
+        </Form.Group>
+
+        <Form.Group controlId="title" style={{ marginBottom: "20px" }}>
+          <Form.Label>Title</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Enter title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+        </Form.Group>
+
+        <Form.Group controlId="price" style={{ marginBottom: "20px" }}>
+          <Form.Label>Price</Form.Label>
+          <Form.Control
+            type="number"
+            placeholder="Enter price"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+          />
+        </Form.Group>
+
+        <Form.Group controlId="duration" style={{ marginBottom: "20px" }}>
+          <Form.Label>Duration</Form.Label>
+          <Row>
+            <Col>
+              <Form.Control
+                type="number"
+                placeholder="Enter duration"
+                value={durationValue}
+                onChange={(e) => setDurationValue(e.target.value)}
+              />
+            </Col>
+            <Col>
+              <Form.Control
+                as="select"
+                value={durationUnit}
+                onChange={(e) => setDurationUnit(e.target.value)}
+              >
+                <option value="day">Day</option>
+                <option value="week">Week</option>
+                <option value="month">Month</option>
+                <option value="year">Year</option>
+              </Form.Control>
+            </Col>
+          </Row>
+        </Form.Group>
+
+        <Form.Group controlId="description" style={{ marginBottom: "20px" }}>
+          <Form.Label>Description</Form.Label>
+          <Form.Control
+            as="textarea"
+            rows={3}
+            placeholder="Enter description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+        </Form.Group>
+
+        <Button style={{ float: "right" }} variant="primary" type="submit">
+          Submit
+        </Button>
+      </Form>
+    </div>
+  );
+};
+
+const AddServiceButton = ({ onAddServiceClick }) => {
+  return (
+    <div
+      onClick={onAddServiceClick}
+      style={{
+        width: "150px",
+        height: "150px",
+        border: "1px dashed #ccc",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        cursor: "pointer",
+        margin: "0 10px 20px",
+      }}
+    >
+      <span style={{ fontSize: "40px" }}>+</span>
+      <div style={{ fontSize: "15px" }}>Add a New Service</div>
     </div>
   )
 }

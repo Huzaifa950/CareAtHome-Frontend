@@ -1,7 +1,24 @@
-*{
+* {
   padding: 0;
   margin: 0;
   /* overflow-x: hidden;
   overflow-y: auto; */
   box-sizing: border-box;
+}
+
+.clip-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+.clip-2-lines-text {
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+.clip-1-line-text {
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
 }

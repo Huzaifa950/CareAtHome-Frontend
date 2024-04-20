@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { ApiPostCall } from "../ApiCall/ApiCalls";
 import { showErrorToast, showSuccessToast } from "../Toast/ToastifyToast";
-import { formatDate } from "../Common/Common";
+import { capitalizeEachWord, formatDate } from "../Common/Common";
 
 const PatientProfile = ({ userInfo }) => {
   const [originalPatientInfo, setOriginalPatientInfo] = useState({});
@@ -59,7 +59,7 @@ const PatientProfile = ({ userInfo }) => {
         {
           username: userInfo.username, ...updatedPatientInfo,
           dateOfBirth: formatDate(updatedPatientInfo.dateOfBirth),
-          languages: updatedPatientInfo.languages.join(","),
+          languages: updatedPatientInfo.languages.join(",").map((lang) => capitalizeEachWord(lang.trim())),
           leavingDate: updatedPatientInfo.leavingDate ? formatDate(updatedPatientInfo.leavingDate) : ""
         });
 
