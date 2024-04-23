@@ -24,13 +24,13 @@ const gendersList = ["Male", "Female", "Other"];
 const patientGroupsList = {
   "Personal Information": [
     {
-      label: "Full Name",
+      label: "Full Name*",
       type: "text",
       placeholder: "Full Name",
       name: "fullName",
     },
     {
-      label: "Date of Birth",
+      label: "Date of Birth*",
       type: "date",
       placeholder: "Date of Birth",
       name: "dateOfBirth",
@@ -38,14 +38,14 @@ const patientGroupsList = {
     { label: "Gender", options: gendersList, name: "gender", dropdown: true },
   ],
   "Contact Information": [
-    { label: "Address", type: "text", placeholder: "Address", name: "address" },
+    { label: "Address*", type: "text", placeholder: "Address", name: "address" },
     {
-      label: "Phone Number",
+      label: "Phone Number*",
       type: "tel",
       placeholder: "Phone Number",
       name: "phoneNumber",
     },
-    { label: "CNIC Image", name: "cnicImage", image: true },
+    { label: "CNIC Image*", name: "cnicImage", image: true },
   ],
   // "Medical Information": [
   //     { label: "Medical History", type: "text", placeholder: "Medical History", name: "medicalHistory" },

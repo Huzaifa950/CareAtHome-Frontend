@@ -5,8 +5,15 @@ import dummyProfileImage from "../../Assets/Images/profile.png";
 import "./CommonProfile.css";
 import { capitalizeEachWord } from "../Common/Common";
 
-const ProfileComponent = ({ image, name, username, memberSince, location, handleProfileChange }) => {
-  console.log("Profile Component user image: ", image)
+const ProfileComponent = ({
+  image,
+  name,
+  username,
+  memberSince,
+  location,
+  handleProfileChange,
+}) => {
+  console.log("Profile Component user image: ", image);
 
   const handleImageChange = (e) => {
     const selectedFile = e.target.files[0];
@@ -21,9 +28,7 @@ const ProfileComponent = ({ image, name, username, memberSince, location, handle
         padding: "20px",
         borderRadius: "10px",
         position: "relative",
-        marginLeft: "5%",
-        marginRight: "5%",
-        marginTop: "5%",
+        margin: "10% 5% 0 5%",
       }}
     >
       <div
@@ -35,7 +40,7 @@ const ProfileComponent = ({ image, name, username, memberSince, location, handle
           textAlign: "right",
         }}
       >
-        <p>Dead</p>
+        <p>Active</p>
       </div>
       <Row className="justify-content-center">
         <Col xs={8} sm={6}>
@@ -43,13 +48,14 @@ const ProfileComponent = ({ image, name, username, memberSince, location, handle
             className="profile-image mx-auto"
             style={{ textAlign: "center", marginBottom: "20px" }}
           >
-            <label
-              htmlFor="profileImage"
-              className="rounded-circle d-block"
-            >
+            <label htmlFor="profileImage" className="rounded-circle d-block">
               {image ? (
                 <Image
-                  src={typeof image === "string" ? image : URL.createObjectURL(image)}
+                  src={
+                    typeof image === "string"
+                      ? image
+                      : URL.createObjectURL(image)
+                  }
                   alt="Profile Image"
                   roundedCircle // Apply roundedCircle class for circular image
                   style={{
@@ -71,7 +77,7 @@ const ProfileComponent = ({ image, name, username, memberSince, location, handle
                 id="profileImage"
                 style={{
                   display: "none",
-                  width: "150px",
+                  width: "120px",
                   height: "150px",
                 }}
                 onChange={handleImageChange}
@@ -82,41 +88,33 @@ const ProfileComponent = ({ image, name, username, memberSince, location, handle
       </Row>
       <Row className="justify-content-center">
         <Col>
-          <div className="profile-details text-center">
-            <div
-              className="member"
-              style={{ display: "flex", justifyContent: "space-around" }}
-            >
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+              margin: "0 10px 0 100px",
+            }}
+          >
+            <div className="fieldNames" style={{ flex: 1 }}>
               <p>
                 <strong>Name:</strong>
               </p>
-              <p>{capitalizeEachWord(name)}</p>
-            </div>
-            <div
-              className="member"
-              style={{ display: "flex", justifyContent: "space-around" }}
-            >
               <p>
                 <strong>Username:</strong>
               </p>
-              <p>{capitalizeEachWord(username)}</p>
-            </div>
-            <div
-              className="member"
-              style={{ display: "flex", justifyContent: "space-around" }}
-            >
               <p>
                 <strong>Member Since:</strong>
               </p>
-              <p>{memberSince}</p>
-            </div>
-            <div
-              className="from"
-              style={{ display: "flex", justifyContent: "space-around" }}
-            >
               <p>
                 <strong>From:</strong>
               </p>
+            </div>
+
+            <div className="fieldValues" style={{ flex: 1 }}>
+              <p>{capitalizeEachWord(name)}</p>
+              <p>{capitalizeEachWord(username)}</p>
+              <p>{memberSince}</p>
               <p>{location}</p>
             </div>
           </div>
@@ -124,9 +122,13 @@ const ProfileComponent = ({ image, name, username, memberSince, location, handle
       </Row>
     </div>
   );
-}
+};
 
-const DescriptionComponent = ({ desc, handleDescriptionChange, updateDescription }) => {
+const DescriptionComponent = ({
+  desc,
+  handleDescriptionChange,
+  updateDescription,
+}) => {
   const [editing, setEditing] = useState(true);
 
   const handleEditDescription = () => {
@@ -134,7 +136,7 @@ const DescriptionComponent = ({ desc, handleDescriptionChange, updateDescription
   };
 
   const handleSaveDescription = () => {
-    const wordCount = desc ? desc.split(/\s+/).filter(Boolean).length : 0;
+    // const wordCount = desc ? desc.split(/\s+/).filter(Boolean).length : 0;
     // if (wordCount < 120) {
     //   showErrorToast("Description should be greater than 120 words.");
     // } else if (wordCount > 200) {
@@ -144,7 +146,6 @@ const DescriptionComponent = ({ desc, handleDescriptionChange, updateDescription
     updateDescription({ description: desc });
     setEditing(false);
     // }
-
   };
 
   const wordCount = desc ? desc.split(/\s+/).filter(Boolean).length : 0;
@@ -153,17 +154,17 @@ const DescriptionComponent = ({ desc, handleDescriptionChange, updateDescription
     <div
       style={{
         backgroundColor: "#f2f2f2",
-        margin: "5%",
-        borderRadius: "6px",
+        margin: "10% 5% 0 5%",
+        borderRadius: "5px",
       }}
     >
-      <Card>
+      <Card style={{ backgroundColor: "#f2f2f2" }}>
         <Card.Body>
           <Row
             style={{
               display: "flex",
               justifyContent: "space-between",
-              maxWidth: "95%",
+              maxWidth: "100%",
               alignItems: "center",
             }}
           >
@@ -197,9 +198,15 @@ const DescriptionComponent = ({ desc, handleDescriptionChange, updateDescription
                 rows={8} // Adjusted height
                 placeholder="Enter your Description Here"
                 value={desc}
-                onChange={(e) => handleDescriptionChange("description", e.target.value)}
+                onChange={(e) =>
+                  handleDescriptionChange("description", e.target.value)
+                }
                 required
-                style={{ width: "95%", resize: "none" }}
+                style={{
+                  width: "95%",
+                  resize: "none",
+                  backgroundColor: "#f2f2f2",
+                }}
               />
               <Row style={{ marginLeft: "85%" }}>
                 <Col className="text-end">
@@ -216,15 +223,19 @@ const DescriptionComponent = ({ desc, handleDescriptionChange, updateDescription
   );
 };
 
-const LanguageComponent = ({ selectedLanguages, handleLanguageChange, updateLanguages }) => {
+const LanguageComponent = ({
+  selectedLanguages,
+  handleLanguageChange,
+  updateLanguages,
+}) => {
   const [editing, setEditing] = useState(true);
 
   const handleLanguageChangeClick = (language) => {
     let updatedLanguages = [];
     if (selectedLanguages.includes(language)) {
-      updatedLanguages = selectedLanguages.filter((lang) => lang !== language)
+      updatedLanguages = selectedLanguages.filter((lang) => lang !== language);
     } else {
-      updatedLanguages = [...selectedLanguages, language]
+      updatedLanguages = [...selectedLanguages, language];
     }
     handleLanguageChange("languages", updatedLanguages);
   };
@@ -251,12 +262,11 @@ const LanguageComponent = ({ selectedLanguages, handleLanguageChange, updateLang
   return (
     <div
       style={{
-        backgroundColor: "#f2f2f2",
-        margin: "5%",
+        margin: "5% 5% 0 5%",
         borderRadius: "6px",
       }}
     >
-      <Card>
+      <Card style={{ backgroundColor: "#f2f2f2" }}>
         <Card.Body>
           <Row
             style={{
