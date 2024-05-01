@@ -3,6 +3,9 @@ import PopUpModal from '../Modal/PopUpModal';
 import './homeInterface.css'
 import ProfileForms, { CareTakerForm, PatientForm } from '../ProfileForms/ProfileForms';
 import { showSuccessToast } from '../Toast/ToastifyToast';
+import Header from '../CareTakerHome/header';
+import ButtonRow from '../CareTakerHome/buttons';
+// import ImageWithText from './components/body';
 
 const HomeInterface = ({ userInfo, setUserInfo }) => {
     console.log("HomeInterface userInfo: ", userInfo)
@@ -21,6 +24,9 @@ const CareTakerInterface = () => {
     return (
         <div style={{ marginTop: "50px" }}>
             <h1>This is a careTaker Interface</h1>
+            <Header />
+            <ButtonRow />
+            {/* <ImageWithText /> */}
         </div>
     )
 }
