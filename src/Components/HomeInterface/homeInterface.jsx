@@ -3,8 +3,8 @@ import PopUpModal from '../Modal/PopUpModal';
 import './homeInterface.css'
 import ProfileForms, { CareTakerForm, PatientForm } from '../ProfileForms/ProfileForms';
 import { showSuccessToast } from '../Toast/ToastifyToast';
-import Header from '../CareTakerHome/header';
-import ButtonRow from '../CareTakerHome/buttons';
+import Header from '../UserHome/header';
+import ButtonRow from '../UserHome/buttons';
 // import ImageWithText from './components/body';
 
 const HomeInterface = ({ userInfo, setUserInfo }) => {
@@ -24,9 +24,6 @@ const CareTakerInterface = () => {
     return (
         <div style={{ marginTop: "50px" }}>
             <h1>This is a careTaker Interface</h1>
-            <Header />
-            <ButtonRow />
-            {/* <ImageWithText /> */}
         </div>
     )
 }
@@ -35,6 +32,9 @@ const PatientInterface = () => {
     return (
         <div style={{ marginTop: "50px" }}>
             <h1>This is a Patient Interface</h1>
+            <Header />
+            <ButtonRow />
+            {/* <ImageWithText /> */}
         </div>
     )
 }
