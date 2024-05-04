@@ -82,13 +82,13 @@ const patientGroupsList = {
 const careTakerGroupsList = {
   "Personal Information": [
     {
-      label: "Full Name",
+      label: "Full Name*",
       type: "text",
       placeholder: "Full Name",
       name: "fullName",
     },
     {
-      label: "Date of Birth",
+      label: "Date of Birth*",
       type: "date",
       placeholder: "Date of Birth",
       name: "dateOfBirth",
@@ -102,15 +102,16 @@ const careTakerGroupsList = {
     },
   ],
   "Contact Information": [
-    { label: "Address", type: "text", placeholder: "Address", name: "address" },
+    { label: "Address*", type: "text", placeholder: "Address", name: "address" },
     {
-      label: "Phone Number",
+      label: "Phone Number*",
       type: "tel",
       placeholder: "Phone Number",
       name: "phoneNumber",
     },
-    { label: "CNIC Image", name: "cnicImage", image: true },
+    { label: "CNIC Image*", name: "cnicImage", image: true },
   ],
+  // "Location": [{ label: "Location", name: "location", location: true }],
   "Professional Details": [
     {
       label: "Education",
@@ -119,7 +120,7 @@ const careTakerGroupsList = {
       name: "education",
     },
     {
-      label: "Experience",
+      label: "Experience*",
       type: "number",
       placeholder: "Experience",
       name: "experience",
@@ -131,9 +132,9 @@ const careTakerGroupsList = {
       name: "certifications",
     },
     { label: "Certifications Files", name: "certificationFiles", files: true },
-    { label: "Skills", type: "text", placeholder: "Skills", name: "skills" },
+    { label: "Skills*", type: "text", placeholder: "Skills", name: "skills" },
     {
-      label: "Services",
+      label: "Services*",
       options: servicesList,
       name: "services",
       checkbox: true,
@@ -147,19 +148,19 @@ const careTakerGroupsList = {
   // ],
   "Work Schedule and Availability": [
     {
-      label: "Start Time",
+      label: "Start Time*",
       type: "time",
       placeholder: "Start Time",
       name: "startTime",
     },
     {
-      label: "End Time",
+      label: "End Time*",
       type: "time",
       placeholder: "End Time",
       name: "endTime",
     },
     {
-      label: "Days Available",
+      label: "Days Available*",
       options: weekdaysList,
       name: "daysAvailable",
       checkbox: true,
@@ -278,6 +279,15 @@ const FileComponent = memo(({ name, label, files, handleFileChange }) => {
   );
 })
 
+const FormGroupLocation = memo(({ label, name, value, handleChange }) => {
+  return (
+    <Form.Group>
+      <Form.Label className="form-control-label">{label}</Form.Label>
+      {/* <LocationSearch /> */}
+    </Form.Group>
+  );
+})
+
 const FormGroupDropdown = memo(({ label, name, value, options, handleChange }) => {
   return (
     <Form.Group>
@@ -363,6 +373,14 @@ const ItemsList = memo(({ itemList, formData, handleChange }) => {
               name={item.name}
               value={formData[item.name]}
               onChange={handleChange}
+            />
+          ) : item.location ? (
+            <FormGroupLocation
+              key={index}
+              label={item.label}
+              name={item.name}
+              value={formData[item.name]}
+              handleChange={handleChange}
             />
           ) : (
             <FormGroupItem
