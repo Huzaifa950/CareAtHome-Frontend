@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'; // Import arrow icons
-import backgroundImage1 from '../assets/1.jpg';
-import backgroundImage2 from '../assets/2.jpg';
-import backgroundImage3 from '../assets/3.jpg';
-import backgroundImage4 from '../assets/4.jpg';
-import backgroundImage5 from '../assets/5.jpg';
+import backgroundImage1 from '../../Assets/Images/1.jpg';
+import backgroundImage2 from '../../Assets/Images/1.jpg';
+import backgroundImage3 from '../../Assets/Images/1.jpg';
+import backgroundImage4 from '../../Assets/Images/1.jpg';
+import backgroundImage5 from '../../Assets/Images/1.jpg';
 
 const ImageSlider = () => {
-  const images = [backgroundImage1, backgroundImage2, backgroundImage3, backgroundImage4, backgroundImage5]; 
+  const images = [backgroundImage1, backgroundImage2, backgroundImage3, backgroundImage4, backgroundImage5]; // Array of images
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
@@ -30,20 +30,20 @@ const ImageSlider = () => {
     <div style={{ width: '100%', height: '60vh', position: 'relative', overflow: 'hidden' }}>
       <div 
         style={{
-          // width: ${images.length * 100}%; // Set width dynamically based on number of images
+          width: `${images.length * 100}%`,
           height: '100%', 
-          display: 'flex', // Display images in a row
-          transition: 'transform 2s', // Smooth transition
-          // transform: translateX(-${currentImageIndex * (100 / images.length)}%) 
+          display: 'flex',
+          transition: 'transform 2s',
+          transform: `translateX(-${currentImageIndex * (100 / images.length)}%)`
         }}
       >
         {images.map((image, index) => (
           <div 
             key={index} 
             style={{
-              // width: ${100 / images.length}%, // Set width dynamically based on number of images
+              width: `${100 / images.length}%`,
               height: '100%', 
-              // backgroundImage: url(${image}), 
+              backgroundImage:  `url(${image})`,
               backgroundSize: 'cover', 
               backgroundPosition: 'center' 
             }} 

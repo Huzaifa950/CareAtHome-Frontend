@@ -3,6 +3,8 @@ import "./CareTakerProfile.css";
 import {
   capitalizeEachWord,
   formatDate,
+  escapeString,
+  unescapeString,
   uploadImageToImgBB,
 } from "../Common/Common";
 import { ApiPostCall } from "../ApiCall/ApiCalls";
@@ -83,8 +85,8 @@ const CareTakerProfile = ({ userInfo }) => {
               : [],
             languages: result.data[0].languages
               ? result.data[0].languages
-                  .split(",")
-                  .map((lang) => capitalizeEachWord(lang.trim()))
+                .split(",")
+                .map((lang) => capitalizeEachWord(lang.trim()))
               : [],
           };
 
@@ -96,6 +98,7 @@ const CareTakerProfile = ({ userInfo }) => {
             certificationOriginalFiles.push(file);
           }
           careTakerData.certificationFiles = certificationOriginalFiles;
+          careTakerData.description = unescapeString(careTakerData.description);
 
           console.log("Full care taker info: ", careTakerData);
 
@@ -119,10 +122,11 @@ const CareTakerProfile = ({ userInfo }) => {
       ...originalCareTakerInfo,
       ...fieldsToUpdate,
     };
+    updatedCareTakerInfo.description = escapeString(updateCareTakerInfo.description);
     const filesWithPath = updatedCareTakerInfo.certificationFiles;
-
+    
     console.log("Updated CareTaker Info: ", updatedCareTakerInfo);
-
+    
     const updatedCertificationFiles = [];
     for (let i = 0; i < updatedCareTakerInfo.certificationFiles.length; i++) {
       const file = updatedCareTakerInfo.certificationFiles[i];
@@ -146,7 +150,7 @@ const CareTakerProfile = ({ userInfo }) => {
     );
 
     console.log("Certification process Ok");
-
+    
     try {
       console.log("Making APi request");
       const result = await ApiPostCall("/updateCareTakerInfo", {
@@ -158,10 +162,11 @@ const CareTakerProfile = ({ userInfo }) => {
         workWeeks: updatedCareTakerInfo.workWeeks.join(","),
         languages: updatedCareTakerInfo.languages.join(","),
         leavingDate: updatedCareTakerInfo.leavingDate
-          ? formatDate(updatedCareTakerInfo.leavingDate)
+        ? formatDate(updatedCareTakerInfo.leavingDate)
           : "",
       });
-
+      
+      updatedCareTakerInfo.description = unescapeString(updateCareTakerInfo.description);
       if (result.data) {
         setOriginalCareTakerInfo({
           ...updatedCareTakerInfo,
@@ -496,6 +501,7 @@ const AddServiceForm = ({ setFormData, username, data }) => {
   const [image, setImage] = useState(data ? data.image : "");
   const [title, setTitle] = useState(data ? data.title : "");
   const [description, setDescription] = useState(data ? data.description : "");
+  const [serviceType, setServiceType] = useState(data ? data.serviceType : "");
   const [price, setPrice] = useState(data ? data.price : "");
   const [durationValue, setDurationValue] = useState(data ? data.duration : "");
   const [durationUnit, setDurationUnit] = useState(
@@ -523,6 +529,7 @@ const AddServiceForm = ({ setFormData, username, data }) => {
         duration: durationValue,
         duration_unit: durationUnit,
         description,
+        serviceType,
       };
       if (data) {
         try {
@@ -584,6 +591,14 @@ const AddServiceForm = ({ setFormData, username, data }) => {
   const handleImageClick = () => {
     document.getElementById("cnicImgFile").click();
   };
+
+  const handleServiceType = (type) => {
+    if (serviceType.split(' ').includes(type)) {
+      setServiceType(serviceType.replace(type, "").trim());
+    } else {
+      setServiceType(serviceType + " " + type);
+    }
+  }
 
   return (
     <div>
@@ -690,6 +705,26 @@ const AddServiceForm = ({ setFormData, username, data }) => {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
+        </Form.Group>
+
+        <Form.Group controlId="serviceType" style={{ marginBottom: "20px" }}>
+          <Form.Label>Service Type</Form.Label>
+          <div>
+            <Form.Check
+              type="checkbox"
+              id="childCheckbox"
+              label="Child"
+              checked={serviceType.split(' ').includes("child")}
+              onChange={() => handleServiceType("child")}
+            />
+            <Form.Check
+              type="checkbox"
+              id="oldCheckbox"
+              label="Old"
+              checked={serviceType.split(' ').includes("old")}
+              onChange={() => handleServiceType("old")}
+            />
+          </div>
         </Form.Group>
 
         <Button style={{ float: "right" }} variant="primary" type="submit">

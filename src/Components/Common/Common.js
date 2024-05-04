@@ -6,6 +6,14 @@ const alphabetRegex = /^[a-zA-Z]*$/;
 const alphabetWithSpaceRegex = /^[a-zA-Z ]*$/;
 const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
+const escapeString = (str) => {
+    return str.replace(/['"\\]/g, '\\$&');
+};
+
+const unescapeString = (str) => {
+    return str.replace(/\\(['"\\])/g, '$1');
+};
+
 const validateRegex = (string, regex) => {
     return regex.test(string);
 }
@@ -72,8 +80,10 @@ function isFirstTimeGreater(time1, time2) {
 export {
     emailRegex,
     formatDate,
+    escapeString,
     alphabetRegex,
     validateRegex,
+    unescapeString,
     alphaNumericRegex,
     capitalizeEachWord,
     isFirstTimeGreater,
