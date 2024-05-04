@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Row, Col, Image, Card, Button } from "react-bootstrap";
 import dummyProfileImage from "../../Assets/Images/profile.png";
 
@@ -126,8 +126,9 @@ const ProfileComponent = ({
 
 const DescriptionComponent = ({
   desc,
-  handleDescriptionChange,
   updateDescription,
+  originalPatientInfo,
+  handleDescriptionChange,
 }) => {
   const [editing, setEditing] = useState(true);
 
@@ -147,6 +148,12 @@ const DescriptionComponent = ({
     setEditing(false);
     // }
   };
+
+  useEffect(() => {
+    if (desc) {
+      setEditing(false);
+    }
+  }, [originalPatientInfo]);
 
   const wordCount = desc ? desc.split(/\s+/).filter(Boolean).length : 0;
 
@@ -224,11 +231,18 @@ const DescriptionComponent = ({
 };
 
 const LanguageComponent = ({
-  selectedLanguages,
-  handleLanguageChange,
   updateLanguages,
+  selectedLanguages,
+  originalPatientInfo,
+  handleLanguageChange,
 }) => {
   const [editing, setEditing] = useState(true);
+
+  useEffect(() => {
+    if (selectedLanguages.length > 0) {
+      setEditing(false);
+    }
+  }, [originalPatientInfo]);
 
   const handleLanguageChangeClick = (language) => {
     let updatedLanguages = [];

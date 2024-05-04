@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { ApiPostCall } from "../ApiCall/ApiCalls";
 import { showErrorToast, showSuccessToast } from "../Toast/ToastifyToast";
-import { capitalizeEachWord, formatDate } from "../Common/Common";
+import { capitalizeEachWord, escapeString, formatDate, unescapeString } from "../Common/Common";
 
 const PatientProfile = ({ userInfo }) => {
   const [originalPatientInfo, setOriginalPatientInfo] = useState({});
@@ -36,6 +36,7 @@ const PatientProfile = ({ userInfo }) => {
           const patientData = {
             ...result.data[0],
             emailAddress: userInfo.email,
+            description: result.data[0].description == "null"? "" : unescapeString(result.data[0].description),
             languages: result.data[0].languages ? result.data[0].languages.split(",").map((lang) => lang.trim()) : []
           }
           setPatientInfo(patientData)
@@ -54,16 +55,20 @@ const PatientProfile = ({ userInfo }) => {
 
   const updatePatientInfo = async (fieldsToUpdate) => {
     const updatedPatientInfo = { ...originalPatientInfo, ...fieldsToUpdate }
+    updatedPatientInfo.description = escapeString(updatedPatientInfo.description)
+    console.log("Updated patient info23:", updatedPatientInfo)
     try {
       const result = await ApiPostCall("/updatePatientInfo",
         {
-          username: userInfo.username, ...updatedPatientInfo,
+          username: userInfo.username, 
+          ...updatedPatientInfo,
           dateOfBirth: formatDate(updatedPatientInfo.dateOfBirth),
-          languages: updatedPatientInfo.languages.join(",").map((lang) => capitalizeEachWord(lang.trim())),
+          languages: updatedPatientInfo.languages.join(","),
           leavingDate: updatedPatientInfo.leavingDate ? formatDate(updatedPatientInfo.leavingDate) : ""
         });
 
       if (result.data) {
+        updatedPatientInfo.description = unescapeString(updatedPatientInfo.description)
         setOriginalPatientInfo(updatedPatientInfo)
         console.log("Patient Info Updated: ", result.data);
         showSuccessToast("Patient Info Updated Successfully")
@@ -73,8 +78,6 @@ const PatientProfile = ({ userInfo }) => {
       console.error("error /updatePatientInfo", error);
     }
   }
-
-  console.log("Patient Info Outside: ", patientInfo)
 
   return (
     <div>
@@ -92,17 +95,20 @@ const PatientProfile = ({ userInfo }) => {
           <Col xs={12} md={6}>
             <DescriptionComponent
               desc={patientInfo.description ? patientInfo.description : ""}
+              originalPatientInfo={originalPatientInfo}
               handleDescriptionChange={handleChange}
               updateDescription={updatePatientInfo} />
           </Col>
         </Row>
 
-        <Row>
+        <Row style={{ marginBottom: "30px" }}>
           <Col xs={12} md={6}>
             <LanguageComponent
-              selectedLanguages={patientInfo.languages ? patientInfo.languages : []}
+              updateLanguages={updatePatientInfo}
               handleLanguageChange={handleChange}
-              updateLanguages={updatePatientInfo} />
+              originalPatientInfo={originalPatientInfo}
+              selectedLanguages={patientInfo.languages ? patientInfo.languages : []}
+            />
           </Col>
         </Row>
 
