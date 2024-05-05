@@ -55,7 +55,7 @@ const Header = ({ userInfo, updateLogInStatus }) => {
         <Navbar.Toggle aria-controls="navbar" />
 
         <Navbar.Collapse id="navbar">
-          <Nav className="mx-auto">
+          <Nav className="mx-auto" style={{ fontWeight: "bold" }}>
             <Nav.Link style={{ marginRight: "40px" }} as={Link} to={"/"}>
               Home
             </Nav.Link>
@@ -78,10 +78,11 @@ const Header = ({ userInfo, updateLogInStatus }) => {
               title={capitalizeFirstLetter(userInfo.username)}
               id="basic-nav-dropdown"
             >
-              {userInfo.roleId > 0 &&
+              {userInfo.roleId > 0 && (
                 <NavDropdown.Item onClick={handleProfileClick}>
                   Profile
-                </NavDropdown.Item>}
+                </NavDropdown.Item>
+              )}
               <NavDropdown.Item href="#settings">Settings</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item onClick={handleLogOut}>Logout</NavDropdown.Item>
