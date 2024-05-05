@@ -98,7 +98,7 @@ const CareTakerProfile = ({ userInfo }) => {
             certificationOriginalFiles.push(file);
           }
           careTakerData.certificationFiles = certificationOriginalFiles;
-          careTakerData.description = unescapeString(careTakerData.description);
+          careTakerData.description = careTakerData.description? unescapeString(careTakerData.description): ""
 
           console.log("Full care taker info: ", careTakerData);
 
@@ -186,6 +186,8 @@ const CareTakerProfile = ({ userInfo }) => {
       <Row>
         <Col xs={12} md={6}>
           <ProfileComponent
+            originalImage={originalCareTakerInfo.image}
+            handleUpdateImage={updateCareTakerInfo}
             image={careTakerInfo.image}
             name={careTakerInfo.fullName ? careTakerInfo.fullName : ""}
             username={careTakerInfo.username ? careTakerInfo.username : ""}

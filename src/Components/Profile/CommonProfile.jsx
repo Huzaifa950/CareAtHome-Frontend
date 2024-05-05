@@ -3,9 +3,11 @@ import { Row, Col, Image, Card, Button } from "react-bootstrap";
 import dummyProfileImage from "../../Assets/Images/profile.png";
 
 import "./CommonProfile.css";
-import { capitalizeEachWord } from "../Common/Common";
+import { capitalizeEachWord, uploadImageToImgBB } from "../Common/Common";
 
 const ProfileComponent = ({
+  originalImage,
+  handleUpdateImage,
   image,
   name,
   username,
@@ -14,6 +16,19 @@ const ProfileComponent = ({
   handleProfileChange,
 }) => {
   console.log("Profile Component user image: ", image);
+
+  useEffect(() => {
+    const uploadImage = async () => {
+      try {
+        const imageLink = await uploadImageToImgBB(image);
+        handleUpdateImage({ image: imageLink });
+      } catch (error) {
+        console.log("Error Updating Image")
+      }
+    };
+    if (image && image !== originalImage) uploadImage();
+
+  }, [image]);
 
   const handleImageChange = (e) => {
     const selectedFile = e.target.files[0];
