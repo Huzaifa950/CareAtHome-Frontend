@@ -213,23 +213,23 @@ const ProfileForms = ({ closeForm, isPatient, userInfo, setUserInfo }) => {
       showWarningToast("Please enter your Work End Time");
     else if (formData.daysAvailable.length === 0)
       showWarningToast("Please select your Work Days");
-    else if (formData.preferredLanguages.length === 0)
-      showWarningToast("Please select your Preferred Languages");
-    else if (formData.emergencyContactName === "")
-      showWarningToast("Please enter your Emergency Contact Name");
-    else if (formData.emergencyContactNumber === "")
-      showWarningToast("Please enter your Emergency Contact Number");
+    // else if (formData.preferredLanguages.length === 0)
+    //   showWarningToast("Please select your Preferred Languages");
+    // else if (formData.emergencyContactName === "")
+    //   showWarningToast("Please enter your Emergency Contact Name");
+    // else if (formData.emergencyContactNumber === "")
+    //   showWarningToast("Please enter your Emergency Contact Number");
     else if (!validateRegex(formData.fullName, alphabetWithSpaceRegex))
       showWarningToast("Invalid Full Name");
     else if (new Date(formData.dateOfBirth) > new Date())
       showWarningToast("Invalid Date of Birth");
     else if (formData.phoneNumber.length < 11)
       showWarningToast("Invalid Phone Number");
-    else if (
+    else if (formData.emergencyContactName != "" &&
       !validateRegex(formData.emergencyContactName, alphabetWithSpaceRegex)
     )
       showWarningToast("Invalid Emergency Contact Name");
-    else if (formData.emergencyContactNumber.length < 11)
+    else if (formData.emergencyContactNumber != "" && formData.emergencyContactNumber.length < 11)
       showWarningToast("Invalid Emergency Contact Number");
     else {
       try {
