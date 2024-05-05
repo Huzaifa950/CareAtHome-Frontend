@@ -38,7 +38,12 @@ const patientGroupsList = {
     { label: "Gender", options: gendersList, name: "gender", dropdown: true },
   ],
   "Contact Information": [
-    { label: "Address*", type: "text", placeholder: "Address", name: "address" },
+    {
+      label: "Address*",
+      type: "text",
+      placeholder: "Address",
+      name: "address",
+    },
     {
       label: "Phone Number*",
       type: "tel",
@@ -102,7 +107,12 @@ const careTakerGroupsList = {
     },
   ],
   "Contact Information": [
-    { label: "Address*", type: "text", placeholder: "Address", name: "address" },
+    {
+      label: "Address*",
+      type: "text",
+      placeholder: "Address",
+      name: "address",
+    },
     {
       label: "Phone Number*",
       type: "tel",
@@ -132,7 +142,7 @@ const careTakerGroupsList = {
       name: "certifications",
     },
     { label: "Certifications Files", name: "certificationFiles", files: true },
-    { label: "Skills*", type: "text", placeholder: "Skills", name: "skills" },
+    { label: "Skills", type: "text", placeholder: "Skills", name: "skills" },
     {
       label: "Services*",
       options: servicesList,
@@ -148,7 +158,7 @@ const careTakerGroupsList = {
   // ],
   "Work Schedule and Availability": [
     {
-      label: "Start Time*",
+      label: "Start Time",
       type: "time",
       placeholder: "Start Time",
       name: "startTime",
@@ -160,7 +170,7 @@ const careTakerGroupsList = {
       name: "endTime",
     },
     {
-      label: "Days Available*",
+      label: "Days Available",
       options: weekdaysList,
       name: "daysAvailable",
       checkbox: true,
@@ -253,7 +263,7 @@ const ImageComponent = memo(({ name, label, image, handleImageChange }) => {
       />
     </Form.Group>
   );
-})
+});
 
 const FileComponent = memo(({ name, label, files, handleFileChange }) => {
   return (
@@ -277,7 +287,7 @@ const FileComponent = memo(({ name, label, files, handleFileChange }) => {
       </ListGroup>
     </Form.Group>
   );
-})
+});
 
 const FormGroupLocation = memo(({ label, name, value, handleChange }) => {
   return (
@@ -286,29 +296,31 @@ const FormGroupLocation = memo(({ label, name, value, handleChange }) => {
       {/* <LocationSearch /> */}
     </Form.Group>
   );
-})
+});
 
-const FormGroupDropdown = memo(({ label, name, value, options, handleChange }) => {
-  return (
-    <Form.Group>
-      <Form.Label className="form-control-label">{label}</Form.Label>
-      <Form.Control
-        className="form-control-input"
-        as="select"
-        name={name}
-        value={value}
-        onChange={handleChange}
-      >
-        <option value="">Select {label}</option>
-        {options.map((option, index) => (
-          <option key={index} value={option}>
-            {option}
-          </option>
-        ))}
-      </Form.Control>
-    </Form.Group>
-  );
-})
+const FormGroupDropdown = memo(
+  ({ label, name, value, options, handleChange }) => {
+    return (
+      <Form.Group>
+        <Form.Label className="form-control-label">{label}</Form.Label>
+        <Form.Control
+          className="form-control-input"
+          as="select"
+          name={name}
+          value={value}
+          onChange={handleChange}
+        >
+          <option value="">Select {label}</option>
+          {options.map((option, index) => (
+            <option key={index} value={option}>
+              {option}
+            </option>
+          ))}
+        </Form.Control>
+      </Form.Group>
+    );
+  }
+);
 
 const GroupsContainer = ({ label, children }) => {
   return (
@@ -397,26 +409,28 @@ const ItemsList = memo(({ itemList, formData, handleChange }) => {
       ))}
     />
   ));
-})
+});
 
-const CheckboxForm = memo(({ options, name, selectedOptions, onOptionChange }) => {
-  return (
-    <>
-      <div style={{ marginTop: "15px" }}></div>
-      {options.map((option) => (
-        <Form.Check
-          key={option}
-          type="checkbox"
-          label={option}
-          name={name}
-          value={option.toLowerCase()}
-          checked={selectedOptions.includes(option.toLowerCase())}
-          onChange={onOptionChange}
-        />
-      ))}
-    </>
-  );
-})
+const CheckboxForm = memo(
+  ({ options, name, selectedOptions, onOptionChange }) => {
+    return (
+      <>
+        <div style={{ marginTop: "15px" }}></div>
+        {options.map((option) => (
+          <Form.Check
+            key={option}
+            type="checkbox"
+            label={option}
+            name={name}
+            value={option.toLowerCase()}
+            checked={selectedOptions.includes(option.toLowerCase())}
+            onChange={onOptionChange}
+          />
+        ))}
+      </>
+    );
+  }
+);
 
 const RoundImageForm = memo(({ image, onImageChange }) => {
   const handleImageClick = () => {
@@ -451,7 +465,7 @@ const RoundImageForm = memo(({ image, onImageChange }) => {
       />
     </Form.Group>
   );
-})
+});
 
 const ProfileForm = ({
   image,

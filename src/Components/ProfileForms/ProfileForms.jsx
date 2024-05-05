@@ -144,10 +144,10 @@ const ProfileForms = ({ closeForm, isPatient, userInfo, setUserInfo }) => {
       showWarningToast("Please enter your Phone Number");
     else if (formData.cnicImage === cnicPic)
       showWarningToast("Please upload your CNIC Image");
-    else if (formData.emergencyContactName === "")
-      showWarningToast("Please enter your Emergency Contact Name");
-    else if (formData.emergencyContactNumber === "")
-      showWarningToast("Please enter your Emergency Contact Number");
+    // else if (formData.emergencyContactName === "")
+    //   showWarningToast("Please enter your Emergency Contact Name");
+    // else if (formData.emergencyContactNumber === "")
+    //   showWarningToast("Please enter your Emergency Contact Number");
     else if (!validateRegex(formData.fullName, alphabetWithSpaceRegex))
       showWarningToast("Invalid Full Name");
     else if (new Date(formData.dateOfBirth) > new Date())
@@ -199,20 +199,20 @@ const ProfileForms = ({ closeForm, isPatient, userInfo, setUserInfo }) => {
       showWarningToast("Please upload your CNIC Image");
     // else if (formData.education === "")
     //   showWarningToast("Please enter your Education");
-    else if (formData.experience === "")
-      showWarningToast("Please enter your Experience");
+    // else if (formData.experience === "")
+    //   showWarningToast("Please enter your Experience");
     // else if (formData.certifications === "")
     //   showWarningToast("Please enter your Certifications");
-    else if (formData.skills === "")
-      showWarningToast("Please enter your Skills");
+    // else if (formData.skills === "")
+    //   showWarningToast("Please enter your Skills");
     else if (formData.services.length === 0)
       showWarningToast("Please select your Care Type");
-    else if (formData.startTime === "")
-      showWarningToast("Please enter your Work Start Time");
-    else if (formData.endTime === "")
-      showWarningToast("Please enter your Work End Time");
-    else if (formData.daysAvailable.length === 0)
-      showWarningToast("Please select your Work Days");
+    // else if (formData.startTime === "")
+    //   showWarningToast("Please enter your Work Start Time");
+    // else if (formData.endTime === "")
+    //   showWarningToast("Please enter your Work End Time");
+    // else if (formData.daysAvailable.length === 0)
+    //   showWarningToast("Please select your Work Days");
     // else if (formData.preferredLanguages.length === 0)
     //   showWarningToast("Please select your Preferred Languages");
     // else if (formData.emergencyContactName === "")
@@ -225,11 +225,15 @@ const ProfileForms = ({ closeForm, isPatient, userInfo, setUserInfo }) => {
       showWarningToast("Invalid Date of Birth");
     else if (formData.phoneNumber.length < 11)
       showWarningToast("Invalid Phone Number");
-    else if (formData.emergencyContactName != "" &&
+    else if (
+      formData.emergencyContactName != "" &&
       !validateRegex(formData.emergencyContactName, alphabetWithSpaceRegex)
     )
       showWarningToast("Invalid Emergency Contact Name");
-    else if (formData.emergencyContactNumber != "" && formData.emergencyContactNumber.length < 11)
+    else if (
+      formData.emergencyContactNumber != "" &&
+      formData.emergencyContactNumber.length < 11
+    )
       showWarningToast("Invalid Emergency Contact Number");
     else {
       try {
