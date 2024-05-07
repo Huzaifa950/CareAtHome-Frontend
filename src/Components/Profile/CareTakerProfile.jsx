@@ -98,7 +98,7 @@ const CareTakerProfile = ({ userInfo }) => {
             certificationOriginalFiles.push(file);
           }
           careTakerData.certificationFiles = certificationOriginalFiles;
-          careTakerData.description = careTakerData.description? unescapeString(careTakerData.description): ""
+          careTakerData.description = careTakerData.description ? unescapeString(careTakerData.description) : ""
 
           console.log("Full care taker info: ", careTakerData);
 
@@ -122,11 +122,9 @@ const CareTakerProfile = ({ userInfo }) => {
       ...originalCareTakerInfo,
       ...fieldsToUpdate,
     };
-    updatedCareTakerInfo.description = escapeString(updateCareTakerInfo.description);
+    updatedCareTakerInfo.description = updatedCareTakerInfo.description ? escapeString(updatedCareTakerInfo.description) : "";
     const filesWithPath = updatedCareTakerInfo.certificationFiles;
-    
-    console.log("Updated CareTaker Info: ", updatedCareTakerInfo);
-    
+
     const updatedCertificationFiles = [];
     for (let i = 0; i < updatedCareTakerInfo.certificationFiles.length; i++) {
       const file = updatedCareTakerInfo.certificationFiles[i];
@@ -150,7 +148,8 @@ const CareTakerProfile = ({ userInfo }) => {
     );
 
     console.log("Certification process Ok");
-    
+    console.log("Updated CareTaker Info: ", updatedCareTakerInfo);
+
     try {
       console.log("Making APi request");
       const result = await ApiPostCall("/updateCareTakerInfo", {
@@ -162,11 +161,11 @@ const CareTakerProfile = ({ userInfo }) => {
         workWeeks: updatedCareTakerInfo.workWeeks.join(","),
         languages: updatedCareTakerInfo.languages.join(","),
         leavingDate: updatedCareTakerInfo.leavingDate
-        ? formatDate(updatedCareTakerInfo.leavingDate)
+          ? formatDate(updatedCareTakerInfo.leavingDate)
           : "",
       });
-      
-      updatedCareTakerInfo.description = unescapeString(updateCareTakerInfo.description);
+
+      updatedCareTakerInfo.description = updatedCareTakerInfo.description ? unescapeString(updatedCareTakerInfo.description) : "";
       if (result.data) {
         setOriginalCareTakerInfo({
           ...updatedCareTakerInfo,
@@ -203,6 +202,7 @@ const CareTakerProfile = ({ userInfo }) => {
         <Col xs={12} md={6}>
           <DescriptionComponent
             desc={careTakerInfo.description ? careTakerInfo.description : ""}
+            originalPatientInfo={originalCareTakerInfo}
             handleDescriptionChange={handleChange}
             updateDescription={updateCareTakerInfo}
           />
@@ -215,12 +215,18 @@ const CareTakerProfile = ({ userInfo }) => {
             selectedLanguages={
               careTakerInfo.languages ? careTakerInfo.languages : []
             }
+            originalPatientInfo={originalCareTakerInfo}
             handleLanguageChange={handleChange}
             updateLanguages={updateCareTakerInfo}
           />
         </Col>
         <Col xs={12} md={6}>
-          <EducationComponent />
+          <EducationComponent
+            originalCareTakerInfo={originalCareTakerInfo}
+            description={careTakerInfo.education ? careTakerInfo.education : ""}
+            handleEducationChange={handleChange}
+            updateEducation={updateCareTakerInfo}
+          />
         </Col>
       </Row>
 
@@ -1069,28 +1075,32 @@ const PortfolioComponent = () => {
   );
 };
 
-const EducationComponent = () => {
-  const [description, setDescription] = useState("");
+const EducationComponent = ({ description, originalCareTakerInfo, handleEducationChange, updateEducation }) => {
   const [editing, setEditing] = useState(true);
   const bulletInputRef = useRef(null);
 
   const handleDescriptionChange = () => {
     const text = bulletInputRef.current.innerText;
-    // Split text into lines
     const lines = text.split("\n");
-    // Filter out empty lines and add bullet points to non-empty lines
     const formattedText = lines
       .filter((line) => line.trim() !== "")
       .map((line) => `${line}`)
       .join("\n");
-    setDescription(formattedText);
+    handleEducationChange("education", formattedText);
   };
+
+  useEffect(() => {
+    if (description) {
+      setEditing(false);
+    }
+  }, [originalCareTakerInfo]);
 
   const handleEditDescription = () => {
     setEditing(true);
   };
 
   const handleSaveDescription = () => {
+    updateEducation({ education: description })
     setEditing(false);
   };
 
