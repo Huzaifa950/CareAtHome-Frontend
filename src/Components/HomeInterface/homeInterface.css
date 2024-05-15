@@ -38,6 +38,15 @@
     width: 100%;
     height: 100%;
 }
+.caretaker_homeInterface_container{
+    position: relative;
+    background-image: url('../../Assets/Images/img(38).jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
 
 .homeInterface_transparentLayer {
     position: absolute;
@@ -59,7 +68,7 @@
 }
 
 .homeInterface_contaierBox>div {
-    margin: 20px 0 0 0;
+    margin: 50px 0 0 0;
 }
 
 .homeInterface_heading {
@@ -67,6 +76,8 @@
     color: rgb(0, 0, 0);
     font-weight: bolder;
     font-family: myFont6;
+    font-weight: bold;
+    max-width: 70%;
 }
 
 .homeInterface_body p {
@@ -74,7 +85,7 @@
     color: rgb(255, 255, 255);
     margin: 0 0 0 50px;
     font-weight: bold;
-    max-width: 90%;
+    max-width: 70%;
     font-family: myFont;
 }
 

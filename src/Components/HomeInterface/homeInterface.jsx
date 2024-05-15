@@ -34,7 +34,44 @@ const HomeInterface = ({ userInfo, setUserInfo }) => {
 const CareTakerInterface = () => {
   return (
     <div style={{ marginTop: "50px" }}>
-      <h1>This is a careTaker Interface</h1>
+      <div className="homeInterface_main">
+      <div className="caretaker_homeInterface_container">
+        <div className="homeInterface_transparentLayer">
+          <div className="homeInterface_contaierBox">
+            <div className="homeInterface_heading">
+              <p>
+                We measure our success in smiles and well-being, not dollars and cents
+              </p>
+            </div>
+            <div className="homeInterface_body">
+              <p>
+                Verily, kindness and gentleness were never part of something except that they adorned it, and they are never withdrawn from something except that they leave it defective.
+              </p>
+            </div>
+            {/* <div className="homeInterface_bottomMain">
+              <div className="homeInterface_bottomContainer">
+                <div className="homeInterface_careTaker">
+                  <button
+                    className="neon-button"
+                    type="submit"
+                  >
+                    Care Taker
+                  </button>
+                </div>
+                <div className="homeInterface_patient">
+                  <button
+                    className="neon-button"
+                    type="submit"
+                  >
+                    Patient
+                  </button>
+                </div>
+              </div>
+            </div> */}
+          </div>
+        </div>
+      </div>
+      </div>
     </div>
   );
 };
