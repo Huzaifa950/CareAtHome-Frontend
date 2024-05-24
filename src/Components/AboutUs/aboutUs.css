@@ -36,9 +36,9 @@
 .aboutUs_containerBoxLeft{
     display: flex;
     flex-direction: column;
-    margin: 50px 0 50px 125px;
+    margin: 60px 0 60px 125px;
     border-right: 2px solid rgb(156, 155, 155);
-    max-width: 30%;
+    max-width: 25%;
     /* height: 100vh; */
 }
 
