@@ -1,0 +1,26 @@
+.caretaker-profiles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.caretaker-profile {
+  background: #ffffff;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  text-align: center;
+}
+
+.caretaker-profile img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.caretaker-profile h3 {
+  margin: 10px 0;
+}
