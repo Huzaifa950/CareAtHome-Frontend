@@ -59,6 +59,9 @@ const Header = ({ userInfo, updateLogInStatus }) => {
             <Nav.Link style={{ marginRight: "40px" }} as={Link} to={"/"}>
               Home
             </Nav.Link>
+            <Nav.Link style={{ marginRight: "40px" }} as={Link} to={"/caretakers"}>
+              CareTakers
+            </Nav.Link>
             <Nav.Link style={{ marginRight: "40px" }} as={Link} to="/aboutus">
               About Us
             </Nav.Link>
