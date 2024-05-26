@@ -1,3 +1,11 @@
+.viewProfile{
+
+}
+
+.viewProfile button:hover{
+  background: rgb(139, 139, 139);
+}
+
 .caretaker-profiles {
   display: flex;
   flex-wrap: wrap;
@@ -24,3 +32,42 @@
 .caretaker-profile h3 {
   margin: 10px 0;
 }
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 90%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  margin: 50px 5%;
+}
+
+.popup-content {
+  background-color: rgb(104, 104, 104);
+  padding: 20px;
+  border-radius: 5px;
+  width: 90%;
+  max-width: 500px; /* Optional: Limit the maximum width of the popup */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transform: translateX(-50%);
+}
+
+.close-icon {
+  position: absolute;
+  top: 25px;
+  right: 50px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.close-icon:hover {
+  color: #000;
+  transition: color 0.3s ease-in-out;
+}
+
