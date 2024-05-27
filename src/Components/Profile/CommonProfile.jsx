@@ -6,6 +6,7 @@ import "./CommonProfile.css";
 import { capitalizeEachWord, uploadImageToImgBB } from "../Common/Common";
 
 const ProfileComponent = ({
+  viewOnly,
   originalImage,
   handleUpdateImage,
   image,
@@ -87,7 +88,7 @@ const ProfileComponent = ({
                   style={{ width: "150px", height: "150px" }} // Ensure equal width and height
                 />
               )}
-              <input
+              {!viewOnly && <input
                 type="file"
                 id="profileImage"
                 style={{
@@ -96,7 +97,7 @@ const ProfileComponent = ({
                   height: "150px",
                 }}
                 onChange={handleImageChange}
-              />
+              />}
             </label>
           </div>
         </Col>
@@ -141,6 +142,7 @@ const ProfileComponent = ({
 
 const DescriptionComponent = ({
   desc,
+  viewOnly,
   updateDescription,
   originalPatientInfo,
   handleDescriptionChange,
@@ -165,7 +167,7 @@ const DescriptionComponent = ({
   };
 
   useEffect(() => {
-    if (desc) {
+    if (desc || viewOnly) {
       setEditing(false);
     }
   }, [originalPatientInfo]);
@@ -194,7 +196,7 @@ const DescriptionComponent = ({
               <h5 style={{ fontSize: "22px" }}>Description</h5>
             </Col>
             <Col className="d-flex justify-content-end">
-              {editing ? (
+              {!viewOnly ? editing ? (
                 <Button variant="link" onClick={handleSaveDescription}>
                   Save
                 </Button>
@@ -210,10 +212,10 @@ const DescriptionComponent = ({
                 >
                   Edit
                 </href>
-              )}
+              ): null}
             </Col>
           </Row>
-          {editing ? (
+          {editing && !viewOnly ? (
             <>
               <textarea
                 className="form-control"
@@ -246,6 +248,7 @@ const DescriptionComponent = ({
 };
 
 const LanguageComponent = ({
+  viewOnly,
   updateLanguages,
   selectedLanguages,
   originalPatientInfo,
@@ -254,7 +257,7 @@ const LanguageComponent = ({
   const [editing, setEditing] = useState(true);
 
   useEffect(() => {
-    if (selectedLanguages.length > 0) {
+    if (selectedLanguages.length > 0 || viewOnly) {
       setEditing(false);
     }
   }, [originalPatientInfo]);
@@ -308,7 +311,7 @@ const LanguageComponent = ({
             <Col>
               <h5 style={{ fontSize: "22px" }}>Languages</h5>
             </Col>
-            <Col className="d-flex justify-content-end">
+            {!viewOnly && <Col className="d-flex justify-content-end">
               {editing ? (
                 <Button variant="link" onClick={handleSaveLanguages}>
                   Save
@@ -318,9 +321,9 @@ const LanguageComponent = ({
                   Edit
                 </Button>
               )}
-            </Col>
+            </Col>}
           </Row>
-          {editing && (
+          {editing && !viewOnly && (
             <div
               style={{
                 display: "flex",

@@ -32,7 +32,7 @@ import {
 } from "../../Dropbox/HandleFiles";
 import PopUpModal from "../Modal/PopUpModal";
 
-const CareTakerProfile = ({ userInfo }) => {
+const CareTakerProfile = ({ userInfo, viewOnly }) => {
   const [originalCareTakerInfo, setOriginalCareTakerInfo] = useState({});
   const [careTakerInfo, setCareTakerInfo] = useState({
     username: userInfo.username,
@@ -60,6 +60,7 @@ const CareTakerProfile = ({ userInfo }) => {
     joiningDate: "",
     leavingDate: "",
   });
+
 
   useEffect(() => {
     const getCareTakerInfo = async () => {
@@ -109,7 +110,54 @@ const CareTakerProfile = ({ userInfo }) => {
         console.error(error);
       }
     };
-    if (userInfo.username) getCareTakerInfo();
+
+    const putCareTakerInfo = async () => {
+      try {
+          const careTakerData = {
+            ...userInfo,
+            emailAddress: userInfo.email,
+            certificationFiles: userInfo.certificationFiles
+              ? userInfo.certificationFiles.split(",")
+              : [],
+            skills: userInfo.skills
+              ? userInfo.skills.split(",").map((skill) => skill.trim())
+              : [],
+            careType: userInfo.careType
+              ? userInfo.careType.split(",").map((type) => type.trim())
+              : [],
+            workWeeks: userInfo.workWeeks
+              ? userInfo.workWeeks.split(",").map((day) => day.trim())
+              : [],
+            languages: userInfo.languages
+              ? userInfo.languages
+                .split(",")
+                .map((lang) => capitalizeEachWord(lang.trim()))
+              : [],
+          };
+
+          const certificationOriginalFiles = [];
+          for (let i = 0; i < careTakerData.certificationFiles? careTakerData.certificationFiles.length: 0; i++) {
+            const filePath = careTakerData.certificationFiles[i];
+            const file = await getSingleFileFromDropbox(filePath);
+            file.dropboxPath = filePath;
+            certificationOriginalFiles.push(file);
+          }
+          careTakerData.certificationFiles = certificationOriginalFiles;
+          careTakerData.description = careTakerData.description ? unescapeString(careTakerData.description) : ""
+
+          console.log("Full care taker info: ", careTakerData);
+
+          setCareTakerInfo(careTakerData);
+          setOriginalCareTakerInfo(careTakerData);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    if (viewOnly) {
+      putCareTakerInfo();
+    }
+    else if (userInfo.username) getCareTakerInfo();
   }, [userInfo]);
 
   const handleChange = (key, value) => {
@@ -126,7 +174,7 @@ const CareTakerProfile = ({ userInfo }) => {
     const filesWithPath = updatedCareTakerInfo.certificationFiles;
 
     const updatedCertificationFiles = [];
-    for (let i = 0; i < updatedCareTakerInfo.certificationFiles.length; i++) {
+    for (let i = 0; i < updatedCareTakerInfo.certificationFiles ? updatedCareTakerInfo.certificationFiles.length : 0; i++) {
       const file = updatedCareTakerInfo.certificationFiles[i];
       const originalFile = originalCareTakerInfo.certificationFiles.find(
         (originalFile) => originalFile.name === file.name
@@ -185,6 +233,7 @@ const CareTakerProfile = ({ userInfo }) => {
       <Row>
         <Col xs={12} md={6}>
           <ProfileComponent
+            viewOnly={viewOnly}
             originalImage={originalCareTakerInfo.image}
             handleUpdateImage={updateCareTakerInfo}
             image={careTakerInfo.image}
@@ -201,6 +250,7 @@ const CareTakerProfile = ({ userInfo }) => {
         </Col>
         <Col xs={12} md={6}>
           <DescriptionComponent
+            viewOnly={viewOnly}
             desc={careTakerInfo.description ? careTakerInfo.description : ""}
             originalPatientInfo={originalCareTakerInfo}
             handleDescriptionChange={handleChange}
@@ -212,6 +262,7 @@ const CareTakerProfile = ({ userInfo }) => {
       <Row>
         <Col xs={12} md={6}>
           <LanguageComponent
+            viewOnly={viewOnly}
             selectedLanguages={
               careTakerInfo.languages ? careTakerInfo.languages : []
             }
@@ -222,6 +273,7 @@ const CareTakerProfile = ({ userInfo }) => {
         </Col>
         <Col xs={12} md={6}>
           <EducationComponent
+            viewOnly={viewOnly}
             originalCareTakerInfo={originalCareTakerInfo}
             description={careTakerInfo.education ? careTakerInfo.education : ""}
             handleEducationChange={handleChange}
@@ -232,20 +284,20 @@ const CareTakerProfile = ({ userInfo }) => {
 
       <Row>
         <Col>
-          <PortfolioComponent />
+          <PortfolioComponent viewOnly={viewOnly} />
         </Col>
       </Row>
 
       <Row>
         <Col>
-          <MyServicesComponent username={userInfo.username} />
+          <MyServicesComponent viewOnly={viewOnly} username={userInfo.username} />
         </Col>
       </Row>
     </div>
   );
 };
 
-const MyServicesComponent = ({ username }) => {
+const MyServicesComponent = ({ viewOnly, username }) => {
   const [services, setServices] = useState([]);
   const [showAddServiceForm, setShowAddServiceForm] = useState(false);
   const [formComponent, setFormComponent] = useState(null);
@@ -336,7 +388,7 @@ const MyServicesComponent = ({ username }) => {
             textAlign: "center",
           }}
         >
-          My Services
+          Services
         </Card.Header>
 
         <Card.Body>
@@ -354,6 +406,7 @@ const MyServicesComponent = ({ username }) => {
                 {services.map((service, index) => (
                   <ServiceCard
                     key={index}
+                    viewOnly={viewOnly}
                     dropdownOptionsShow={true}
                     handleEdit={handleServiceEdit}
                     handleDelete={handleServiceDelete}
@@ -361,17 +414,17 @@ const MyServicesComponent = ({ username }) => {
                   />
                 ))}
 
-                <AddServiceButton onAddServiceClick={onAddService} />
+                {!viewOnly && <AddServiceButton onAddServiceClick={onAddService} />}
               </ListGroup>
             </div>
-          ) : (
+          ) : !viewOnly ? (
             <div
               style={{ minHeight: "250px" }}
               className="d-flex justify-content-center align-items-center"
             >
               <AddServiceButton onAddServiceClick={onAddService} />
             </div>
-          )}
+          ) : <h3 style={{ textAlign: "center" }}>No Service to show</h3>}
         </Card.Body>
       </Card>
 
@@ -386,6 +439,7 @@ const MyServicesComponent = ({ username }) => {
 };
 
 const ServiceCard = ({
+  viewOnly,
   id,
   image,
   title,
@@ -471,7 +525,7 @@ const ServiceCard = ({
           </span>
         </Card.Text>
 
-        {dropdownOptionsShow && (
+        {(dropdownOptionsShow && !viewOnly) && (
           <div style={{ position: "absolute", top: "10px", right: "10px" }}>
             <Dropdown alignRight show={showOptions} onHide={handleDropdownHide}>
               <Dropdown.Toggle
@@ -906,7 +960,7 @@ const ServicesComponent = () => {
   );
 };
 
-const PortfolioComponent = () => {
+const PortfolioComponent = ({ viewOnly }) => {
   const [selectedImages, setSelectedImages] = useState([]);
   const [clickedImageIndex, setClickedImageIndex] = useState(null);
   const [showOptions, setShowOptions] = useState(false);
@@ -1075,7 +1129,7 @@ const PortfolioComponent = () => {
   );
 };
 
-const EducationComponent = ({ description, originalCareTakerInfo, handleEducationChange, updateEducation }) => {
+const EducationComponent = ({ viewOnly, description, originalCareTakerInfo, handleEducationChange, updateEducation }) => {
   const [editing, setEditing] = useState(true);
   const bulletInputRef = useRef(null);
 
@@ -1090,7 +1144,7 @@ const EducationComponent = ({ description, originalCareTakerInfo, handleEducatio
   };
 
   useEffect(() => {
-    if (description) {
+    if (description || viewOnly) {
       setEditing(false);
     }
   }, [originalCareTakerInfo]);
@@ -1138,7 +1192,7 @@ const EducationComponent = ({ description, originalCareTakerInfo, handleEducatio
               <Col>
                 <h5 style={{ fontSize: "22px" }}>Education</h5>
               </Col>
-              <Col className="d-flex justify-content-end">
+              {!viewOnly && <Col className="d-flex justify-content-end">
                 {editing ? (
                   <Button variant="link" onClick={handleSaveDescription}>
                     Save
@@ -1156,10 +1210,10 @@ const EducationComponent = ({ description, originalCareTakerInfo, handleEducatio
                     Edit
                   </Button>
                 )}
-              </Col>
+              </Col>}
             </Row>
             {!editing && !description && <p>No Education Added</p>}
-            {editing ? (
+            {editing && !viewOnly ? (
               <div
                 ref={bulletInputRef}
                 contentEditable={true}

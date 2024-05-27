@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "./caretakerProfile.css";
 import { capitalizeEachWord } from "../Common/Common";
+import CareTakerProfile from "../Profile/CareTakerProfile"
 
 const CaretakerProfiles = ({ profiles, errorType }) => {
     const [showFullDescription, setShowFullDescription] = useState(false);
+    const [selectedProfile, setSelectedProfile] = useState({});
 
     const toggleDescription = () => {
         setShowFullDescription(!showFullDescription);
@@ -11,9 +13,14 @@ const CaretakerProfiles = ({ profiles, errorType }) => {
 
     const [showPopup, setShowPopup] = useState(false);
 
-    const togglePopup = () => {
-        setShowPopup(!showPopup);
-    };
+    const showPopupProfile = (profile) => {
+        console.log("Selected profile:", profile);
+        setSelectedProfile(profile);
+        setShowPopup(true);
+    }
+    const hidePopupProfile = () => {
+        setShowPopup(false);
+    }
 
     return (
         <div className="container">
@@ -27,8 +34,8 @@ const CaretakerProfiles = ({ profiles, errorType }) => {
                 <div className="caretaker-profiles">
                     {profiles.map((profile, index) => (
                         <div className="caretaker-profile" key={index}>
-                            <div class='viewProfile' style={{textAlign:'right'}}>
-                                <button style={{fontSize:'12px', padding:'5px 8px', border:'none', borderRadius:'5px'}} onClick={togglePopup}> View Profile</button>
+                            <div class='viewProfile' style={{ textAlign: 'right' }}>
+                                <button style={{ fontSize: '12px', padding: '5px 8px', border: 'none', borderRadius: '5px' }} onClick={() => showPopupProfile(profile)}> View Profile</button>
                             </div>
                             <img src={profile.image} alt={profile.fullName} />
                             <h3>{capitalizeEachWord(profile.fullName)}</h3>
@@ -84,10 +91,13 @@ const CaretakerProfiles = ({ profiles, errorType }) => {
 
                     {showPopup && (
                         <div className="popup">
-                            <span className="close-icon" onClick={togglePopup}>
+                            <span className="close-icon" onClick={hidePopupProfile}>
                                 &times;
                             </span>
-                            {/* Add more content here */}
+
+                            <div className="popup-content">
+                                <CareTakerProfile userInfo={selectedProfile} viewOnly={true} />
+                            </div>
                         </div>
                     )}
                 </div>
