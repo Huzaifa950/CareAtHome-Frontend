@@ -13,13 +13,13 @@ const ImageSlider = () => {
     backgroundImage3,
     backgroundImage4,
     backgroundImage5,
-  ]; // Array of images
+  ]; 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 10000); // Change image every 10 seconds
+    }, 10000); 
 
     return () => clearInterval(interval);
   }, [images.length]);

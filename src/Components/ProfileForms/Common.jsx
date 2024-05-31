@@ -52,12 +52,7 @@ const patientGroupsList = {
     },
     { label: "CNIC Image*", name: "cnicImage", image: true },
   ],
-  // "Medical Information": [
-  //     { label: "Medical History", type: "text", placeholder: "Medical History", name: "medicalHistory" },
-  //     { label: "Allergies", type: "text", placeholder: "Allergies", name: "allergies" },
-  //     { label: "Medications", type: "text", placeholder: "Medications", name: "medications" },
-  //     { label: "Primary Care Physician", type: "text", placeholder: "Primary Care Physician", name: "primaryCarePhysician" }
-  // ],
+
   "Emergency Contact": [
     {
       label: "Contact Name",
@@ -72,16 +67,7 @@ const patientGroupsList = {
       name: "emergencyContactNumber",
     },
   ],
-  // "Insurance Information": [
-  //     { label: "Insurance Provider", type: "text", placeholder: "Insurance Provider", name: "insuranceProvider" },
-  //     { label: "Policy Number", type: "text", placeholder: "Policy Number", name: "policyNumber" }
-  // ],
-  // "Preferred Languages": [
-  //     { label: "Preferred Languages", options: languagesList, name: "preferredLanguages", checkbox: true }
-  // ],
-  // "Hobbies and Interests": [
-  //     { label: "Hobbies and Interests", placeholder: "Enter hobbies and interests", name: "hobbiesInterests", textArea: true }
-  // ]
+
 };
 
 const careTakerGroupsList = {
@@ -150,12 +136,6 @@ const careTakerGroupsList = {
       checkbox: true,
     },
   ],
-  // "Medical Information": [
-  //     { label: "Medical History", type: "text", placeholder: "Medical History", name: "medicalHistory" },
-  //     { label: "Allergies", type: "text", placeholder: "Allergies", name: "allergies" },
-  //     { label: "Medications", type: "text", placeholder: "Medications", name: "medications" },
-  //     { label: "Primary Care Physician", type: "text", placeholder: "Primary Care Physician", name: "primaryCarePhysician" }
-  // ],
   "Work Schedule and Availability": [
     {
       label: "Start Time",
@@ -198,13 +178,6 @@ const careTakerGroupsList = {
       name: "emergencyContactNumber",
     },
   ],
-  // "Insurance Information": [
-  //     { label: "Insurance Provider", type: "text", placeholder: "Insurance Provider", name: "insuranceProvider" },
-  //     { label: "Policy Number", type: "text", placeholder: "Policy Number", name: "policyNumber" }
-  // ],
-  // "Hobbies and Interests": [
-  //     { label: "Hobbies and Interests", placeholder: "Enter hobbies and interests", name: "hobbiesInterests", textArea: true }
-  // ]
 };
 
 const FormGroupItem = ({

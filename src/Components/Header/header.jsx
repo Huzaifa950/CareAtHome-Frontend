@@ -56,16 +56,16 @@ const Header = ({ userInfo, updateLogInStatus }) => {
 
         <Navbar.Collapse id="navbar">
           <Nav className="mx-auto" style={{ fontWeight: "bold" }}>
-            <Nav.Link style={{ marginRight: "40px" }} as={Link} to={"/"}>
+            <Nav.Link style={{ marginRight: "35px" }} as={Link} to={"/"}>
               Home
             </Nav.Link>
-            <Nav.Link style={{ marginRight: "40px" }} as={Link} to={"/caretakers"}>
+            <Nav.Link style={{ marginRight: "35px" }} as={Link} to={"/caretakers"}>
               CareTakers
             </Nav.Link>
-            <Nav.Link style={{ marginRight: "40px" }} as={Link} to="/aboutus">
+            <Nav.Link style={{ marginRight: "35px" }} as={Link} to="/aboutus">
               About Us
             </Nav.Link>
-            <Nav.Link style={{ marginRight: "40px" }} as={Link} to="/faqs">
+            <Nav.Link style={{ marginRight: "35px" }} as={Link} to="/faqs">
               FAQs
             </Nav.Link>
             <Nav.Link as={Link} to="/contactus">

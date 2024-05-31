@@ -1,5 +1,140 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300&display=swap');
 
+body {
+    font-family: 'Space Grotesk', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.FAQs_container {
+    background: linear-gradient(180deg, rgba(25, 132, 134, 0.849), rgba(71, 49, 196, 0.788));
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.FAQs_containerBox {
+    display: flex;
+    justify-content:space-between;
+    margin: 80px 0;
+    max-width: 1200px;
+    width: 100%;
+    align-items: center;
+}
+
+.FAQs_containerBoxLeftSide {
+    flex: 0 0 35%; /* 35% width */
+    background-image: url('../../Assets/Images/img1 (7).jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    height: 60vh;
+    margin-top: 80px;
+}
+
+.FAQs_containerBoxRightSide {
+    flex: 0 0 60%; /* 65% width */
+    margin-left: 30px;
+}
+
+.FAQs_containerBoxRightSideHead p {
+    font-size: 40px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.FAQs_containerBoxRightSideBody {
+    color: rgb(202, 202, 202);
+}
+
+@media only screen and (max-width: 1300px) {
+    .FAQs_containerBox {
+        padding: 0 50px;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .FAQs_containerBoxLeftSide {
+        height: 55vh;
+    }
+
+    .FAQs_containerBoxRightSideHead p {
+        font-size: 35px;
+    }
+}
+
+@media only screen and (max-width: 990px) {
+    .FAQs_container {
+        padding: 0px;
+    }
+    .FAQs_containerBox {
+        padding: 0 auto;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .FAQs_containerBoxRightSide {
+        width: 90%;
+        margin-left: 0;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .FAQs_containerBoxLeftSide {
+        height: 30vh;
+    }
+
+    .FAQs_containerBoxRightSideHead p {
+        font-size: 30px;
+    }
+
+    .FAQs_containerBoxRightSideBody {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .FAQs_containerBoxLeftSide {
+        width: 100%;
+        height: 25vh;
+    }
+
+    .FAQs_containerBoxRightSide {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .FAQs_containerBoxRightSideHead p {
+        font-size: 25px;
+    }
+
+    .FAQs_containerBoxRightSideBody {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .FAQs_containerBoxLeftSide {
+        height: 20vh;
+    }
+
+    .FAQs_containerBoxRightSideHead p {
+        font-size: 20px;
+    }
+}
+
+
+
+
+
+
+
+
+/* @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300&display=swap');
+
 @font-face {
     font-family: myFont;
     src: url(../../Assets/Fonts/AlexBrush/AlexBrush-Regular.ttf);
@@ -20,28 +155,15 @@
     src: url(../../Assets/Fonts/leboumar/LeboumarPersonalUse-Regular.otf);
 }
 
-/* *{
-    padding: 0;
-    margin: 0;
-    word-wrap: break-word;
-} */
+
 .FAQs_container{
-    /* background: linear-gradient(90deg, rgb(15, 84, 85), rgba(40, 21, 151, 0.836)); */
     background: linear-gradient(180deg, rgba(25, 132, 134, 0.849), rgba(71, 49, 196, 0.788));
-    /* height: 100%; */
     overflow-y: hidden;
 }
 
 .FAQs_containerBox{
-    /* display: flex; */
-    /* justify-content: space-between; */
     margin: 100px 50px;
 }
-
-/* .FAQs_containerBoxLeftSide img{
-    width: 30%;
-    border-radius: 50%;
-} */
 
 .FAQs_containerBoxLeftSide{
     position:absolute;
@@ -57,7 +179,6 @@
 }
 
 .FAQs_containerBoxLeftSideTransparent{
-    /* position: absolute; */
     top: 0;
     left: 0;
     width: 100%;
@@ -67,7 +188,6 @@
 }
 
 .FAQs_containerBoxRightSide{
-    /* margin-left: 50%; */
     margin-left: 550px;
 }
 
@@ -89,7 +209,6 @@
     justify-content: space-between;
     font-size: 40px;
     font-weight: bold;
-    /* border-bottom: 2px solid rgb(202, 202, 202); */
     margin-top: 30px;
 }
 
@@ -109,8 +228,8 @@
 
 .FAQs_containerBoxRightSideBodyAnswer{
     margin: 20px 0 20px 10px;
-    /* display: none; */
 }
+
 
 @media only screen and (max-width: 1300px){
     .FAQs_containerBoxRightSideHead p{
@@ -233,4 +352,4 @@
     .FAQs_containerBox{
         margin: 80px 15px 40px 15px;
     }
-}
+} */

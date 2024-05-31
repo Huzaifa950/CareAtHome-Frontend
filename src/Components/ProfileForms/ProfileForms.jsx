@@ -38,11 +38,6 @@ const careTakerProperties = {
   skills: "",
   services: [],
 
-  // medicalHistory: '',
-  // allergies: '',
-  // medications: '',
-  // primaryCarePhysician: '',
-
   startTime: "",
   endTime: "",
   daysAvailable: [],
@@ -65,21 +60,9 @@ const patientProperties = {
   address: "",
   phoneNumber: "",
   cnicImage: cnicPic,
-
-  // medicalHistory: '',
-  // allergies: '',
-  // medications: '',
-  // primaryCarePhysician: '',
-
   emergencyContactName: "",
   emergencyContactNumber: "",
 
-  // insuranceProvider: '',
-  // policyNumber: '',
-
-  // preferredLanguages: [],
-
-  // hobbiesInterests: '',
 };
 
 const ProfileForms = ({ closeForm, isPatient, userInfo, setUserInfo }) => {
