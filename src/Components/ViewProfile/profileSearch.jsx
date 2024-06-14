@@ -5,7 +5,7 @@ import SearchBar from './searchBar';
 import CaretakerProfiles from './caretakerProfile';
 import { ApiPostCall } from '../ApiCall/ApiCalls';
 
-const ProfileSearch = () => {
+const ProfileSearch = ({ userInfo }) => {
     const [profiles, setProfiles] = useState([]);
     const [errorType, setErrorType] = useState("")
 
@@ -20,7 +20,7 @@ const ProfileSearch = () => {
             if (response.data) {
                 if (response.data.length === 0)
                     setErrorType("length")
-                else{
+                else {
                     setProfiles(response.data)
                     setErrorType("")
                 }
@@ -35,7 +35,7 @@ const ProfileSearch = () => {
         <div className="App">
             <Showcase />
             <SearchBar onSearch={searchCaretakers} />
-            <CaretakerProfiles errorType={errorType} profiles={profiles} />
+            <CaretakerProfiles userInfo={userInfo} errorType={errorType} profiles={profiles} />
         </div>
     );
 }

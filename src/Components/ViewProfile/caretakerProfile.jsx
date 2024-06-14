@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import "./caretakerProfile.css";
 import { capitalizeEachWord } from "../Common/Common";
 import CareTakerProfile from "../Profile/CareTakerProfile"
+import { PatientChatboxContainer } from "../Chatbox/chatbox";
 
-const CaretakerProfiles = ({ profiles, errorType }) => {
+const CaretakerProfiles = ({ userInfo, profiles, errorType }) => {
     const [showFullDescription, setShowFullDescription] = useState(false);
     const [selectedProfile, setSelectedProfile] = useState({});
 
@@ -96,6 +97,14 @@ const CaretakerProfiles = ({ profiles, errorType }) => {
                             </span>
 
                             <div className="popup-content">
+                                <PatientChatboxContainer
+                                    senderInfo={userInfo}
+                                    receiverInfo={{
+                                        username: selectedProfile.username,
+                                        fullName: selectedProfile.fullName,
+                                        image: selectedProfile.image
+                                    }}
+                                />
                                 <CareTakerProfile userInfo={selectedProfile} viewOnly={true} />
                             </div>
                         </div>

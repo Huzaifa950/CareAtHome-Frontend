@@ -1,0 +1,90 @@
+#chat2 .form-control {
+    border-color: transparent;
+}
+
+#chat2 .form-control:focus {
+    border-color: transparent;
+    box-shadow: inset 0px 0px 0px 1px transparent;
+}
+
+.chatbox-btn-send {
+    background-color: #eb5757;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+
+}
+
+.divider:after,
+.divider:before {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #eee;
+}
+
+.chatbox-container {
+    z-index: 10000;
+    position: absolute;
+    bottom: 70px;
+    right: 30px;
+}
+
+.chatbox-container-icon {
+    background-color: #33388f;
+    height: 55px;
+    width: 55px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 50%;
+    color: white;
+    font-size: x-large;
+}
+
+.original-chatbox {
+    position: absolute;
+    bottom: 60px;
+    right: 0;
+    width: 430px;
+    max-height: 700px;
+    max-width: 500px;
+}
+
+.chatbox-container-notif-count {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    right: 0;
+    background-color: #eb5757;
+    color: white;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    font-size: 10px;
+}
+
+.patient-card-box:hover {
+    background-color: #ccc;
+}
+
+@media (max-width: 450px) {
+    .chatbox-btn-send {
+        padding: 5px 5px;
+        font-weight: 300;
+        width: 50px;
+        font-size: 12px;
+    }
+}

@@ -8,6 +8,7 @@ import { Route, Routes } from "react-router-dom";
 
 import Profile from "../Profile/Profile";
 import ProfileSearch from "../ViewProfile/profileSearch";
+import { CareTakerChatboxContainer } from "../Chatbox/chatbox";
 
 const Home = ({ updateLogInStatus, userInfo, setUserInfo }) => {
   console.log("Home userInfo: ", userInfo);
@@ -29,8 +30,10 @@ const Home = ({ updateLogInStatus, userInfo, setUserInfo }) => {
         {userInfo.roleId > 0 && (
           <Route path="/profile" element={<Profile userInfo={userInfo} />} />
         )}
-        <Route path="caretakers" element={<ProfileSearch />} />
+        {userInfo.roleId == 2 && <Route path="caretakers" element={<ProfileSearch userInfo={userInfo} />} />}
       </Routes>
+
+      {userInfo.roleId == 3 && <CareTakerChatboxContainer senderInfo={userInfo} />}
 
       <Footer />
     </div>
