@@ -16,6 +16,9 @@ import { faComment, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { capitalizeEachWord } from "../Common/Common";
 import { Col, Container, Image, Row } from "react-bootstrap";
+import io from 'socket.io-client';
+
+const socket = io("http://localhost:4000");
 
 function getRandomInt(min, max) {
     min = Math.ceil(min);
@@ -147,14 +150,14 @@ const CareTakerChatboxContainer = ({ senderInfo }) => {
     }
 
     function markMessagesAsRead(username) {
-        setPatientsList(prevPatientsList => 
-            prevPatientsList.map(patient => 
-                patient.username === username 
+        setPatientsList(prevPatientsList =>
+            prevPatientsList.map(patient =>
+                patient.username === username
                     ? { ...patient, unreadCount: 0 }
                     : patient
             )
         );
-    }    
+    }
 
     const handleChatIconClick = () => {
         if (showChatbox)
@@ -228,7 +231,7 @@ const PatientsGrid = ({ patients, handlePatientClick }) => {
             <div style={{ maxHeight: '500px', overflowY: 'auto', overflowX: 'hidden' }}>
                 <Row className="gy-4 gx-4">
                     {patients.map((patient, index) => (
-                        <Col key={index} style={{position: "relative"}} className="text-center" onClick={() => handlePatientClick(patient)}>
+                        <Col key={index} style={{ position: "relative" }} className="text-center" onClick={() => handlePatientClick(patient)}>
                             <div
                                 className="patient-card-box"
                                 style={{
@@ -249,7 +252,7 @@ const PatientsGrid = ({ patients, handlePatientClick }) => {
                                 <div style={{ marginTop: '10px' }}>{patient.fullName}</div>
                             </div>
 
-                            {patient.unreadCount > 0 && <div style={{top: "0px", right: "20px"}} className="chatbox-container-notif-count">
+                            {patient.unreadCount > 0 && <div style={{ top: "0px", right: "20px" }} className="chatbox-container-notif-count">
                                 <span>{patient.unreadCount}</span>
                             </div>}
                         </Col>
@@ -276,11 +279,80 @@ const ChatboxIcon = ({ notifCount, toggleChatbox }) => {
 
 function Chatbox({ chatError, setNotifCount, setChatError, chatId, senderInfo, receiverInfo, toggleChatbox }) {
     const [allMessages, setAllMessages] = useState([])
+    const [senderImage, setSenderImage] = useState("")
     const [currentMessage, setCurrentMessage] = useState("")
     const [lastMessageInfo, setLastMessageInfo] = useState({ text: "", sender: false, dateTime: "" })
 
+    const getSenderImage = async () => {
+        try {
+            const response = await ApiPostCall("/getSenderUserImage", { username: senderInfo.username })
+            setSenderImage(response.data[0].image)
+        } catch (error) {
+
+        }
+    }
+
     useEffect(() => {
-        if (chatId !== "") getAllChatMessages()
+        getSenderImage()
+    }, [])
+
+    const clearChatMessages = async () => {
+        try {
+            const response = await ApiPostCall("/clearChatMessages", { chatId })
+            console.log("Clear message response:", response)
+            if (response.status === 200) {
+                setAllMessages([])
+            }
+            else {
+                showErrorToast("Failed to clear chat messages")
+            }
+        } catch (error) {
+            showErrorToast("Failed to clear chat messages")
+        }
+    }
+
+    const receiveMsgSocket = () => {
+        console.log("joining the room")
+        socket.emit("joinRoom", chatId);
+        console.log("Room is joined")
+
+        socket.on("receiveMessage", (newMessage) => {
+            console.log("Received msg socket on:", newMessage)
+            if (newMessage.chatId === chatId && newMessage.senderUsername != senderInfo.username) {
+                setAllMessages(prevMessages => {
+                    let newAllMessages = [...prevMessages];
+                    const date = new Date(newMessage.sentAt).toLocaleDateString();
+                    const newMsgObj = { text: newMessage.content, sender: newMessage.senderUsername === senderInfo.username, dateTime: newMessage.sentAt };
+
+                    const lastDateGroup = newAllMessages[newAllMessages.length - 1];
+
+                    if (!lastDateGroup || lastDateGroup.date !== date) {
+                        newAllMessages.push({ date, messages: [[newMsgObj]] });
+                    } else {
+                        const lastGroup = lastDateGroup.messages[lastDateGroup.messages.length - 1];
+                        if (lastGroup[0].sender === newMsgObj.sender) {
+                            lastGroup.push(newMsgObj);
+                        } else {
+                            lastDateGroup.messages.push([newMsgObj]);
+                        }
+                    }
+
+                    return newAllMessages;
+                });
+            }
+        });
+        console.log("Receive msg socket on")
+
+        return () => {
+            socket.off("receiveMessage");
+        };
+    }
+
+    useEffect(() => {
+        if (chatId !== "") {
+            receiveMsgSocket()
+            getAllChatMessages()
+        }
     }, [chatId])
 
     const getAllChatMessages = async () => {
@@ -297,12 +369,12 @@ function Chatbox({ chatError, setNotifCount, setChatError, chatId, senderInfo, r
     }
 
     const sendMsg = async (e) => {
-        e.stopPropagation()
-        e.preventDefault()
+        e.stopPropagation();
+        e.preventDefault();
 
         if (currentMessage.trim() === "") {
-            showWarningToast("Message cannot be empty")
-            return
+            showWarningToast("Message cannot be empty");
+            return;
         }
 
         try {
@@ -340,11 +412,11 @@ function Chatbox({ chatError, setNotifCount, setChatError, chatId, senderInfo, r
             else {
                 showErrorToast("Failed to send message")
             }
-        } catch (error) {
-            showErrorToast("Failed to send message")
+        }
+        catch (error) {
+            showErrorToast("Failed to send message");
         }
     }
-
 
 
     console.log("All msgs:", allMessages)
@@ -368,7 +440,7 @@ function Chatbox({ chatError, setNotifCount, setChatError, chatId, senderInfo, r
                     )}
                 </div>
                 <img
-                    src={senderInfo.image ? senderInfo.image : "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava4-bg.webp"}
+                    src={senderImage ? senderImage : "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava4-bg.webp"}
                     alt="avatar 1"
                     style={{ width: "50px", height: "50px", borderRadius: "50%" }}
                 />
@@ -443,8 +515,11 @@ function Chatbox({ chatError, setNotifCount, setChatError, chatId, senderInfo, r
                     <MDBCard id="chat2" style={{ borderRadius: "15px" }}>
                         <MDBCardHeader className="d-flex justify-content-between align-items-center p-3">
                             <h5 className="mb-0">{capitalizeEachWord(receiverInfo.fullName)}</h5>
-                            <div style={{ cursor: "pointer" }} onClick={toggleChatbox}>
-                                <FontAwesomeIcon icon={faTimes} size="lg" />
+                            <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                                <button onClick={clearChatMessages} style={{ marginRight: "15px", padding: "3px 5px", border: "none", borderRadius: "5px", backgroundColor: "#444", color: "white" }}>Clear</button>
+                                <div style={{ cursor: "pointer" }} onClick={toggleChatbox}>
+                                    <FontAwesomeIcon icon={faTimes} size="lg" />
+                                </div>
                             </div>
                         </MDBCardHeader>
                         {/* <MDBScrollbar
@@ -468,7 +543,7 @@ function Chatbox({ chatError, setNotifCount, setChatError, chatId, senderInfo, r
                         <form onSubmit={e => sendMsg(e)}>
                             <MDBCardFooter className="text-muted d-flex justify-content-start align-items-center p-3">
                                 <img
-                                    src={senderInfo.image ? senderInfo.image : "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3-bg.webp"}
+                                    src={senderImage ? senderImage : "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3-bg.webp"}
                                     alt="avatar 3"
                                     style={{ width: "50px", height: "50px", borderRadius: "50%" }}
                                 />

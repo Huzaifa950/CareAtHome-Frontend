@@ -28,4 +28,4 @@ const ApiPostCall = (path, data) => {
     });
 };
 
-export { ApiGetCall, ApiPostCall };
+export { ApiGetCall, ApiPostCall, baseUrl };
