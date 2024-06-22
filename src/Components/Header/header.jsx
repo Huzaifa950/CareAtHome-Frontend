@@ -1,22 +1,18 @@
 import React from "react";
 import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
-import webLogo from "../../Assets/Images/Logo.png";
 import { Link, useNavigate } from "react-router-dom";
+import webLogo from "../../Assets/Images/Logo.png";
 import { showErrorToast, showSuccessToast } from "../Toast/ToastifyToast";
 import { ApiGetCall } from "../ApiCall/ApiCalls";
 import { capitalizeFirstLetter } from "../Common/Common";
-// import {profileInterface} from '../Profile/profileInterface';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min";
 
 const Header = ({ userInfo, updateLogInStatus }) => {
   const nav = useNavigate();
 
   const handleProfileClick = (event) => {
-    // if (userInfo.isProfilingComplete)
     nav("/profile");
-
-    return <profileInterface />;
-    // else
-    // show a top up message to complete profile
   };
 
   const handleLogOut = async () => {
@@ -31,17 +27,17 @@ const Header = ({ userInfo, updateLogInStatus }) => {
   };
 
   return (
-    <Navbar
-      style={{
-        background:
-          "linear-gradient(270deg, rgba(18, 34, 90, 0.849), rgba(122, 116, 158, 0.788))",
-      }}
-      bg="light"
-      expand="lg"
-      fixed="top"
-    >
-      <Container>
-        <Navbar.Brand href="/">
+    <Container>
+      <Navbar
+        style={{
+          background:
+            "linear-gradient(270deg, rgba(18, 34, 90, 0.849), rgba(122, 116, 158, 0.788))",
+        }}
+        bg="light"
+        expand="lg"
+        fixed="top"
+      >
+        <Navbar.Brand href="/" style={{marginLeft: "50px"}}>
           <img
             src={webLogo}
             width="30"
@@ -52,16 +48,18 @@ const Header = ({ userInfo, updateLogInStatus }) => {
           {" CareAtHome"}
         </Navbar.Brand>
 
-        <Navbar.Toggle aria-controls="navbar" />
+        <Navbar.Toggle aria-controls="navbar" style={{marginRight: "50px"}} />
 
-        <Navbar.Collapse id="navbar">
+        <Navbar.Collapse id="navbar" style={{marginRight: "50px"}}>
           <Nav className="mx-auto" style={{ fontWeight: "bold" }}>
             <Nav.Link style={{ marginRight: "35px" }} as={Link} to={"/"}>
               Home
             </Nav.Link>
-            {userInfo.roleId == 2 && <Nav.Link style={{ marginRight: "35px" }} as={Link} to={"/caretakers"}>
-              CareTakers
-            </Nav.Link>}
+            {userInfo.roleId === 2 && (
+              <Nav.Link style={{ marginRight: "35px" }} as={Link} to={"/caretakers"}>
+                CareTakers
+              </Nav.Link>
+            )}
             <Nav.Link style={{ marginRight: "35px" }} as={Link} to="/aboutus">
               About Us
             </Nav.Link>
@@ -77,9 +75,10 @@ const Header = ({ userInfo, updateLogInStatus }) => {
         <Navbar.Collapse className="justify-content-end">
           <Nav>
             <NavDropdown
-              style={{ fontWeight: "bold" }}
+              style={{ fontWeight: "bold", position: "relative", marginRight: "80px" }}
               title={capitalizeFirstLetter(userInfo.username)}
-              id="basic-nav-dropdown"
+              id="user-nav-dropdown"
+              menuAlign="right"
             >
               {userInfo.roleId > 0 && (
                 <NavDropdown.Item onClick={handleProfileClick}>
@@ -92,8 +91,100 @@ const Header = ({ userInfo, updateLogInStatus }) => {
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
-      </Container>
-    </Navbar>
+      </Navbar>
+    </Container>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // <Navbar
+    //   style={{
+    //     background:
+    //       "linear-gradient(270deg, rgba(18, 34, 90, 0.849), rgba(122, 116, 158, 0.788))",
+    //   }}
+    //   bg="light"
+    //   expand="lg"
+    //   fixed="top"
+    // >
+    //   <Navbar.Brand href="/">
+    //     <img
+    //       src={webLogo}
+    //       width="30"
+    //       height="30"
+    //       className="d-inline-block align-top"
+    //       alt="Your Logo"
+    //     />
+    //     {" CareAtHome"}
+    //   </Navbar.Brand>
+
+    //   <Navbar.Toggle aria-controls="navbar" />
+
+
+    //   <Navbar.Collapse id="navbar">
+    //     <Nav className="mx-auto" style={{ fontWeight: "bold" }}>
+    //       <Nav.Link style={{ marginRight: "35px" }} as={Link} to={"/"}>
+    //         Home
+    //       </Nav.Link>
+    //       {userInfo.roleId === 2 && (
+    //         <Nav.Link
+    //           style={{ marginRight: "35px" }}
+    //           as={Link}
+    //           to={"/caretakers"}
+    //         >
+    //           CareTakers
+    //         </Nav.Link>
+    //       )}
+    //       <Nav.Link style={{ marginRight: "35px" }} as={Link} to="/aboutus">
+    //         About Us
+    //       </Nav.Link>
+    //       <Nav.Link style={{ marginRight: "35px" }} as={Link} to="/faqs">
+    //         FAQs
+    //       </Nav.Link>
+    //       <Nav.Link as={Link} to="/contactus">
+    //         Contact Us
+    //       </Nav.Link>
+    //     </Nav>
+    //   </Navbar.Collapse>
+
+
+
+
+    //   <Navbar.Collapse className="justify-content-end">
+    //     <Nav>
+    //       <NavDropdown
+    //         style={{ fontWeight: "bold", position: "relative" }}
+    //         title={capitalizeFirstLetter(userInfo.username)}
+    //         id="user-nav-dropdown"
+    //         menuAlign="right"
+    //       >
+    //         {userInfo.roleId > 0 && (
+    //           <NavDropdown.Item onClick={handleProfileClick}>
+    //             Profile
+    //           </NavDropdown.Item>
+    //         )}
+    //         <NavDropdown.Item href="#settings">Settings</NavDropdown.Item>
+    //         <NavDropdown.Divider />
+    //         <NavDropdown.Item onClick={handleLogOut}>Logout</NavDropdown.Item>
+    //       </NavDropdown>
+    //     </Nav>
+    //   </Navbar.Collapse>
+    // </Navbar>
   );
 };
 
