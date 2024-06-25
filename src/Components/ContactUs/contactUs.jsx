@@ -8,6 +8,7 @@ import {
 import "./contactUs.css";
 import emailjs from "@emailjs/browser";
 import React, { useRef } from "react";
+import { ToastContainer, toast } from "react-toastify";
 
 function ContactUs() {
   const form = useRef();
@@ -21,10 +22,10 @@ function ContactUs() {
       })
       .then(
         () => {
-          console.log("SUCCESS!");
+          toast.success("Message sent successfully!");
         },
         (error) => {
-          console.log("FAILED...", error.text);
+          toast.error("Failed to send message. Please try again.");
         }
       );
   };
