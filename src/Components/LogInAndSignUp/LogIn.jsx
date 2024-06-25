@@ -163,7 +163,8 @@ function LogIn({ updateLogInStatus }) {
                       <div className="LogIn_forgot_sign_main">
                         <div className="LogIn_forgot_sign_container">
                           <div className="LogIn_forgot">
-                            <Link to="/forgotpassword">Forgot Password ?</Link>
+                            <p>Don't have an Account ?</p>
+                            {/* <Link to="/forgotpassword">Don't have an Account ?</Link>  */}
                           </div>
                           <div className="LogIn_signup">
                             <Link to="/signup"> Signup</Link>

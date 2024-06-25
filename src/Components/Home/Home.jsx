@@ -5,7 +5,6 @@ import FAQs from "../FAQs/FAQs";
 import ContactUs from "../ContactUs/contactUs";
 import Footer from "../Footer/footer";
 import { Route, Routes } from "react-router-dom";
-
 import Profile from "../Profile/Profile";
 import ProfileSearch from "../ViewProfile/profileSearch";
 import { CareTakerChatboxContainer } from "../Chatbox/chatbox";
@@ -30,10 +29,10 @@ const Home = ({ updateLogInStatus, userInfo, setUserInfo }) => {
         {userInfo.roleId > 0 && (
           <Route path="/profile" element={<Profile userInfo={userInfo} />} />
         )}
-        {userInfo.roleId == 2 && <Route path="caretakers" element={<ProfileSearch userInfo={userInfo} />} />}
+        {userInfo.roleId === 2 && <Route path="caretakers" element={<ProfileSearch userInfo={userInfo} />} />}
       </Routes>
 
-      {userInfo.roleId == 3 && <CareTakerChatboxContainer senderInfo={userInfo} />}
+      {userInfo.roleId ===3 && <CareTakerChatboxContainer senderInfo={userInfo} />}
 
       <Footer />
     </div>

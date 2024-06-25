@@ -1,6 +1,5 @@
 import React from "react";
-import { Navbar, Container, Form, FormControl } from "react-bootstrap";
-
+import { Navbar, Container, Form, FormControl, Row, Col } from "react-bootstrap";
 
 const Header = ({ search, setSearch }) => {
   return (
@@ -13,33 +12,28 @@ const Header = ({ search, setSearch }) => {
         padding: "5px 80px",
       }}
     >
-      <Container
-        fluid
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-        }}
-      >
-        <div style={{ flex: "1", textAlign: "center", alignItems: "center" }}>
-          <Form className=" my-2 " style={{ position: "relative" }}>
-            <FormControl
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              type="search"
-              placeholder="What Services are you looking for today ?"
-              className="mr-2"
-              style={{
-                alignItems: "center",
-                width: "100%",
-                padding: "10px 40px 10px 20px",
-                borderRadius: "50px",
-                border: "none",
-                backgroundColor: "white",
-                outline: "none ",
-              }}
-            />
-          </Form>
-        </div>
+      <Container fluid>
+        <Row className="w-100">
+          <Col xs={12} lg={12} className="mx-auto">
+            <Form className="d-flex my-2">
+              <FormControl
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                type="search"
+                placeholder="What Services are you looking for today?"
+                className="mr-2"
+                style={{
+                  padding: "10px 20px",
+                  borderRadius: "50px",
+                  border: "none",
+                  backgroundColor: "white",
+                  outline: "none",
+                  width: "100%",
+                }}
+              />
+            </Form>
+          </Col>
+        </Row>
       </Container>
     </Navbar>
   );

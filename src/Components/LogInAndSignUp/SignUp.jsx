@@ -183,6 +183,7 @@ function SignUp() {
                         <div className="SignUp_forgot_sign_container">
                           <div className="SignUp_forgot">
                             <p>Already have an Account ?</p>
+                            {/* <Link to="/login"> Already have an Account ?</Link> */}
                           </div>
                           <div className="SignUp_signup">
                             <Link to="/login"> LogIn</Link>

@@ -37,7 +37,7 @@ const Header = ({ userInfo, updateLogInStatus }) => {
         expand="lg"
         fixed="top"
       >
-        <Navbar.Brand href="/" style={{marginLeft: "50px"}}>
+        <Navbar.Brand href="/" style={{ marginLeft: "50px" }}>
           <img
             src={webLogo}
             width="30"
@@ -48,9 +48,9 @@ const Header = ({ userInfo, updateLogInStatus }) => {
           {" CareAtHome"}
         </Navbar.Brand>
 
-        <Navbar.Toggle aria-controls="navbar" style={{marginRight: "50px"}} />
+        <Navbar.Toggle aria-controls="navbar" style={{ marginRight: "50px" }} />
 
-        <Navbar.Collapse id="navbar" style={{marginRight: "50px"}}>
+        <Navbar.Collapse id="navbar" style={{ marginRight: "50px" }}>
           <Nav className="mx-auto" style={{ fontWeight: "bold" }}>
             <Nav.Link style={{ marginRight: "35px" }} as={Link} to={"/"}>
               Home
@@ -94,97 +94,6 @@ const Header = ({ userInfo, updateLogInStatus }) => {
       </Navbar>
     </Container>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // <Navbar
-    //   style={{
-    //     background:
-    //       "linear-gradient(270deg, rgba(18, 34, 90, 0.849), rgba(122, 116, 158, 0.788))",
-    //   }}
-    //   bg="light"
-    //   expand="lg"
-    //   fixed="top"
-    // >
-    //   <Navbar.Brand href="/">
-    //     <img
-    //       src={webLogo}
-    //       width="30"
-    //       height="30"
-    //       className="d-inline-block align-top"
-    //       alt="Your Logo"
-    //     />
-    //     {" CareAtHome"}
-    //   </Navbar.Brand>
-
-    //   <Navbar.Toggle aria-controls="navbar" />
-
-
-    //   <Navbar.Collapse id="navbar">
-    //     <Nav className="mx-auto" style={{ fontWeight: "bold" }}>
-    //       <Nav.Link style={{ marginRight: "35px" }} as={Link} to={"/"}>
-    //         Home
-    //       </Nav.Link>
-    //       {userInfo.roleId === 2 && (
-    //         <Nav.Link
-    //           style={{ marginRight: "35px" }}
-    //           as={Link}
-    //           to={"/caretakers"}
-    //         >
-    //           CareTakers
-    //         </Nav.Link>
-    //       )}
-    //       <Nav.Link style={{ marginRight: "35px" }} as={Link} to="/aboutus">
-    //         About Us
-    //       </Nav.Link>
-    //       <Nav.Link style={{ marginRight: "35px" }} as={Link} to="/faqs">
-    //         FAQs
-    //       </Nav.Link>
-    //       <Nav.Link as={Link} to="/contactus">
-    //         Contact Us
-    //       </Nav.Link>
-    //     </Nav>
-    //   </Navbar.Collapse>
-
-
-
-
-    //   <Navbar.Collapse className="justify-content-end">
-    //     <Nav>
-    //       <NavDropdown
-    //         style={{ fontWeight: "bold", position: "relative" }}
-    //         title={capitalizeFirstLetter(userInfo.username)}
-    //         id="user-nav-dropdown"
-    //         menuAlign="right"
-    //       >
-    //         {userInfo.roleId > 0 && (
-    //           <NavDropdown.Item onClick={handleProfileClick}>
-    //             Profile
-    //           </NavDropdown.Item>
-    //         )}
-    //         <NavDropdown.Item href="#settings">Settings</NavDropdown.Item>
-    //         <NavDropdown.Divider />
-    //         <NavDropdown.Item onClick={handleLogOut}>Logout</NavDropdown.Item>
-    //       </NavDropdown>
-    //     </Nav>
-    //   </Navbar.Collapse>
-    // </Navbar>
   );
 };
 

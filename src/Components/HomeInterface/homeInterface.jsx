@@ -48,26 +48,6 @@ const CareTakerInterface = () => {
                 Verily, kindness and gentleness were never part of something except that they adorned it, and they are never withdrawn from something except that they leave it defective.
               </p>
             </div>
-            {/* <div className="homeInterface_bottomMain">
-              <div className="homeInterface_bottomContainer">
-                <div className="homeInterface_careTaker">
-                  <button
-                    className="neon-button"
-                    type="submit"
-                  >
-                    Care Taker
-                  </button>
-                </div>
-                <div className="homeInterface_patient">
-                  <button
-                    className="neon-button"
-                    type="submit"
-                  >
-                    Patient
-                  </button>
-                </div>
-              </div>
-            </div> */}
           </div>
         </div>
       </div>

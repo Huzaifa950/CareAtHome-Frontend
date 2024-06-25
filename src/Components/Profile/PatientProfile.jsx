@@ -36,7 +36,7 @@ const PatientProfile = ({ userInfo }) => {
           const patientData = {
             ...result.data[0],
             emailAddress: userInfo.email,
-            description: (result.data[0].description == "null" || !result.data[0].description)? "" : unescapeString(result.data[0].description),
+            description: (result.data[0].description === "null" || !result.data[0].description)? "" : unescapeString(result.data[0].description),
             languages: result.data[0].languages ? result.data[0].languages.split(",").map((lang) => lang.trim()) : []
           }
           setPatientInfo(patientData)
