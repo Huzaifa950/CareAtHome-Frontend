@@ -52,6 +52,10 @@
     font-size: x-large;
 }
 
+.chatbox-container-icon> icon{
+    position:relative;
+}
+
 .original-chatbox {
     position: absolute;
     bottom: 60px;
