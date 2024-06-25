@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "http://localhost:3500/api";
+const baseUrl = "http://localhost:4000/api";
 axios.defaults.withCredentials = true;
 
 const headers = { "Content-Type": "application/json" };
