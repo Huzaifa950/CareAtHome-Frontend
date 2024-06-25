@@ -69,7 +69,8 @@ function SignUp() {
         }
       } catch (error) {
         console.log("The error is: ", error);
-        showErrorToast("Something went wrong");
+        showErrorToast("Invalid email address");
+        // showErrorToast("Something went wrong");
       }
     }
   };
