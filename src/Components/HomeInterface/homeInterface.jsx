@@ -5,7 +5,7 @@ import ProfileForms, {
   CareTakerForm,
   PatientForm,
 } from "../ProfileForms/ProfileForms";
-import { showSuccessToast } from "../Toast/ToastifyToast";
+import { showErrorToast, showSuccessToast } from "../Toast/ToastifyToast";
 import Header from "../UserHome/header";
 import ButtonRow from "../UserHome/buttons";
 import ImageSlider from "../UserHome/body";
@@ -35,22 +35,22 @@ const CareTakerInterface = () => {
   return (
     <div style={{ marginTop: "50px" }}>
       <div className="homeInterface_main">
-      <div className="caretaker_homeInterface_container">
-        <div className="homeInterface_transparentLayer">
-          <div className="homeInterface_contaierBox">
-            <div className="homeInterface_heading">
-              <p>
-                We measure our success in smiles and well-being, not dollars and cents
-              </p>
-            </div>
-            <div className="homeInterface_body">
-              <p>
-                Verily, kindness and gentleness were never part of something except that they adorned it, and they are never withdrawn from something except that they leave it defective.
-              </p>
+        <div className="caretaker_homeInterface_container">
+          <div className="homeInterface_transparentLayer">
+            <div className="homeInterface_contaierBox">
+              <div className="homeInterface_heading">
+                <p>
+                  We measure our success in smiles and well-being, not dollars and cents
+                </p>
+              </div>
+              <div className="homeInterface_body">
+                <p>
+                  Verily, kindness and gentleness were never part of something except that they adorned it, and they are never withdrawn from something except that they leave it defective.
+                </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
       </div>
     </div>
   );
@@ -110,6 +110,40 @@ const DetailedServiceView = ({ service, handleFormClose, userInfo }) => {
     else serviceBooked = true;
   }
 
+  const [chatId, setChatId] = useState(null)
+
+  const getChatId = async () => {
+    try {
+      const response = await ApiPostCall("/getChatId", { senderUsername: userInfo.username, receiverUsername: careTakerUsername })
+      setChatId(response.data[0][0].chatId)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    getChatId()
+  }, [])
+
+  const sendMsg = async () => {
+    if (!chatId) return
+    try {
+      const text = `Hi, My username is ${userInfo.username} and my email address is ${userInfo.email}. I have just booked the ${title} service and I would like to know more about it.`;
+      const response = await ApiPostCall("/sendChatboxMsg", {
+        chatId,
+        senderUsername: userInfo.username,
+        text
+      })
+      console.log("chatbox send response is:", response)
+      if (response.status === 200) {
+        showSuccessToast("Booking Successful")
+      }
+    }
+    catch (error) {
+      console.log(error)
+    }
+  }
+
   const handleDoBooking = async () => {
     if (serviceBooked) return;
     try {
@@ -118,9 +152,10 @@ const DetailedServiceView = ({ service, handleFormClose, userInfo }) => {
         serviceId: id,
       });
       console.log("Booking Response: ", response);
-      showSuccessToast("Booking Successful");
+      sendMsg()
     } catch (error) {
       console.log(error);
+      showErrorToast("Booking Failed");
     }
     handleFormClose();
   };
