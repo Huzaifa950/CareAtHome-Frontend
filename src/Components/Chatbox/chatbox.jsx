@@ -355,11 +355,36 @@ function Chatbox({ chatError, setNotifCount, setChatError, chatId, senderInfo, r
         }
     }, [chatId])
 
+    const unescapeContentInObjects = (objects) => {
+        return objects.map(obj => {
+            if (obj.hasOwnProperty('content')) {
+                obj.content = unescapeText(obj.content);
+            }
+            return obj;
+        });
+    };
+
+    const unescapeText = (text) => {
+        if (typeof text !== 'string') {
+            return text;
+        }
+        return text.replace(/\\0/g, "\0")
+            .replace(/\\b/g, "\b")
+            .replace(/\\t/g, "\t")
+            .replace(/\\z/g, "\x1a")
+            .replace(/\\n/g, "\n")
+            .replace(/\\r/g, "\r")
+            .replace(/\\'/g, "'")
+            .replace(/\\"/g, "\"")
+            .replace(/\\\\/g, "\\")
+            .replace(/\\%/g, "%");
+    };
+
     const getAllChatMessages = async () => {
         try {
             const response = await ApiPostCall("/getChatMessages", { chatId: chatId, receiverUsername: receiverInfo.username })
-            console.log("Get chat all messages:", response.data[0])
-            const formattedMsgs = convertMessagesFormat(response.data[0], senderInfo.username)
+            console.log("Get chat all messagea:", response.data[0])
+            const formattedMsgs = convertMessagesFormat(unescapeContentInObjects(response.data[0]), senderInfo.username)
             setAllMessages(formattedMsgs)
             setNotifCount(0)
             setChatError(false)
