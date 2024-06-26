@@ -18,14 +18,14 @@ const SearchBar = ({ onSearch }) => {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
             />
-            <select
+            {/* <select
                 value={caretakerType}
                 onChange={(e) => setCaretakerType(e.target.value)}
             >
                 <option value="all">All</option>
                 <option value="child">Child Care</option>
                 <option value="elderly">Elderly Care</option>
-            </select>
+            </select> */}
           </div>
             
             <button class = "searchCareTaker" onClick={handleSearch}>Search</button>

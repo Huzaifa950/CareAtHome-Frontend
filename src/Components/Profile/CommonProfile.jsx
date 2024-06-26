@@ -358,7 +358,7 @@ const LanguageComponent = ({
                 <label>
                   <input
                     type="checkbox"
-                    checked={selectedLanguages.includes("Hindi")}
+                    checked={selectedLanguages.includes("Pashto")}
                     onChange={() => handleLanguageChangeClick("Pashto")}
                   />{" "}
                   Pashto
