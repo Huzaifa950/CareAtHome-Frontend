@@ -85,7 +85,7 @@ const Header = ({ userInfo, updateLogInStatus }) => {
                   Profile
                 </NavDropdown.Item>
               )}
-              <NavDropdown.Item href="#settings" disabled>Settings</NavDropdown.Item>
+              {/* <NavDropdown.Item href="#settings" disabled>Settings</NavDropdown.Item> */}
               <NavDropdown.Divider />
               <NavDropdown.Item onClick={handleLogOut}>Logout</NavDropdown.Item>
             </NavDropdown>
